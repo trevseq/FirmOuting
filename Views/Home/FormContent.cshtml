@@ -1,0 +1,989 @@
+﻿<article id="attorneyOuting">
+    <input id="hdnEmployeeID" type="hidden" />
+    <section id="Announcement" style="margin-right: 20px">
+        <table style="width: 100%">
+            <tr>
+                <td colspan="5" style="padding-bottom: 10px; padding-top: 5px;">
+                    <center>
+                        <div class="roundCornerBoxShadow" style="background: url('@Url.Content("~/uploads/sunningdalePool.jpg")'); width: 660px; height: 178px; "></div>
+                    </center>
+                </td>
+            </tr>
+        </table>
+        <div class="hr"></div>
+        <table border="0" style="width: 100%">
+            <tr>
+                <td>
+                    <p>
+                        Plans are well under way for the Firm Outing which will be held on Tuesday, July 9 at Sunningdale Country Club in Scarsdale, New York.  Please complete the questionnaire below, for yourself and, if applicable, a separate form for your spouse/guest, no later than Monday, June 24. For planning purposes, we are unable to accept submissions after this date.
+                        <br />
+                        <br />
+                        Regardless of whether or not you plan to attend, each employee must complete the top portion of this form.
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section id="Personal_Info_Questions" style="margin-right: 20px; margin-top: 10px">
+        <table border="0" style="margin-bottom: 5px; height: 80px;">
+            <tbody>
+                <tr>
+                    <td style="white-space:nowrap">
+                        <label id="lblFirstName" for="txtFirstName" class="caption">First name:</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                    </td>
+                    <td>
+                        <input style="margin-left: 5px; margin-bottom:3px" id="txtFirstName" type="text" class="required validate[required]" />
+                    </td>
+                    <td rowspan="4" style="padding-left: 82px; height: 75px;">
+                        <table style="margin-left: 20px">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label id="lblAttending" style="margin-left: 20px" for="rdoAttending" class="caption">Will you be attending?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label style="margin-left: 20px" id="lblAttendingNo" class="caption-normal">
+                                            <input id="rdoAttendingNo" name="rdoAttending" type="radio" value="No" class="required validate[required]" />
+                                            I will not be attending the Outing
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label style="margin-left: 20px" id="lblAttendingDinner" class="caption-normal">
+                                            <input id="rdoAttendingDinner" name="rdoAttending" type="radio" value="Dinner" class="required validate[required]" />
+                                            I will only be attending cocktails/dinner
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label style="margin-left: 20px" id="lblAttendingYes" class="caption-normal">
+                                            <input id="rdoAttendingYes" name="rdoAttending" type="radio" value="Yes" class="required validate[required]" checked="checked" />
+                                            I will be attending the Outing (morning and/or afternoon and/or evening)
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="white-space:nowrap">
+                        <label id="lblMiddleName" for="txtMiddleName" class="caption">Middle name:</label>
+                    </td>
+                    <td>
+                        <input style="margin-left: 5px; margin-bottom:3px" id="txtMiddleName" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="white-space:nowrap">
+                        <label id="lblLastName" for="txtLastName" class="caption">Last name:</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                    </td>
+                    <td>
+                        <input style="margin-left: 5px; margin-bottom:3px" id="txtLastName" type="text" class="required validate[required]" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <div class="hideAll">
+        <section id="Guest_Info" style="margin-right: 20px;">
+            <table id="tbGuestStuff" border="0" style="width: 100%">
+                <tr>
+                    <td>
+                        <label id="lblGuestBring" for="rdoGuestBring" class="caption">Do you plan to bring your spouse or a guest?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top">
+                        <label style="margin-left: 10px" id="lblGuestBringYes" class="caption-normal">
+                            <input id="rdoGuestBringYes" name="rdoGuestBring" type="radio" class="required validate[required]" />
+                            Yes
+                        </label>
+                        <label style="margin-left: 10px" id="lblGuestBringNo" class="caption-normal">
+                            <input id="rdoGuestBringNo" name="rdoGuestBring" type="radio" class="required validate[required]" />
+                            No
+                        </label>
+                    </td>
+                </tr>
+                <tr class="hideGuest">
+                    <td><span class="caption">Spouse/Guest Info </span>
+                        <br />
+                        <table cellpadding="3" cellspacing="4">
+                            <tr>
+                                <td style="vertical-align: top; width: 20px"></td>
+                                <td style="text-align: right; ">
+                                    <label id="lblGuestFirstName" for="txtGuestFirstName" class="caption">Guest First:</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                                </td>
+                                <td>
+                                    <input id="txtGuestFirstName" type="text" class="validate[required]" data-prompt-position="topLeft" />
+                                </td>
+                                <td style="vertical-align: top; width: 20px"></td>
+                                <td>
+                                    <label id="lblGuestMiddleName" for="txtGuestMiddleName" class="caption">Middle:</label>
+                                </td>
+                                <td>
+                                    <input id="txtGuestMiddleName" type="text" />
+                                </td>
+                                <td style="vertical-align: top; width: 20px"></td>
+                                <td>
+                                    <label id="lblGuestLastName" for="txtGuestLastName" class="caption">Guest Last:</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                                </td>
+                                <td style="width:80px">
+                                    <input id="txtGuestLastName" type="text" class="validate[required]" data-prompt-position="topLeft" />
+                                </td>
+                            </tr>
+                            <tr><td style="height:5px"></td></tr>
+                            <tr>
+                                <td style="vertical-align: top; width: 20px"></td>
+                                <td style="width: 80px; text-align: right; ">
+                                    <label id="lblGuestEmail" for="txtGuestEmail" class="caption">Guest Email:</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                                </td>
+                                <td colspan="8">
+                                    <input id="txtGuestEmail" class="validate[required,custom[email]]" type="text" style="width: 300px" data-prompt-position="bottomRight" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section id="Meal_Info" style="margin-right: 20px; margin-top: 20px">
+            <br />
+            <h1 style="margin-bottom: -10px">MEALS</h1>
+            <div class="hr"></div>
+            <table border="0" style="width: 100%">
+                <caption>
+                    <p>
+                        Breakfast:  A buffet breakfast will be available in the Living Room from 8:00 - 10:30 am. For morning golfers, a light breakfast will also be available in front of the pro shop, by the first tee on the golf course.
+                        <br />
+                        <br />
+                        Lunch:  Served from 12:00 - 2:30 pm on the West Terrace overlooking the golf course.
+                        <br />
+                        <br />
+                        Refreshments:  Throughout the day, snacks and ice cream will be served at the pool and beverages will be served on the West Terrace.  Please note, the snack bar on the golf course is open to Club members only.
+                        <br />
+                        <br />
+                        Dinner:  Cocktails and hors d'oeuvres will start at 6:00 pm and dinner will begin at 7:30 pm.
+                    </p>
+                </caption>
+                <tr>
+                    <td style="width: 344px;">
+                        <label id="lblMealsLunch" for="rdoMealsLunch" class="caption">Are you attending the luncheon?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                    </td>
+                    <td></td>
+                    <td>
+                        <label id="lblDietaryRestrictions" for="chkDietaryRestrictions" class="caption">Dietary restrictions- check all that apply (if any):</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="margin-left: 10px" id="lblMealsLunchYes" class="caption-normal">
+                            <input id="rdoMealsLunchYes" name="rdoMealsLunch" type="radio" class="required validate[required]" />
+                            Yes
+                        </label>
+                        <label style="margin-left: 10px" id="lblMealsLunchNo" class="caption-normal">
+                            <input id="rdoMealsLunchNo" name="rdoMealsLunch" type="radio" class="required validate[required]" />
+                            No
+                        </label>
+                    </td>
+                    <td></td>
+                    <td rowspan="3">
+                        <table border="0" style="padding-left: 0px; margin-left: 10px;">
+                            <tr>
+                                <td>
+                                    <label id="lblDietKosher" class="caption-normal">
+                                        <input id="chkDietKosher" name="chkDietaryRestrictions" type="checkbox" />
+                                        Kosher
+                                    </label>
+                                </td>
+                                <td style="width: 10px"></td>
+                                <td>
+                                    <label id="lblDietVegetarian" class="caption-normal">
+                                        <input id="chkDietVegetarian" name="chkDietaryRestrictions" type="checkbox" />
+                                        Vegetarian
+                                    </label>
+                                </td>
+                                <td style="width: 10px"></td>
+                                <td>
+                                    <label id="lblDietVegan" class="caption-normal">
+                                        <input id="chkDietVegan" name="chkDietaryRestrictions" type="checkbox" />
+                                        Vegan
+                                    </label>
+                                </td>
+                                <td style="width: 10px"></td>
+                                <td>
+                                    <label id="lblDietPescatarian" class="caption-normal">
+                                        <input id="chkDietPescatarian" name="chkDietaryRestrictions" type="checkbox" />
+                                        Pescatarian
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label id="lblDietGluten" class="caption-normal">
+                                        <input id="chkDietGluten" name="chkDietaryRestrictions" type="checkbox" />
+                                        Gluten-Free
+                                    </label>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <label id="lblDietNut" class="caption-normal">
+                                        <input id="chkDietNut" name="chkDietaryRestrictions" type="checkbox" />
+                                        Nut Allergy
+                                    </label>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <label id="lblDietShellfish" class="caption-normal">
+                                        <input id="chkDietShellfish" name="chkDietaryRestrictions" type="checkbox" />
+                                        Shellfish
+                                    </label>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <label id="lblDietLactose" class="caption-normal">
+                                        <input id="chkDietLactose" name="chkDietaryRestrictions" type="checkbox" />
+                                        Lactose-Intolerant
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7">
+                                    <label id="lblDietOther" class="caption-normal">
+                                        Other: 
+                                        <input id="txtDietOther" name="chkDietaryRestrictions" type="text" style="margin-top:3px; margin-left:3px" />
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label id="lblMealsDinner" for="rdoMealsDinner" class="caption">Are you attending the dinner?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="margin-left: 10px" id="lblMealsDinnerYes" class="caption-normal">
+                            <input id="rdoMealsDinnerYes" name="rdoMealsDinner" type="radio" class="required validate[required]" />
+                            Yes
+                        </label>
+                        <label style="margin-left: 10px" id="lblMealsDinnerNo" class="caption-normal">
+                            <input id="rdoMealsDinnerNo" name="rdoMealsDinner" type="radio" class="required validate[required]" />
+                            No
+                        </label>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section id="Transportation_Info" style="margin-right: 20px; margin-top: 20px">
+            <br />
+            <h1 style="margin-bottom: -10px">TRANSPORTATION</h1>
+            <div class="hr"></div>
+            <table border="1" style="padding: 2px" id="tbBusInfo">
+                <tr>
+                    <td>
+                        <p>Depart at 1633 Broadway</p>
+                    </td>
+                    <td>
+                        <p>Arrive at Sunningdale</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>7:30 am</p>
+                    </td>
+                    <td>
+                        <p>~8:30 am (am activities)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>11:30 am</p>
+                    </td>
+                    <td>
+                        <p>~12:30 pm (lunch/pm activities)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>5:00 pm</p>
+                    </td>
+                    <td>
+                        <p>~6:00 pm (cocktails &amp; dinner)</p>
+                    </td>
+                </tr>
+            </table>
+            <div id="grid_table"></div>
+            <table border="0" style="width: 100%; margin-top: 10px">
+                <caption style="text-align: left">
+                    <p>
+                        For the return trip to NYC, buses will depart ~ 9:30 pm for a 10:30/11:00 pm drop-off.
+                    </p>
+                </caption>
+                <tr>
+                    <td style="vertical-align: top">
+                        <label id="lblBusTo" for="rdoBusTo" class="caption">Will you be taking the bus to Sunningdale?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                        <br />
+                        <label id="lblBusTo730" class="caption-normal">
+                            <input id="rdoBusTo730" name="rdoBusTo" type="radio" class="required validate[required]" />
+                            Yes, 7:30 am
+                        </label>
+                        <br />
+                        <label id="lblBusTo1130" class="caption-normal">
+                            <input id="rdoBusTo1130" name="rdoBusTo" type="radio" class="required validate[required]" />
+                            Yes, 11:30 am
+                        </label>
+                        <br />
+                        <label id="lblBusTo5" class="caption-normal">
+                            <input id="rdoBusTo5" name="rdoBusTo" type="radio" class="required validate[required]" />
+                            Yes, 5:00 pm
+                        </label>
+                        <br />
+                        <label id="lblBusToNo" class="caption-normal">
+                            <input id="rdoBusToNo" name="rdoBusTo" type="radio" class="required validate[required]" />
+                            I will not be taking the bus to Sunningdale
+                        </label>
+                    </td>
+                    <td style="vertical-align: top; width: 376px;">
+                        <label id="lblBusHome" for="rdoBusHome" class="caption">Are you returning to NYC on the bus (9:30 pm)?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                        <br />
+                        <label style="margin-left: 10px" id="lblBusHomeYes" class="caption-normal">
+                            <input id="rdoBusHomeYes" name="rdoBusHome" type="radio" class="required validate[required]" />
+                            Yes
+                        </label>
+                        <label style="margin-left: 10px" id="lblBusHomeNo" class="caption-normal">
+                            <input id="rdoBusHomeNo" name="rdoBusHome" type="radio" class="required validate[required]" />
+                            No
+                        </label>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <div class="hideActivities">
+            <section id="Tennis_Info" style="margin-right: 20px; margin-top: 20px">
+                <br />
+                <h1 style="margin-bottom: -10px">TENNIS</h1>
+                <div class="hr"></div>
+                <table border="0" style="width: 100%">
+                    <caption style="text-align: left">
+                        <p>
+                            Club pros will organize open court play and tennis clinics.  The morning clinic is from 10:00 - 11:30 am and the afternoon clinic is from 2:00 - 4:30 pm.
+                            <br />
+                            <br />
+                            Club Tennis Rules:  All players must wear tennis attire (preferably white), however, modest color trim is acceptable.  Jeans and t-shirts are not permitted.
+                        </p>
+                    </caption>
+                    <tr>
+                        <td>
+                            <label id="lblTennis" for="rdoTennis" class="caption">Will you be playing tennis?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                        </td>
+                        <td>
+                            <div class="hideTennis" style="display: none">
+                                <label id="lblTennisLevel" for="drpTennisLevel" class="caption">Level of play:</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                            </div>
+                        </td>
+                        <td>
+                            <div class="hideTennis" style="width: 264px; display:none">
+                                <label id="lblTennisRent" for="rdoTennisRent" class="caption">Do you need to rent a tennis racquet?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label style="margin-left: 10px" id="lblTennisYes" class="caption-normal">
+                                <input id="rdoTennisYes" name="rdoTennis" type="radio" class="required validate[required]" />
+                                Yes
+                            </label>
+                            <label style="margin-left: 10px" id="lblTennisNo" class="caption-normal">
+                                <input id="rdoTennisNo" name="rdoTennis" type="radio" class="required validate[required]" />
+                                No
+                            </label>
+                        </td>
+                        <td>
+                            <div class="hideTennis" style="display: none">
+                                <select id="drpTennisLevel" name="drpTennisLevel" class="required caption-normal validate[required]" data-prompt-position="topLeft">
+                                    <option id="opTennisLevel1" class="caption-normal">Beginner</option>
+                                    <option id="opTennisLevel2" class="caption-normal">Intermediate</option>
+                                    <option id="opTennisLevel3" class="caption-normal">Advanced</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="hideTennis" style="display: none">
+                                <label style="margin-left: 10px" id="lblTennisRentYes" class="caption-normal">
+                                    <input id="rdoTennisRentYes" name="rdoTennisRent" type="radio" class="required validate[required]" />
+                                    Yes
+                                </label>
+                                <label style="margin-left: 10px" id="lblTennisRentNo" class="caption-normal">
+                                    <input id="rdoTennisRentNo" name="rdoTennisRent" type="radio" class="required validate[required]" />
+                                    No
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="hideTennis" style="display: none">
+                    <table border="0" style="width: 100%; margin-top: 5px">
+                        <tr>
+                            <th>
+                                <label id="lblTennisAM" for="rdoTennisAM" class="caption">Morning:</label><img src="@Url.Content("~/Content/Images/asterisk.png")" /></th>
+                            <th>
+                                <label id="lblTennisPM" for="rdoTennisPM" class="caption">Afternoon:</label><img src="@Url.Content("~/Content/Images/asterisk.png")" /></th>
+                        </tr>
+                        <tr>
+                            <td style="width: 342px;">
+                                <label id="lblTennisMorningClinic" class="caption-normal">
+                                    <input id="rdoTennisMorningClinic" name="rdoTennisAM" type="radio" class="required validate[required]" />
+                                    Tennis Clinic
+                                </label>
+                                <br />
+                                <label id="lblTennisMorningPlay" class="caption-normal">
+                                    <input id="rdoTennisMorningPlay" name="rdoTennisAM" type="radio" class="required validate[required]" />
+                                    Open Court Time
+                                </label>
+                                <br />
+                                <label id="lblTennisMorningClinicPlay" class="caption-normal">
+                                    <input id="rdoTennisMorningClinicPlay" name="rdoTennisAM" type="radio" class="required validate[required]" />
+                                    Tennis clinic and open play afterwards
+                                </label>
+                                <br />
+                                <label id="lblTennisMorningNone" class="caption-normal">
+                                    <input id="rdoTennisMorningNone" name="rdoTennisAM" type="radio" class="required validate[required]" />
+                                    None
+                                </label>
+                            </td>
+                            <td>
+                                <label id="lblTennisAfternoonClinic" class="caption-normal">
+                                    <input id="rdoTennisAfternoonClinic" name="rdoTennisPM" type="radio" class="required validate[required]" />
+                                    Tennis Clinic
+                                </label>
+                                <br />
+                                <label id="lblTennisAfternoonPlay" class="caption-normal">
+                                    <input id="rdoTennisAfternoonPlay" name="rdoTennisPM" type="radio" class="required validate[required]" />
+                                    Open Court Time
+                                </label>
+                                <br />
+                                <label id="lblTennisAfternoonClinicPlay" class="caption-normal">
+                                    <input id="rdoTennisAfternoonClinicPlay" name="rdoTennisPM" type="radio" class="required validate[required]" />
+                                    Tennis clinic and open play afterwards
+                                </label>
+                                <br />
+                                <label id="lblTennisAfternoonNone" class="caption-normal">
+                                    <input id="rdoTennisAfternoonNone" name="rdoTennisPM" type="radio" class="required validate[required]" />
+                                    None
+                                </label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <section id="Golf_Info" style="margin-right: 20px; margin-top: 20px">
+                <br />
+                <h1 style="margin-bottom: -10px">GOLF</h1>
+                <div class="hr"></div>
+                <table border="0" style="width: 100%">
+                    <caption style="text-align: left">
+                        <p style="margin-bottom: 0px;">
+                            Tee times begin anytime after 8:30 am and no later than 12:30 pm for 18 holes and no later than 3:00 pm for 9 holes.  
+                            A light breakfast will be available from 8:00 - 10:30 am in front of the pro shop, by the first tee, as well as a full breakfast in the Living Room.  
+                            The morning golf clinic is from 10:00 - 11:00 am and the afternoon clinic is from 2:00 - 3:00 pm. Please be sure to check-in at the golf pro shop prior to playing.  
+                            The driving range is open throughout the day.
+                            <br />
+                            <br />
+                            Club Golf Rules:  Golf clothes are required on the golf course, such as men's long shorts and short-sleeve shirts with a collar.  Jeans, t-shirts, short-shorts, tennis attire and metal cleats are not permitted on the course.  Spiked shoes are not permitted in the Clubhouse.
+                        </p>
+                    </caption>
+                    <tr>
+                        <td style="width: 150px; margin-top: 10px;">
+                            <label id="lblGolfPlay" for="rdoGolfPlay" class="caption">Will you be playing golf?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                            <br />
+                        </td>
+                        <td style="width: 150px">
+                            <div class="hideGolf" style="display: none">
+                                <label id="lblGolfLevel" for="drpGolfLevel" class="caption">Level of play:</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                                <br />
+                            </div>
+                        </td>
+                        <td style="width: 164px; margin-left: 25px">
+                            <div class="hideGolf" style="display: none">
+                                <label id="lblRentClubs" for="rdoRentClubs" class="caption">Do you need to rent golf clubs?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                                <br />
+                            </div>
+                        </td>
+                        <td style="width: 168px;">
+                            <div class="hideRentClubs" style="display: none">
+                                <label id="lblHand" for="rdoHand" class="caption">Are you left or right handed?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                                <br />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="height: 20px;">
+                            <label style="margin-left: 10px" id="lblGolfPlayYes" class="caption-normal">
+                                <input id="rdoGolfPlayYes" name="rdoGolfPlay" type="radio" class="required validate[required]" />
+                                Yes
+                            </label>
+                            <label style="margin-left: 10px" id="lblGolfPlayNo" class="caption-normal">
+                                <input id="rdoGolfPlayNo" name="rdoGolfPlay" type="radio" class="required validate[required]" />
+                                No
+                            </label>
+                        </td>
+                        <td style="width: 150px;">
+                            <div class="hideGolf" style="display: none">
+                                <select id="drpGolfLevel" name="drpGolfLevel" class="required caption-normal validate[required]" data-prompt-position="bottomRight">
+                                    <option id="opGolfLevel1">Beginner</option>
+                                    <option id="opGolfLevel2">Intermediate</option>
+                                    <option id="opGolfLevel3">Advanced</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="hideGolf" style="display: none">
+                                <label style="margin-left: 10px" id="lblRentClubsYes" class="caption-normal">
+                                    <input id="rdoRentClubsYes" name="rdoRentClubs" type="radio" class="required validate[required]" />
+                                    Yes
+                                </label>
+                                <label style="margin-left: 10px" id="lblRentClubsNo" class="caption-normal">
+                                    <input id="rdoRentClubsNo" name="rdoRentClubs" type="radio" class="required validate[required]" />
+                                    No
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="hideRentClubs" style="display: none">
+                                <label style="margin-left: 10px" id="lblGolfHandsLeft" class="caption-normal">
+                                    <input id="rdoGolfHandsLeft" name="rdoHand" type="radio" class="required validate[required]" />
+                                    Left-handed
+                                </label>
+                                <label style="margin-left: 10px" id="lblGolfHandsRight" class="caption-normal">
+                                    <input id="rdoGolfHandsRight" name="rdoHand" type="radio" class="required validate[required]" />
+                                    Right-handed
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" style="width: 100%; margin-top: 5px">
+                    <tr>
+                        <td>
+                            <div class="hideGolf" style="display: none">
+                                <label id="lblCaddy" for="rdoCaddy" class="caption">A golf cart will be provided for all golfers. Do you prefer to walk with a caddy instead?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="hideGolf" style="display: none">
+                                <label style="margin-left: 10px" id="lblCaddyYes" class="caption-normal">
+                                    <input id="rdoCaddyYes" name="rdoCaddy" type="radio" class="required validate[required]" />
+                                    Yes</label>
+                                <label style="margin-left: 10px" id="lblCaddyNo" class="caption-normal">
+                                    <input id="rdoCaddyNo" name="rdoCaddy" type="radio" class="required validate[required]" />
+                                    No
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" style="width: 100%">
+                    <tr>
+                        <td colspan="4">
+                            <div class="hideGolf" style="display: none">
+                                <label id="lblFoursome" class="caption" for="txtFoursome">If you already have a foursome, please list player names and preferred tee-off time:</label>
+                                <br />
+                                <p>If you do not have a pre-determined foursome, you will be grouped with players at your level requesting a similar tee-off time.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <div class="hideGolf" style="display: none">
+                                <textarea style="width: 400px; height: 70px" id="txtFoursome" name="txtFoursome"></textarea>
+                                <br />
+                                <br />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 340px">
+                            <div class="hideGolf caption" style="margin-top: 10px; display: none">
+                                <label id="lblGolfTypeAM" for="rdoGolfTypeAM">Golf Morning</label><img src="@Url.Content("~/Content/Images/asterisk.png")" /></div>
+                        </td>
+                        <td>
+                            <div class="hideGolf caption" style="margin-top: 10px; width: 350px; display: none">
+                                <label id="lblGolfTypePM" for="rdoGolfTypePM">Golf Afternoon</label><img src="@Url.Content("~/Content/Images/asterisk.png")" /></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="hideGolf" style="display: none">
+                                <label id="lblGolfTypeAMClinic" class="caption-normal">
+                                    <input id="rdoGolfTypeAMClinic" name="rdoGolfTypeAM" type="radio" class="required validate[required]" />
+                                    Golf clinic (10:00 - 11:00 am)
+                                </label>
+                                <br />
+                                <label id="lblGolfTypeAMClinicPlay" class="caption-normal">
+                                    <input id="rdoGolfTypeAMClinicPlay" name="rdoGolfTypeAM" type="radio" class="required validate[required]" />
+                                    Golf clinic and open play afterwards
+                                </label>
+                                <br />
+                                <label id="lblGolfTypeAMPlay" class="caption-normal">
+                                    <input id="rdoGolfTypeAMPlay" name="rdoGolfTypeAM" type="radio" class="required validate[required]" />
+                                    Open Play only
+                                </label>
+                                <br />
+                                <label id="lblGolfTypeAMNone" class="caption-normal">
+                                    <input id="rdoGolfTypeAMNone" name="rdoGolfTypeAM" type="radio" class="required validate[required]" />
+                                    None
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="hideGolf" style="display: none">
+                                <label id="lblGolfTypePMClinic" class="caption-normal">
+                                    <input id="rdoGolfTypePMClinic" name="rdoGolfTypePM" type="radio" class="required validate[required]" />
+                                    Golf clinic (2:00 - 3:00 pm)
+                                </label>
+                                <br />
+                                <label id="lblGolfTypePMClinicPlay" class="caption-normal">
+                                    <input id="rdoGolfTypePMClinicPlay" name="rdoGolfTypePM" type="radio" class="required validate[required]" />
+                                    Golf clinic and open play afterwards
+                                </label>
+                                <br />
+                                <label id="lblGolfTypePMPlay" class="caption-normal">
+                                    <input id="rdoGolfTypePMPlay" name="rdoGolfTypePM" type="radio" class="required validate[required]" />
+                                    Open Play only
+                                </label>
+                                <br />
+                                <label id="lblGolfTypePMNone" class="caption-normal">
+                                    <input id="rdoGolfTypePMNone" name="rdoGolfTypePM" type="radio" class="required validate[required]" />
+                                    None
+                                </label>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="hideGolfAM" style="display: none">
+                                <label id="lblTeeTimeAM" for="drpTeeTimeAM" class="caption">Select tee time (am):</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                                <br />
+                                <select id="drpTeeTimeAM" name="drpTeeTimeAM" class="required caption-normal validate[required]" style="width: 194px">
+                                    <option id="opTeeTimeAM_None" class="caption-normal">None</option>
+                                    <option id="opTeeTimeAM_9h_8:30-9:30" class="caption-normal">9 Holes - 8:30 - 9:30 am</option>
+                                    <option id="opTeeTimeAM_9h_9:30-10:30" class="caption-normal">9 Holes - 9:30 - 10:30 am</option>
+                                    <option id="opTeeTimeAM_9h_10:30-11:30" class="caption-normal">9 Holes - 10:30 - 11:30 am</option>
+                                    <option id="opTeeTimeAM_9h_11:30-12:30" class="caption-normal">9 Holes - 11:30am - 12:30 pm</option>
+                                    <option id="opTeeTimeAM_18h_8:30-9:30" class="caption-normal">18 Holes - 8:30 - 9:30 am</option>
+                                    <option id="opTeeTimeAM_18h_9:30-10:30" class="caption-normal">18 Holes - 9:30 - 10:30 am</option>
+                                    <option id="opTeeTimeAM_18h_10:30-11:30" class="caption-normal">18 Holes - 10:30 - 11:30 am</option>
+                                    <option id="opTeeTimeAM_18h_11:30-12:30" class="caption-normal">18 Holes - 11:30am - 12:30 pm</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="hideGolfPM" style="display: none">
+                                <label id="lblTeeTimePM" for="drpTeeTimePM" class="caption caption-normal validate[required]">Select tee time (pm): </label>
+                                <img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                                <br />
+                                <select id="drpTeeTimePM" name="drpTeeTimePM" class="required caption-normal" style="width: 194px">
+                                    <option id="opTeeTimePM_None" class="caption-normal">None</option>
+                                    <option id="opTeeTimePM_1:00-2:00" class="caption-normal">1:00 - 2:00 pm</option>
+                                    <option id="opTeeTimePM_2:00-3:00" class="caption-normal">2:00 - 3:00 pm</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </section>
+            <section id="Basketball_Info" style="margin-right: 20px; margin-top: 20px">
+                <br />
+                <h1 style="margin-bottom: -10px">BASKETBALL</h1>
+                <div class="hr"></div>
+                <table border="0" style="width: 100%">
+                    <caption style="text-align: left">
+                        <p>
+                            Outdoor basketball (located in the lower parking lot, next to the tennis courts). Depending on the number of people who sign up, we will organize either a 3-on-3 tournament or pick-up games.
+                        </p>
+                    </caption>
+                    <tr>
+                        <td>
+                            <label id="lblBasketballOpenPlay" class="caption" for="rdoBasketballOpenPlay">Open play (2:00 - 3:00 pm)</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                        </td>
+                        <td style="width: 170px;"></td>
+                        <td>
+                            <label id="lblBasketballGame" class="caption" for="rdoBasketballGame">Organized game (3:00 - 4:00 pm)</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <label style="margin-left: 10px" id="lblBasketballOpenPlayYes" class="caption-normal">
+                                <input id="rdoBasketballOpenPlayYes" name="rdoBasketballOpenPlay" type="radio" class="required validate[required]" />
+                                Yes
+                            </label>
+
+                            <label style="margin-left: 10px" id="lblBasketballOpenPlayNo" class="caption-normal">
+                                <input id="rdoBasketballOpenPlayNo" name="rdoBasketballOpenPlay" type="radio" class="required validate[required]" />
+                                No
+                            </label>
+                        </td>
+                        <td></td>
+                        <td>
+                            <label style="margin-left: 10px" id="lblBasketballGameYes" class="caption-normal">
+                                <input id="rdoBasketballGameYes" name="rdoBasketballGame" type="radio" class="required validate[required]" />
+                                Yes
+                            </label>
+                            <label style="margin-left: 10px" id="lblBasketballGameNo" class="caption-normal">
+                                <input id="rdoBasketballGameNo" name="rdoBasketballGame" type="radio" class="required validate[required]" />
+                                No
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <section id="Spa_Info" style="margin-right: 20px; margin-top: 20px">
+                <br />
+                <h1 style="margin-bottom: -10px">SPA</h1>
+                <div class="hr"></div>
+                <table border="0" style="width: 100%">
+                    <caption style="text-align: left">
+                        <p>
+                            The spa will be open in the morning from 11:00 am - 12:30 pm and again in the afternoon from 1:30 - 4:30 pm (last  appointment). 
+                            <br />
+                            Please sign-up in the Card Room for your preferred time (subject to availability).
+                        </p>
+                    </caption>
+                    <tr>
+                        <td>
+                            <label id="lblSpa" for="rdoSpa" class="caption">Spa services?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label style="margin-left: 10px" id="lblSpaYes" class="caption-normal">
+                                <input id="rdoSpaYes" name="rdoSpa" type="radio" class="required validate[required]" />
+                                Yes
+                            </label>
+                            <br />
+                            <label style="margin-left: 10px" id="lblSpaNo" class="caption-normal">
+                                <input id="rdoSpaNo" name="rdoSpa" type="radio" class="required validate[required]" />
+                                No
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+                <div class="hideSpa" style="display: none">
+                    <table border="0" style="width: 100%">
+                        <tr>
+                            <td>
+                                <label id="lblManicure" class="caption" for="rdoManicure">Would you like a manicure?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                            </td>
+                            <td>
+                                <label id="lblPedicure" class="caption" for="rdoPedicure">Would you like a pedicure?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                            </td>
+                            <td>
+                                <label id="lblMassage" class="caption" for="rdoMassage">Would you like a mini-massage?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label id="lblManicureMorning" class="caption-normal">
+                                    <input id="rdoManicureMorning" name="rdoManicure" type="radio" class="required validate[required]" />
+                                    Yes, morning.
+                                </label>
+                                <br />
+                                <label id="lblManicureAfternoon" class="caption-normal">
+                                    <input id="rdoManicureAfternoon" name="rdoManicure" type="radio" class="required validate[required]" />
+                                    Yes, afternoon.
+                                </label>
+                                <br />
+                                <label id="lblManicureNo" class="caption-normal">
+                                    <input id="rdoManicureNo" name="rdoManicure" type="radio" class="required validate[required]" />
+                                    No
+                                </label>
+                            </td>
+                            <td>
+                                <label id="lblPedicureMorning" class="caption-normal">
+                                    <input id="rdoPedicureMorning" name="rdoPedicure" type="radio" class="required validate[required]" />
+                                    Yes, morning.
+                                </label>
+                                <br />
+                                <label id="lblPedicureAfternoon" class="caption-normal">
+                                    <input id="rdoPedicureAfternoon" name="rdoPedicure" type="radio" class="required validate[required]" />
+                                    Yes, afternoon.
+                                </label>
+                                <br />
+                                <label id="lblPedicureNo" class="caption-normal">
+                                    <input id="rdoPedicureNo" name="rdoPedicure" type="radio" class="required validate[required]" />
+                                    No
+                                </label>
+                            </td>
+                            <td>
+                                <label id="lblMassageMorning" class="caption-normal">
+                                    <input id="rdoMassageMorning" name="rdoMassage" type="radio" class="required validate[required]" />
+                                    Yes, morning.
+                                </label>
+                                <br />
+                                <label id="lblMassageAfternoon" class="caption-normal">
+                                    <input id="rdoMassageAfternoon" name="rdoMassage" type="radio" class="required validate[required]" />
+                                    Yes, afternoon.
+                                </label>
+                                <br />
+                                <label id="lblMassageNo" class="caption-normal">
+                                    <input id="rdoMassageNo" name="rdoMassage" type="radio" class="required validate[required]" />
+                                    No
+                                </label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <section id="Yoga_Info" style="margin-right: 20px; margin-top: 20px">
+                <br />
+                <h1 style="margin-bottom: -10px">YOGA</h1>
+                <div class="hr"></div>
+                <table border="0" style="width: 100%">
+                    <caption>
+                        <p>
+                            Afternoon yoga classes will be offered at beginner and intermediate levels in Dining Room 3.
+                            <br />
+                            Yoga mats will be provided.                   
+                        </p>
+                    </caption>
+                    <tr>
+                        <td>
+                            <label id="lblYoga" for="rdoYoga" class="caption">Would you like to take an afternoon yoga class?</label><img src="@Url.Content("~/Content/Images/asterisk.png")" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label style="margin-left: 10px" class="caption-normal" id="lblYogaYes">
+                                <input id="rdoYogaYes" name="rdoYoga" type="radio" class="required validate[required]" />
+                                Yes
+                            </label>
+                            <label style="margin-left: 10px" class="caption-normal" id="lblYogaNo">
+                                <input id="rdoYogaNo" name="rdoYoga" type="radio" class="required validate[required]" />
+                                No
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="hideYoga" style="display: none">
+                                <label id="lblYogaSkill" for="rdoYogaSkill" class="caption">Yoga skill level:</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="hideYoga" style="display: none">
+                                <label class="caption-normal" id="lblYogaSkillBeginner" style="margin-left: 10px">
+                                    <input id="rdoYogaSkillBeginner" name="rdoYogaSkill" type="radio" value="Beginner (2:00 - 3:00 pm)" class="required validate[required]" />
+                                    Beginner (2:00 - 3:00 pm)
+                                </label>
+                                <label class="caption-normal" id="lblYogaSkillIntermediate" style="margin-left: 10px">
+                                    <input id="rdoYogaSkillIntermediate" name="rdoYogaSkill" type="radio" value="Intermediate (3:15 - 4:15 pm)" class="required validate[required]" />
+                                    Intermediate (3:15 - 4:15 pm)
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <section id="Misscellaneous" style="margin-right: 20px; margin-top: 20px">
+                <br />
+                <h1 style="margin-bottom: -10px">MISCELLANEOUS</h1>
+                <div class="hr"></div>
+                <table border="0">
+                    <tr>
+                        <td>
+                            <h5>POOL</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <span class="caption">Pool Lounging:</span>  For those of you who would like a day with less exertion, there are plenty of lounge chairs at the pool area.  Towels are supplied by the Club.
+                        <br />
+                                <span class="caption">Pool Rules:</span>  Swimming attire is not permitted in the Clubhouse, on the golf course or on the tennis courts.  When going directly to and from the locker rooms, a shirt, jacket or cover-up is required over your bathing suit.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>LOCKER ROOMS</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                Showers are available in the locker room. Towels, shampoo, soap, hair dryers and other toiletries are provided. Ladies, please note that there are six showers, so plan accordingly.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>DRESS ATTIRE</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <span class="caption">Lunch:</span>  Sports clothes and casual attire (no jeans, t-shirts, or bathing suits).
+                                <br />
+                                <br />
+                                <span class="caption">Dinner:</span>
+                                <br />
+                                Men -- jackets and ties are optional (however, if you do not wear a jacket, you must wear a collared shirt).
+                                <br />
+                                Ladies -- dresses, skirts or dress slacks.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>CONTACT</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                The Sunningdale office will be open from 9:00 am until 5:00 pm and the receptionist can print documents as needed.
+                                <br />
+                                Cell phones are not permitted on the golf course or in the Clubhouse. 
+                                <br />
+                                <br />
+                                Please note the contact information for Sunningdale: 
+                                <br />
+                                <br />
+                                <span class="caption">Telephone:</span> (914) 723-3200 
+                                <br />
+                                <span class="caption">Fax:</span> (914) 723-0243
+                                <br />
+                                <span class="caption">Email: </span><a href="mailto:office@sunningdale.org">office@sunningdale.org</a>
+                                <br />
+                                <br />
+                                We look forward to seeing you on Tuesday, July 9, rain or shine.
+                                <br />
+                                If you have any questions, please contact
+                                <br />
+                                <a href="mailto:cbarrera@kasowitz.com?Subject=Attorney%20Outing" target="_top">Crystal Barrera</a> at (212) 547–1328 or <a href="mailto:sdulkis@kasowitz.com?Subject=Attorney%20Outing" target="_top">Stacie Dulkis</a> at (212) 547-1428.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+    </div>
+</article>

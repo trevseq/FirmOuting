@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LoginPartial.cshtml";
+}
+
+<div id="dvLogin" class="exp-form">
+    <div class="exp-wrapper">
+        <div class="brand">
+            <img src="@Url.Content("~/Content/images/Kasowitz_Logo_RGB_Small.png")" />
+        </div>
+        <div class="hr" style="position: relative; left: 33px; width: 274px"></div>
+        <form id="frm-login" action="Secure/SignIn" method="post">
+            <div id="exp-login" class="form">
+                <div id="spnInvalidUser" class="error" style="color: white; font-size: 11px; position: absolute; top: 99px; height: 14px; width: 240px; display: none">
+                    <strong>Warning</strong>: unknown username or password
+                </div>
+                <br />
+                <label for="txtUsername">
+                    Username</label>
+                <div class="input">
+                    <input class="text" type="text" id="txtUsername" name="username" style="border-width: 0px; border-style: none; height: 20px" value="tsequino">
+                </div>
+                <label for="txtPassword">
+                    Password</label>
+                <div class="input">
+                    <input class="text" type="password" id="txtPassword" name="password" style="border-width: 0px; border-style: none; height: 20px" value="Waffles!trev96369">
+                </div>
+                <div style="text-align: center; border: none; background: url('@Url.Content("~/Content/images/login-form-hr.png")') no-repeat center center; height: 3px; margin: 0px;"></div>
+                <div class="clearfix" style="position: relative; top: 6px">
+                    <input id="btnLogin" type="button" style="left:213px;position: relative;" value="Login" />
+                    <a id="forgotPass" class="btn-recovery" style="cursor:pointer; position: relative; color: White; font-weight: bold; left: -65px; top: 3px; white-space: nowrap; text-decoration: underline">Forgot Password?</a>
+                </div>
+            </div>
+        </form>
+        <form id="frm-recovery" action="Secure/RecoverPassword" method="post">
+            <div id="exp-recovery" class="form">
+                <label id="lblRecover" style="display: block">
+                    In order to recover your password, please enter your e-mail address.</label>
+                <div class="input">
+                    <input id="txtEmail" class="text" type="text" name="email" style="border-width: 0px; border-style: none; height: 20px" />
+                </div>
+                <div class="clearfix topad">
+                    <input id="btnCancelRecoverPassword" type="button" style="float: right; margin-left: 5px;" value="Cancel" />
+                    <input id="btnRecoverPassword" type="submit" style="float: right" value="Submit" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

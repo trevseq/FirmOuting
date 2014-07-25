@@ -1,0 +1,952 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--{using FirmOuting.Models}-->
+<!--{model FirmOuting.AttorneyOuting}-->
+
+<article id="attorneyOuting">
+  <input id="hdnEmployeeID" type="hidden" value="{Model.EmployeeID}" />
+  <section id="Announcement" style="margin-right: 20px">
+    <table style="width: 100%">
+      <tr>
+        <td colspan="5">
+          <img src="http://localhost:59172/uploads/sunningdalePool.jpg" style="margin-left: 25px; margin-right: 25px" />
+        </td>
+      </tr>
+    </table>
+    <div class="hr"></div>
+    <table border="0" style="width: 100%">
+      <tr>
+        <td>
+          <p>
+            Plans are well underway for the Firm Outing which will be held on Tuesday, July 9 at Sunningdale Country Club in Scarsdale, New York.  Please complete the questionnaire below, for yourself and, if applicable, a separate form for your spouse/guest, no later than Monday, June 24. For planning purposes, we are unable to accept submissions after this date.
+            <br />
+            <br />
+            Regardless of whether or not you plan to attend, each employee must complete the top portion of this form.
+          </p>
+        </td>
+      </tr>
+    </table>
+  </section>
+  <section id="Personal_Info_Questions" style="margin-right: 20px; margin-top: 10px">
+    <table border="0" style="margin-bottom: 5px">
+      <tr>
+        <td>
+          <label for="txtFirstName" class="caption">First name:</label>
+        </td>
+        <td>
+          <input style="margin-left: 5px" id="txtFirstName" type="text" class="required" value="{Model.NameTagFirstName}" />
+        </td>
+        <td rowspan="4">
+          <table style="margin-left: 20px">
+            <tr>
+              <td>
+                <label style="margin-left: 20px" for="rdoAttending" class="caption">Will you be attending?</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label style="margin-left: 20px" id="lblAttendingNo" class="caption-normal">
+                  <input id="rdoAttendingNo" name="rdoAttending" type="radio" checked="{Helper.IsChecked(Model.AttendingOuting == [No])}" value="I will not be attending the Outing" class="required" />
+                  I will not be attending the Outing
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label style="margin-left: 20px" id="lblAttendingDinner" class="caption-normal">
+                  <input id="rdoAttendingDinner" name="rdoAttending" checked="{Helper.IsChecked(Model.AttendingOuting == [Dinner])}" type="radio" value="I will only be attending cocktails/dinner" class="required" />
+                  I will only be attending cocktails/dinner
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label style="margin-left: 20px" id="lblAttendingYes" class="caption-normal">
+                  <input id="rdoAttendingYes" name="rdoAttending" checked="{Helper.IsChecked(Model.AttendingOuting == [Yes])}" type="radio" value="I will be attending the Outing" class="required" />
+                  I will be attending the Outing (morning and/or afternoon and/or evening)
+                </label>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="txtMiddleName" class="caption">Middle name:</label>
+        </td>
+        <td>
+          <input style="margin-left: 5px" id="txtMiddleName" type="text" value="{Model.NameTagMiddleName}" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="txtLastName" class="caption">Last name:</label>
+        </td>
+        <td>
+          <input style="margin-left: 5px" id="txtLastName" type="text" class="required" value="{Model.NameTagLastName}" />
+        </td>
+      </tr>
+    </table>
+  </section>
+  <div class="hideAll">
+    <section id="Guest_Info" style="margin-right: 20px">
+      <table border="0" style="width: 100%">
+        <tr>
+          <td>
+            <label for="rdoGuestBring" class="caption">Do you plan to bring your spouse or a guest?</label>
+          </td>
+          <td>
+            <div class="hideGuest" style="display:  @(Helper.IsDisplay(Model.BringingGuest == [Yes]))">
+              <label id="lblGuestName" class="caption">Spouse/Guest name:</label>
+            </div>
+          </td>
+          <td>
+            <div class="hideGuest" style="display: @(Helper.IsDisplay(Model.BringingGuest == [Yes]))">
+              <input id="txtGuestName" type="text" value="" />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top">
+            <label style="margin-left: 10px" id="lblGuestBringYes" class="caption-normal">
+              <input id="rdoGuestBringYes" name="rdoGuestBring" type="radio" checked="{Helper.IsChecked(Model.BringingGuest == [Yes])}" value="BringYes" class="required" />
+              Yes
+            </label>
+            <label style="margin-left: 10px" id="lblGuestBringNo" class="caption-normal">
+              <input id="rdoGuestBringNo" name="rdoGuestBring" type="radio" checked="{Helper.IsChecked(Model.BringingGuest == [No])}" value="BringNo" class="required" />
+              No
+            </label>
+          </td>
+          <td>
+            <div class="hideGuest" style="display: @(Helper.IsDisplay(Model.BringingGuest == [Yes]))">
+              <label id="lblGuestEmail" class="caption">Spouse/Guest email:</label>
+            </div>
+          </td>
+          <td>
+            <div class="hideGuest" style="display: @(Helper.IsDisplay(Model.BringingGuest == [Yes]))">
+              <input id="txtGuestEmail" type="text" value="{Model.EmailAddress}" />
+            </div>
+          </td>
+        </tr>
+      </table>
+    </section>
+    <section id="Meal_Info" style="margin-right: 20px; margin-top: 20px">
+      <br />
+      <h1 style="margin-bottom: -10px">MEALS</h1>
+      <div class="hr"></div>
+      <table border="0" style="width: 100%">
+        <caption>
+          <p>
+            Breakfast:  A buffet breakfast will be available in the Living Room from 8:00 - 10:30 am. For morning golfers, a light breakfast will also be available in front of the pro shop, by the first tee on the golf course.
+            <br />
+            <br />
+            Lunch:  Served from 12:00 - 2:30 pm on the West Terrace overlooking the golf course.
+            <br />
+            <br />
+            Refreshments:  Throughout the day, snacks and ice cream will be served at the pool and beverages will be served on the West Terrace.  Please note, the snack bar on the golf course is open to Club members only.
+            <br />
+            <br />
+            Dinner:  Cocktails and hors d'oeuvres will start at 6:00 pm and dinner will begin at 7:30 pm.
+          </p>
+        </caption>
+        <tr>
+          <td>
+            <label for="rdoMealsLunch" class="caption">Are you attending the luncheon?</label>
+          </td>
+          <td></td>
+          <td>
+            <label for="chkdietaryRestrictions" class="caption">Do you have any dietary restrictions?</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label style="margin-left: 10px" id="lblMealsLunchYes" class="caption-normal">
+              <input id="rdoMealsLunchYes" name="rdoMealsLunch" type="radio" checked="{Helper.IsChecked(Model.MealsLunch == [Yes])}" value="LunchYes" class="required" />
+              Yes
+            </label>
+            <label style="margin-left: 10px" id="lblMealsLunchNo" class="caption-normal">
+              <input id="rdoMealsLunchNo" name="rdoMealsLunch" type="radio" checked="{Helper.IsChecked(Model.MealsLunch == [No])}"
+                  value="LunchNo" class="required" />
+              No
+            </label>
+          </td>
+          <td></td>
+          <td rowspan="3">
+            <table border="0">
+              <tr>
+                <td>
+                  <label id="lblDietKosher" class="caption-normal">
+                    <input id="chkDietKosher" name="chkdietaryRestrictions" type="checkbox" />
+                    Kosher
+                  </label>
+                </td>
+                <td style="width: 10px"></td>
+                <td>
+                  <label id="lblDietVegetarian" class="caption-normal">
+                    <input id="chkDietVegetarian" name="chkdietaryRestrictions" type="checkbox" />
+                    Vegetarian
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label id="lblDietGluten" class="caption-normal">
+                    <input id="chkDietGluten" name="chkdietaryRestrictions" type="checkbox" />
+                    Gluten-Free
+                  </label>
+                </td>
+                <td></td>
+                <td>
+                  <label id="lblDietVegan" class="caption-normal">
+                    <input id="chkDietVegan" name="chkdietaryRestrictions" type="checkbox" />
+                    Vegan
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td style="vertical-align: top">
+                  <label id="lblDietNut" class="caption-normal">
+                    <input id="chkDietNut" name="chkdietaryRestrictions" type="checkbox" />
+                    Nut Allergy
+                  </label>
+                </td>
+                <td></td>
+                <td>
+                  <label id="lblDietOther" class="caption-normal">
+                    Other:
+                    <input id="txtDietOther" name="chkdietaryRestrictions" type="text" />
+                  </label>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="rdoMealsDinner" class="caption">Are you attending the dinner?</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label style="margin-left: 10px" id="lblMealsDinnerYes" class="caption-normal">
+              <input id="rdoMealsDinnerYes" name="rdoMealsDinner" type="radio" checked="{Helper.IsChecked(Model.MealsDinner == [Yes])}" value=""[DinnerYes=""] class="required" />
+              Yes
+            </label>
+            <label style="margin-left: 10px" id="lblMealsDinnerNo" class="caption-normal">
+              <input id="rdoMealsDinnerNo" name="rdoMealsDinner" type="radio" checked="{Helper.IsChecked(Model.MealsDinner == [No])}" value=""[DinnerNo=""] class="required" />
+              No
+            </label>
+          </td>
+        </tr>
+      </table>
+    </section>
+    <section id="Transportation_Info" style="margin-right: 20px; margin-top: 20px">
+      <br />
+      <h1 style="margin-bottom: -10px">TRANSPORTATION</h1>
+      <div class="hr"></div>
+      <table border="1" style="padding: 2px" id="tbBusInfo">
+        <tr>
+          <td>
+            <p>Depart at 1633 Broadway</p>
+          </td>
+          <td>
+            <p>Arrive at Sunningdale</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>7:30 am</p>
+          </td>
+          <td>
+            <p>~8:30 am (am activities)</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>11:30 am</p>
+          </td>
+          <td>
+            <p>~12:30 pm (lunch/pm activities)</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>5:00 pm</p>
+          </td>
+          <td>
+            <p>~6:00 pm (cocktails &amp;amp; dinner)</p>
+          </td>
+        </tr>
+      </table>
+      <div id="grid_table"></div>
+      <table border="0" style="width: 100%; margin-top: 10px">
+        <caption style="text-align: left">
+          <p>
+            For the return trip to NYC, buses will depart ~ 9:30 pm for a 10:30/11:00 pm drop-off.
+          </p>
+        </caption>
+        <tr>
+          <td style="vertical-align: top">
+            <label for="rdoBusTo" class="caption">Will you be taking the bus to Sunningdale?</label>
+            <br />
+            <label id="lblBus730" class="caption-normal">
+              <input id="rdoBus730" name="rdoBusTo" type="radio" checked="@(Helper.IsChecked(Model.BusToSunningdale == "Yes="", 7:30="" am="""))" value="Yes, 7:30 am" class="required" />
+              Yes, 7:30 am
+            </label>
+            <br />
+            <label id="lblBus1130" class="caption-normal">
+              <input id="rdoBus1130" name="rdoBusTo" type="radio" checked="@(Helper.IsChecked(Model.BusToSunningdale == "Yes="", 11:30="" am="""))" value="Yes, 11:30 am" class="required" />
+              Yes, 11:30 am
+            </label>
+            <br />
+            <label id="lblBus5" class="caption-normal">
+              <input id="rdoBus5" name="rdoBusTo" type="radio" checked="@(Helper.IsChecked(Model.BusToSunningdale == "Yes="", 5:00="" pm="""))" value="Yes, 5:00 pm" class="required" />
+              Yes, 5:00 pm
+            </label>
+            <br />
+            <label id="lblBusNo" class="caption-normal">
+              <input id="rdoBusNo" name="rdoBusTo" type="radio" checked="{Helper.IsChecked(Model.BusToSunningdale == [No])}" value=""[No=""] class="required" />
+              No
+            </label>
+          </td>
+          <td style="vertical-align: top">
+            <label for="rdoBusHome" class="caption">Are you returning to NYC on the bus (9:30 pm)?</label>
+            <br />
+            <label style="margin-left: 10px" id="lblBusHomeYes" class="caption-normal">
+              <input id="rdoBusHomeYes" name="rdoBusFrom" type="radio" checked="{Helper.IsChecked(Model.BusToNYC == [Yes])}" value="BusHomeYes" class="required" />
+              Yes
+            </label>
+            <label style="margin-left: 10px" id="lblBusHomeNo" class="caption-normal">
+              <input id="rdoBusHomeNo" name="rdoBusFrom" type="radio" checked="{Helper.IsChecked(Model.BusToNYC == [No])}"value="BusHomeNo" class="required" />
+              No
+            </label>
+          </td>
+        </tr>
+      </table>
+    </section>
+    <div class="hideActivities">
+      <section id="Tennis_Info" style="margin-right: 20px; margin-top: 20px">
+        <br />
+        <h1 style="margin-bottom: -10px">TENNIS</h1>
+        <div class="hr"></div>
+        <table border="0" style="width: 100%">
+          <caption style="text-align: left">
+            <p>
+              Club pros will organize open court play and tennis clinics.  The morning clinic is from 10:00 - 11:30 am and the afternoon clinic is from 2:00 - 4:30 pm.
+              <br />
+              <br />
+              Club Tennis Rules:  All players must wear tennis attire (preferably white), however, modest color trim is acceptable.  Jeans and t-shirts are not permitted.
+            </p>
+          </caption>
+          <tr>
+            <td>
+              <label for="rdoTennis" class="caption">Will you be playing tennis?</label>
+            </td>
+            <td>
+              <div class="hideTennis" style="display: none">
+                <label for="drpTennisLevel" class="caption">Level of play:</label>
+              </div>
+            </td>
+            <td>
+              <div class="hideTennis" style="display: none">
+                <label for="rdoTennisRent" class="caption">Do you need to rent a tennis racquet?</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label style="margin-left: 10px" id="lblTennisYes" class="caption-normal">
+                <input id="rdoTennisYes" name="rdoTennis" type="radio" checked="{Helper.IsChecked(Model.TennisPlaying == [Yes])}" value="TennisYes" class="required" />
+                Yes
+              </label>
+              <label style="margin-left: 10px" id="lblTennisNo" class="caption-normal">
+                <input id="rdoTennisNo" name="rdoTennis" type="radio" checked="{Helper.IsChecked(Model.TennisPlaying == [No])}"value="TennisNo" class="required" />
+                No
+              </label>
+            </td>
+            <td>
+              <div class="hideTennis" style="display: none">
+                <select id="drpTennisLevel" name="drpTennisLevel" class="required caption-normal">
+                  <option id="opTennis1" class="caption-normal">Beginner</option>
+                  <option id="opTennis2" class="caption-normal">Intermediate</option>
+                  <option id="opTennis3" class="caption-normal">Advanced</option>
+                </select>
+              </div>
+            </td>
+            <td>
+              <div class="hideTennis" style="display: none">
+                <label style="margin-left: 10px" id="lblTennisRentYes" class="caption-normal">
+                  <input id="rdoTennisRentYes" name="rdoTennisRent" type="radio" checked="{Helper.IsChecked(Model.TennisRentRacquet == [Yes])}" value="TennisRentYes" class="required" />
+                  Yes
+                </label>
+                <label style="margin-left: 10px" id="lblTennisRentNo" class="caption-normal">
+                  <input id="rdoTennisRentNo" name="rdoTennisRent" type="radio" checked="{Helper.IsChecked(Model.TennisRentRacquet == [No])}" value="TennisRentNo" class="required" />
+                  No
+                </label>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <div class="hideTennis" style="display: none">
+          <table border="0" style="width: 100%; margin-top: 5px">
+            <tr>
+              <th>
+                <label for="rdoTennisAM" class="caption">Morning:</label>
+              </th>
+              <th>
+                <label for="rdoTennisPM" class="caption">Afternoon:</label>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <label id="lblTennisMorningClinic" class="caption-normal">
+                  <input id="rdoTennisMorningClinic" name="rdoTennisAM" type="radio" checked="@(Helper.IsChecked(Model.TennisMorning == "Tennis="" Clinic="""))" value="Tennis Clinic" class="required" />
+                  Tennis Clinic
+                </label>
+                <br />
+                <label id="lblTennisMorningPlay" class="caption-normal">
+                  <input id="rdoTennisMorningPlay" name="rdoTennisAM" type="radio" checked="@(Helper.IsChecked(Model.TennisMorning == "Open="" Court="" Time="""))" value="Open Court Time" class="required" />
+                  Open Court Time
+                </label>
+                <br />
+                <label id="lblTennisMorningClinicPlay" class="caption-normal">
+                  <input id="rdoTennisMorningClinicPlay" name="rdoTennisAM" type="radio" checked="@(Helper.IsChecked(Model.TennisMorning == "Clinic="" and="" open="" play="" afterwards="""))" value="Clinic and open play afterwards" class="required" />
+                  Clinic and open play afterwards
+                </label>
+                <br />
+                <label id="lblTennisMorningNone" class="caption-normal">
+                  <input id="rdoTennisMorningNone" name="rdoTennisAM" type="radio" checked="{Helper.IsChecked(Model.TennisMorning == "None=""")}" value="None" class="required" />
+                  None
+                </label>
+              </td>
+              <td>
+                <label id="lblTennisAfternoonClinic" class="caption-normal">
+                  <input id="rdoTennisAfternoonClinic" name="rdoTennisPM" type="radio" checked="@(Helper.IsChecked(Model.TennisAfternoon == "Tennis="" Clinic="""))" value="Tennis Clinic" class="required" />
+                  Tennis Clinic
+                </label>
+                <br />
+                <label id="lblTennisAfternoonPlay" class="caption-normal">
+                  <input id="rdoTennisAfternoonPlay" name="rdoTennisPM" type="radio" checked="@(Helper.IsChecked(Model.TennisAfternoon == "Open="" Court="" Time="""))"value="Open Court Time" class="required" />
+                  Open Court Time
+                </label>
+                <br />
+                <label id="lblTennisAfternoonClinicPlay" class="caption-normal">
+                  <input id="rdoTennisAfternoonClinicPlay" name="rdoTennisPM" type="radio" checked="@(Helper.IsChecked(Model.TennisAfternoon == "Clinic="" and="" open="" play="" afterwards="""))"value="Clinic and oepn play afterwards" class="required" />
+                  Clinic and open play afterwards
+                </label>
+                <br />
+                <label id="lblTennisAfternoonNone" class="caption-normal">
+                  <input id="rdoTennisAfternoonNone" name="rdoTennisPM" type="radio" checked="{Helper.IsChecked(Model.TennisAfternoon == "None=""")}"value="None" class="required" />
+                  None
+                </label>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </section>
+      <section id="Golf_Info" style="margin-right: 20px; margin-top: 20px">
+        <br />
+        <h1 style="margin-bottom: -10px">GOLF</h1>
+        <div class="hr"></div>
+        <table border="0" style="width: 100%">
+          <caption style="text-align: left">
+            <p>
+              Tee times begin anytime after 8:30 am and no later than 12:30 pm for 18 holes and no later than 3:00 pm for 9 holes.
+              A light breakfast will be available from 8:00 - 10:30 am in front of the pro shop, by the first tee, as well as a full breakfast in the Living Room.
+              The morning golf clinic is from 10:00 - 11:00 am and the afternoon clinic is from 2:00 - 3:00 pm. Please be sure to check-in at the golf pro shop prior to playing.
+              The driving range is open throughout the day.
+              <br />
+              <br />
+              Club Golf Rules:  Golf clothes are required on the golf course, such as men's long shorts and short-sleeve shirts with a collar.  Jeans, t-shirts, short-shorts, tennis attire and metal cleats are not permitted on the course.  Spiked shoes are not permitted in the Clubhouse.
+            </p>
+          </caption>
+          <tr>
+            <td style="width: 150px">
+              <label for="rdoGolfPlay" class="caption">Will you be playing golf?</label>
+              <br />
+            </td>
+            <td style="width: 150px">
+              <div class="hideGolf" style="display: none">
+                <label for="drpGolfLevel" class="caption">Level of play:</label>
+                <br />
+              </div>
+            </td>
+            <td style="width: 150px; margin-left: 25px">
+              <div class="hideGolf" style="display: none">
+                <label for="rdoRentClubs" class="caption">Do you need to rent golf clubs?</label>
+                <br />
+              </div>
+            </td>
+            <td style="width: 150px">
+              <div class="hideRentClubs" style="display: none">
+                <label for="rdoHand" class="caption">Are you left or right handed?</label>
+                <br />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label style="margin-left: 10px" id="lblGolfPlayYes" class="caption-normal">
+                <input id="rdoGolfPlayYes" name="rdoGolfPlay" type="radio" checked="{Helper.IsChecked(Model.GolfPlaying == [Yes])}" value="GolfPlayYes" class="required" />
+                Yes
+              </label>
+              <label style="margin-left: 10px" id="lblGolfPlayNo" class="caption-normal">
+                <input id="rdoGolfPlayNo" name="rdoGolfPlay" type="radio" checked="{Helper.IsChecked(Model.GolfPlaying == [No])}" value="GolfPlayNo" class="required" />
+                No
+              </label>
+            </td>
+            <td>
+              <div class="hideGolf" style="display: none">
+                <select id="drpGolfLevel" name="drpGolfLevel" class="required caption-normal">
+                  <option id="opGolfBeginner">Beginner</option>
+                  <option id="opGolfIntermediate">Intermediate</option>
+                  <option id="opGolfAdvanced">Advanced</option>
+                </select>
+              </div>
+            </td>
+            <td>
+              <div class="hideGolf" style="display: none">
+                <label style="margin-left: 10px" id="lblGolfRentClubsYes" class="caption-normal">
+                  <input id="rdoRentClubsYes" name="rdoRentClubs" type="radio" checked="{Helper.IsChecked(Model.GolfRentClubs == [Yes])}" value="RentClubsYes" class="required" />
+                  Yes
+                </label>
+                <label style="margin-left: 10px" id="lblGolfRentClubsNo" class="caption-normal">
+                  <input id="rdoRentClubsNo" name="rdoRentClubs" type="radio" checked="{Helper.IsChecked(Model.GolfRentClubs == [No])}" value="RentClubsNo" class="required" />
+                  No
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="hideRentClubs" style="display: none">
+                <label style="margin-left: 10px" id="lblGolfHandsLeft" class="caption-normal">
+                  <input id="rdoGolfHandsLeft" name="rdoHand" type="radio" checked="{Helper.IsChecked(Model.GolfClubRightLeft == "Left=""")}" value="Left" class="required" />
+                  Left
+                </label>
+                <label style="margin-left: 10px" id="lblGolfHandsRight" class="caption-normal">
+                  <input id="rdoGolfHandsRight" name="rdoHand" type="radio" checked="{Helper.IsChecked(Model.GolfClubRightLeft == "Right=""")}" value="Right" class="required" />
+                  Right
+                </label>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table border="0" style="width: 100%; margin-top: 5px">
+          <tr>
+            <td>
+              <div class="hideGolf" style="display: none">
+                <label for="rdoCaddy" class="caption">A golf cart will be provided for all golfers. Do you prefer to walk with a caddy instead?</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="hideGolf" style="display: none">
+                <label style="margin-left: 10px" id="lblCaddyYes" class="caption-normal">
+                  <input id="rdoCaddyYes" name="rdoCaddy" type="radio" checked="{Helper.IsChecked(Model.GolfCartOrWalk == [Yes])}" value="CaddyYes" class="required" />
+                  Yes
+                </label>
+                <label style="margin-left: 10px" id="lblCaddyNo" class="caption-normal">
+                  <input id="rdoCaddyNo" name="rdoCaddy" type="radio" checked="{Helper.IsChecked(Model.GolfCartOrWalk == [No])}" value="CaddyNo" class="required" />
+                  No
+                </label>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table border="0" style="width: 100%">
+          <tr>
+            <td colspan="4">
+              <div class="hideGolf" style="display: none">
+                <label class="caption" for="txtFoursome">If you already have a foursome, please list player names and preferred tee-off time:</label>
+                <br />
+                <p>If you do not have a pre-determined foursome, you will be grouped with players at your level requesting a similar tee-off time.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4">
+              <div class="hideGolf ui-widget" style="display: none">
+                <textarea style="width: 400px; height: 70px" id="txtFoursome" name="txtFoursome"></textarea>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div class="hideGolf caption" style="margin-top: 10px; display: none">Morning</div>
+            </td>
+            <td colspan="2">
+              <div class="hideGolf caption" style="margin-top: 10px; display: none">Afternoon</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="hideGolf" style="display: none">
+                <label id="lblGolfTypeAMClinic" class="caption-normal">
+                  <input id="rdoGolfTypeAMClinic" name="rdoGolfTypeAM" type="radio" checked="@(Helper.IsChecked(Model.GolfMorning == "Golf="" clinic=""(10:00="" -="" 11:00="" am="")"))" value="Golf clinic(10:00 - 11:00am)" class="required" />
+                  Golf clinic(10:00 - 11:00 am)
+                </label>
+                <br />
+                <label id="lblGolfTypeAMClinicPlay" class="caption-normal">
+                  <input id="rdoGolfTypeAMClinicPlay" name="rdoGolfTypeAM" type="radio" checked="@(Helper.IsChecked(Model.GolfMorning == "Clinic="" and="" open="" playafterwards="""))" value="Clinic and open playafterwards" class="required" />
+                  Clinic and open playafterwards
+                </label>
+                <br />
+                <label id="lblGolfTypeAMPlay" class="caption-normal">
+                  <input id="rdoGolfTypeAMPlay" name="rdoGolfTypeAM" type="radio" checked="@(Helper.IsChecked(Model.GolfMorning == "Open="" Play="" only="""))" value="Open Play only" class="required" />
+                  Open Play only
+                </label>
+                <br />
+                <label id="lblGolfTypeAMNone" class="caption-normal">
+                  <input id="rdoGolfTypeAMNone" name="rdoGolfTypeAM" type="radio" checked="{Helper.IsChecked(Model.GolfMorning == "None=""")}" value="None" class="required" />
+                  None
+                </label>
+              </div>
+            </td>
+            <td></td>
+            <td>
+              <div class="hideGolf" style="display: none">
+                <label id="lblGolfTypePMClinic" class="caption-normal">
+                  <input id="rdoGolfTypePMClinic" name="rdoGolfTypePM" type="radio" checked="@(Helper.IsChecked(Model.GolfAfternoon == "Golf="" clinic="" (2:00="" -="" 3:00="" pm="")"))" value="Golf clinic (2:00 - 3:00 pm)" class="required" />
+                  Golf clinic (2:00 - 3:00 pm)
+                </label>
+                <br />
+                <label id="lblGolfTypePMClinicPlay" class="caption-normal">
+                  <input id="rdoGolfTypePMClinicPlay" name="rdoGolfTypePM" type="radio" checked="@(Helper.IsChecked(Model.GolfAfternoon == "Clinic="" and="" open="" play="" afterwards="""))" value="Clinic and open play afterwards" class="required" />
+                  Clinic and open play afterwards
+                </label>
+                <br />
+                <label id="lblGolfTypePMPlay" class="caption-normal">
+                  <input id="rdoGolfTypePMPlay" name="rdoGolfTypePM" type="radio" checked="@(Helper.IsChecked(Model.GolfAfternoon == "Open="" Play="" only="""))" value="Open Play only" class="required" />
+                  Open Play only
+                </label>
+                <br />
+                <label id="lblGolfTypePMNone" class="caption-normal">
+                  <input id="rdoGolfTypePMNone" name="rdoGolfTypePM" type="radio" checked="{Helper.IsChecked(Model.GolfAfternoon == "None=""")}" value="None" class="required" />
+                  None
+                </label>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="hideGolfAM" style="display: none">
+                <label for="drpTeeTimeAM" class="caption">Select tee time:</label>
+                <br />
+                <select id="drpTeeTimeAM" name="drpTeeTimeAM" class="required caption-normal">
+                  <option id="opTeeTimeAM_None" class="caption-normal">None</option>
+
+                  <option id="opTeeTimeAM_9h_8:30-9:30" class="caption-normal">8:30 - 9:30 am (9 holes)</option>
+                  <option id="opTeeTimeAM_18h_8:30-9:30" class="caption-normal">8:30 - 9:30 am (18 holes)</option>
+
+                  <option id="opTeeTimeAM_9h_9:30-10:30" class="caption-normal">9:30 - 10:30 am (9 holes)</option>
+                  <option id="opTeeTimeAM_18h_9:30-10:30" class="caption-normal">9:30 - 10:30 am (18 holes)</option>
+
+                  <option id="opTeeTimeAM_9h_10:30-11:30" class="caption-normal">10:30 - 11:30 am (9 holes)</option>
+                  <option id="opTeeTimeAM_18h_10:30-11:30" class="caption-normal">10:30 - 11:30 am (18 holes)</option>
+
+                  <option id="opTeeTimeAM_9h_11:30-12:30" class="caption-normal">11:30am - 12:30 pm (9 holes)</option>
+                  <option id="opTeeTimeAM_18h_11:30-12:30" class="caption-normal">11:30am - 12:30 pm (18 holes)</option>
+                </select>
+              </div>
+            </td>
+            <td></td>
+            <td>
+              <div class="hideGolfPM" style="display: none">
+                <label for="drpTeeTimePM" class="caption caption-normal">Select tee time: </label>
+                <br />
+                <select id="drpTeeTimePM" name="drpTeeTimePM" class="required">
+                  <option id="opTeeTimePM_None" class="caption-normal">None</option>
+                  <option id="opTeeTimePM_1:00-2:00" class="caption-normal">1:00 - 2:00 pm (9 holes)</option>
+                  <option id="opTeeTimePM_2:00-3:00" class="caption-normal">2:00 - 3:00 pm (9 holes)</option>
+                </select>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </section>
+      <section id="Basketball_Info" style="margin-right: 20px; margin-top: 20px">
+        <br />
+        <h1 style="margin-bottom: -10px">BASKETBALL</h1>
+        <div class="hr"></div>
+        <table border="0" style="width: 550px">
+          <caption style="text-align: left">
+            <p>
+              Outdoor basketball (located in the lower parking lot, next to the tennis courts). Depending on the number of people who sign up, we will organize either a 3-on-3 tournament or pick-up games.
+            </p>
+          </caption>
+          <tr>
+            <td>
+              <label class="caption" for="rdoBasketballOpenPlay">Open play (2:00 - 3:00 pm)</label>
+            </td>
+            <td style="width: 100px"></td>
+            <td>
+              <label class="caption" for="rdoBasketballGame">Organized game (3:00 - 4:00 pm)</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+              <label style="margin-left: 10px" id="lblBasketballOpenPlayYes" class="caption-normal">
+                <input id="rdoBasketballOpenPlayYes" name="rdoBasketballOpenPlay" type="radio" checked="{Helper.IsChecked(Model.BasketballOpenPlay == [Yes])}" value="BasketballOpenPlayYes" class="required" />
+                Yes
+              </label>
+
+              <label style="margin-left: 10px" id="lblBasketballOpenPlayNo" class="caption-normal">
+                <input id="rdoBasketballOpenPlayNo" name="rdoBasketballOpenPlay" type="radio" checked="{Helper.IsChecked(Model.BasketballOpenPlay == [No])}"value="BasketballOpenPlayNo" class="required" />
+                No
+              </label>
+            </td>
+            <td></td>
+            <td>
+              <label style="margin-left: 10px" id="lblBasketballGameYes" class="caption-normal">
+                <input id="rdoBasketballGameYes" name="rdoBasketballGame" type="radio" checked="{Helper.IsChecked(Model.BasketballOrganizedGame == [Yes])}" value="BasketballGameYes" class="required" />
+                Yes
+              </label>
+              <label style="margin-left: 10px" id="lblBasketballGameNo" class="caption-normal">
+                <input id="rdoBasketballGameNo" name="rdoBasketballGame" type="radio" checked="{Helper.IsChecked(Model.BasketballOrganizedGame == [No])}" value="BasketballGameNo" class="required" />
+                No
+              </label>
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section id="Spa_Info" style="margin-right: 20px; margin-top: 20px">
+        <br />
+        <h1 style="margin-bottom: -10px">SPA</h1>
+        <div class="hr"></div>
+        <table border="0" style="width: 100%">
+          <caption style="text-align: left">
+            <p>
+              The spa will be open in the morning from 11:00 am - 12:30 pm and again in the afternoon from 1:30 - 4:30 pm (last  appointment).
+              <br />
+              Please sign-up in the Card Room for your preferred time (subject to availability).
+            </p>
+          </caption>
+          <tr>
+            <td>
+              <label for="rdoSpa" class="caption">Spa services?</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label id="lblSpaYes" class="caption-normal">
+                <input id="rdoSpaYes" name="rdoSpa" type="radio"checked="@(Helper.IsChecked(Model.SpaInterest == [yes])) " value="I am interested in spa services" class="required" />
+                I am interested in spa services.
+              </label>
+              <br />
+              <label id="lblSpaNo" class="caption-normal">
+                <input id="rdoSpaNo" name="rdoSpa" type="radio" checked="{Helper.IsChecked(Model.SpaInterest == [No])}" value="I am not interested in spa services" class="required" />
+                I am not interested in spa services.
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+        </table>
+        <div class="hideSpa" style="display: none">
+          <table border="0" style="width: 100%">
+            <tr>
+              <td>
+                <label class="caption" for="rdoManicure">Would you like a manicure?</label>
+              </td>
+              <td>
+                <label class="caption" for="rdoPedicure">Would you like a pedicure?</label>
+              </td>
+              <td>
+                <label class="caption" for="rdoMassage">Would you like a mini-massage?</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label id="lblManicureMorning" class="caption-normal">
+                  <input id="rdoManicureMorning" name="rdoManicure" type="radio" checked="@(Helper.IsChecked(Model.SpaManicure == "Yes="", morning="""))" value="Yes, morning." class="required" />
+                  Yes, morning.
+                </label>
+                <br />
+                <label id="lblManicureAfternoon" class="caption-normal">
+                  <input id="rdoManicureAfternoon" name="rdoManicure" type="radio" checked="@(Helper.IsChecked(Model.SpaManicure == "Yes="", afternoon="""))" value="Yes, afternoon." class="required" />
+                  Yes, afternoon.
+                </label>
+                <br />
+                <label id="lblManicureNo" class="caption-normal">
+                  <input id="rdoManicureNo" name="rdoManicure" type="radio" checked="{Helper.IsChecked(Model.SpaManicure == [No])}" value=""[No=""] class="required" />
+                  No
+                </label>
+              </td>
+              <td>
+                <label id="lblPedicureMorning" class="caption-normal">
+                  <input id="rdoPedicureMorning" name="rdoPedicure" type="radio" checked="@(Helper.IsChecked(Model.SpaPedicure == "Yes="", morning="""))" value="Yes, morning." class="required" />
+                  Yes, morning.
+                </label>
+                <br />
+                <label id="lblPedicureAfternoon" class="caption-normal">
+                  <input id="rdoPedicureAfternoon" name="rdoPedicure" type="radio" checked="@(Helper.IsChecked(Model.SpaPedicure == "Yes="", afternoon="""))" value="Yes, afternoon." class="required" />
+                  Yes, afternoon.
+                </label>
+                <br />
+                <label id="lblPedicureNo" class="caption-normal">
+                  <input id="rdoPedicureNo" name="rdoPedicure" type="radio" checked="{Helper.IsChecked(Model.SpaPedicure == [No])}" value=""[No=""] class="required" />
+                  No
+                </label>
+              </td>
+              <td>
+                <label id="lblMassageMorning" class="caption-normal">
+                  <input id="rdoMassageMorning" name="rdoMassage" type="radio" checked="@(Helper.IsChecked(Model.SpaMiniMassage == "Yes="", morning="""))" value="Yes, morning." class="required" />
+                  Yes, morning.
+                </label>
+                <br />
+                <label id="lblMassageAfternoon" class="caption-normal">
+                  <input id="rdoMassageAfternoon" name="rdoMassage" type="radio" checked="@(Helper.IsChecked(Model.SpaMiniMassage == "Yes="", afternoon="""))" value="Yes, afternoon." class="required" />
+                  Yes, afternoon.
+                </label>
+                <br />
+                <label id="lblMassageNo" class="caption-normal">
+                  <input id="rdoMassageNo" name="rdoMassage" type="radio" checked="{Helper.IsChecked(Model.SpaMiniMassage == [No])}" value=""[No=""] class="required" />
+                  No
+                </label>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </section>
+      <section id="Yoga_Info" style="margin-right: 20px; margin-top: 20px">
+        <br />
+        <h1 style="margin-bottom: -10px">YOGA</h1>
+        <div class="hr"></div>
+        <table border="0" style="width: 100%">
+          <caption>
+            <p>
+              Afternoon yoga classes will be offered at beginner and intermediate levels in Dining Room 3.
+              <br />
+              Yoga mats will be provided.
+            </p>
+          </caption>
+          <tr>
+            <td>
+              <label for="rdoYoga" class="caption">Would you like to take an afternoon yoga class?</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label style="margin-left: 10px" class="caption-normal" id="lblYogaYes">
+                <input id="rdoYogaYes" name="rdoYoga" type="radio" checked="{Helper.IsChecked(Model.YogaInterest == [Yes])}" value="YogaYes" class="required" />
+                Yes
+              </label>
+              <label style="margin-left: 10px" class="caption-normal" id="lblYogaNo">
+                <input id="rdoYogaNo" name="rdoYoga" type="radio" checked="{Helper.IsChecked(Model.YogaInterest == [No])}" value="YogaNo" class="required" />
+                No
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="hideYoga" style="display: none">
+                <label for="rdoYogaSkill" class="caption">Yoga skill level:</label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="hideYoga" style="display: none">
+                <label class="caption-normal" id="lblYogaSkillBeginner" style="margin-left: 10px">
+                  <input id="rdoYogaSkillBeginner" name="rdoYogaSkill" type="radio" checked="@(Helper.IsChecked(Model.YogaSkillLevel == "Beginner="" (2:00="" -="" 3:00="" pm="")"))" value="Beginner (2:00 - 3:00 pm)" class="required" />
+                  Beginner (2:00 - 3:00 pm)
+                </label>
+                <label class="caption-normal" id="lblYogaSkillIntermediate" style="margin-left: 10px">
+                  <input id="rdoYogaSkillIntermediate" name="rdoYogaSkill" type="radio" checked="@(Helper.IsChecked(Model.YogaSkillLevel == "Intermediate="" (3:15="" -="" 4:15="" pm="")"))" value="Intermediate (3:15 - 4:15 pm)" class="required" />
+                  Intermediate (3:15 - 4:15 pm)
+                </label>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section id="Misscellaneous" style="margin-right: 20px; margin-top: 20px">
+        <br />
+        <h1 style="margin-bottom: -10px">MISCELLANEOUS</h1>
+        <div class="hr"></div>
+        <table border="0">
+          <tr>
+            <td>
+              <h5>POOL</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <span class="caption">Pool Lounging:</span>  For those of you who would like a day with less exertion, there are plenty of lounge chairs at the pool area.  Towels are supplied by the Club.
+                <br />
+                <span class="caption">Pool Rules:</span>  Swimming attire is not permitted in the Clubhouse, on the golf course or on the tennis courts.  When going directly to and from the locker rooms, a shirt, jacket or cover-up is required over your bathing suit.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>LOCKER ROOMS</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                Showers are available in the locker room. Towels, shampoo, soap, hair dryers and other toiletries are provided. Ladies, please note that there are six showers, so plan accordingly.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>DRESS ATTIRE</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <span class="caption">Lunch:</span>  Sports clothes and casual attire (no jeans, t-shirts, or bathing suits).
+                <br />
+                <br />
+                <span class="caption">Dinner:</span>
+                <br />
+                Men -- jackets and ties are optional (however, if you do not wear a jacket, you must wear a collared shirt).
+                <br />
+                Ladies -- dresses, skirts or dress slacks.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>CONTACT</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                The Sunningdale office will be open from 9:00 am until 5:00 pm and the receptionist can print documents as needed.
+                <br />
+                Cell phones are not permitted on the golf course or in the Clubhouse.
+                <br />
+                <br />
+                Please note contact information for Sunningdale:
+                <br />
+                <br />
+                <span class="caption">Telephone:</span> (914) 723-3200
+                <br />
+                <span class="caption">Fax:</span> (914) 723-0243
+                <br />
+                <span class="caption">Email: </span><a href="mailto:office@sunningdale.org">office@sunningdale.org</a>
+                <br />
+                <br />
+                We look forward to seeing you on Tuesday, July 9, rain or shine.
+                <br />
+                If you have any questions, please contact
+                <br />
+                <a href="mailto:cbarrera@kasowitz.com?Subject=Attorney%20Outing" target="_top">Crystal Barrera</a> at (212) 547–1328 or <a href="mailto:sdulkis@kasowitz.com?Subject=Attorney%20Outing" target="_top">Stacie Dulkis</a> at (212) 547-1428.
+              </p>
+            </td>
+          </tr>
+        </table>
+      </section>
+    </div>
+  </div>
+</article>

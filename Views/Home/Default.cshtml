@@ -1,0 +1,225 @@
+﻿@using FirmOuting.Models;
+@using System.Text.RegularExpressions;
+@using System.Text;
+@using FirmOuting.Controllers;
+
+@{
+    ViewBag.Title = "Attorney Outing";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="section" style="text-align:left">
+    <input id="hdnUid" type="hidden" value="@Helper.CONTENT_HTML_EDIT" />
+    <input id="hdnSitePath" type="hidden" value="@Helper.GetSitePath(this.Request.Url)" />
+    <div class="full">
+        @{
+            var uid = Helper.GetUID(this.Request);
+            var wizContentClass = string.Empty;
+            var stepContentStyle = string.Empty;
+            var names = Helper.GetAttorneyNames(this.Request);
+            bool isSaved = Regex.IsMatch(Request.Url.Query, "issaved=1", RegexOptions.IgnoreCase);
+        }
+        <input id="hdnAttorneyNames" type="hidden" value="@names" />
+        <div id="dvWizPanel" class="panel wizard" style="width: 990px!important;margin-top:10px">
+            <div class="header" style="height: 80px">
+                <div class="wizard-title">
+                    <div>
+                        <table style="width: 100%; margin-top: -8px; margin-left: -4px">
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div id="dvUserPicBorder" class="boxShadowBlur">
+                                                    <div id="imgUserPicBackup">
+                                                        <div id="imgUserPic" style="background:url('https://home.kasowitz.com/Employee%20Photos/@(Session["ID"]).jpg'); background-size: 42px 42px;"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td colspan="2" style="vertical-align: top; color: #FFFFFF; font-family: 'PT Sans',arial,serif;">
+                                                            <h4>Welcome, @Session["FirstName"]</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a id="signOutLink" href="@Url.Content("~/Secure?logoff=true")" title="Log me out." onclick="javascript:SlnCookieRemover()" style="z-index:100;cursor:pointer; color: White; text-decoration: underline">Sign Out</a>
+                                                            &nbsp;
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="width: 350px"></td>
+                                <td style="width: auto; height: 70px; padding-left: 200px">
+                                    <h2>Attorney Outing @Helper.NextOuting</h2>
+                                    <span style="color:white">Kasowitz Benson Torres &amp; Friedman LLP</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="progress-zone" style="position: relative; top: -20px; left: 740px; width: 300px">
+                    <div class="progress-bar">
+                        <div id="dvTabEdit" class="label">
+                            @if ((bool)Session["IsAdmin"])
+                            {
+
+                                @*if (uid.Groups.Count > 0 && uid.Groups["uid"].Value == Helper.CONTENT_REGISTERED_USER_EDIT)
+                                {
+                                    <a id="closeDataTableLink" style="cursor:pointer; color: White; text-decoration: underline;font-family: 'PT Sans',arial,serif;" href="@(Url.Content("~/Home"))" title="Return to the form.">Close Edit</a>
+                                }
+                                else
+                                { }*@ 
+                                    <a id="editDataTableLink" href="@(Url.Content("~/profiles"))" title="Edit user entries in the database.">Edit Datatable</a>@*"~/Home?uid=" + Helper.CONTENT_REGISTERED_USER_EDIT + "&edit=DataTable"*@
+                                
+
+                                if (uid.Groups.Count > 0 && uid.Groups["uid"].Value == Helper.CONTENT_HTML_EDIT)
+                                {
+                                    <a id="savePageLink" onclick="Save(true);" title="Save page content and close editor">Save &amp; Close</a>
+                                    wizContentClass = "";
+                                    stepContentStyle = "width: 100%; height: 100%; margin-left: 0px; padding: 5px 5px 0px;";
+                                }
+                                else
+                                {
+                                    <a id="editPageLink" href="@(Url.Content("~/Home?uid=" + Helper.CONTENT_HTML_EDIT + "&edit=content&cType=FormContent"))" title="Edit mail templates and page content.">Edit Page</a>
+                                    wizContentClass = "wizard-content";
+                                    stepContentStyle = "width: 100%; height: 100%;";
+                                }
+                            }
+                            else
+                            {
+                                wizContentClass = "wizard-content";
+                                stepContentStyle = "width: 100%; height: 100%;";
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="theme"></div>
+            </div>
+            <div class="content">
+                <div class="@wizContentClass">
+                    <ul id="ulID">
+                        <li>
+                            <div class="step-content" style="@stepContentStyle">
+                                @*http://localhost:59172/Home?uid=BF11DEE0-2BE9-4A16-A86D-C32B75FF3DE9*@
+                                @{
+                                    if (!isSaved)
+                                    {
+                                        if (uid.Groups.Count > 0)
+                                        {
+                                            if (uid.Groups["uid"].Value == Helper.CONTENT_HTML_EDIT)
+                                            {
+                                                if (this.Request.QueryString["edit"] == "email" && !string.IsNullOrEmpty(this.Request.QueryString["id"]))
+                                                {
+                                                    <table border="1" cellpadding="2" cellspacing="4">
+                                                        <tr>
+                                                            <td>From:</td>
+                                                            <td>
+                                                                <input type="text" style="width: 300px" value="@ViewBag.From" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Cc:</td>
+                                                            <td>
+                                                                <input type="text" style="width: 300px" value="@ViewBag.Cc" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Bcc:</td>
+                                                            <td>
+                                                                <input type="text" style="width: 300px" value="@ViewBag.Bcc" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Subject:</td>
+                                                            <td>
+                                                                <input type="text" style="width: 300px" value="@ViewBag.Subject" />
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                }
+                                                @(Html.Raw(ViewBag.editor))
+                                                <script type="text/javascript">
+                                                    function RichTextEditor_OnLoad(rteeditor) {
+                                                        editor = rteeditor;
+                                                        editor.AttachEvent("ExecUICommand", SaveEvent);
+                                                    }
+
+                                                    function SaveEvent(rteeditor, info) {
+                                                        if (!rteeditor) return;
+                                                        if (!info || !info.Arguments || !info.Arguments[1] || info.Arguments[1] != "Save")
+                                                            return;
+
+
+                                                        Save(false);
+                                                    }
+                                                </script>
+                                            }
+                                            else if (uid.Groups["uid"].Value == Helper.CONTENT_REGISTERED_USER_EDIT)
+                                            {
+                                                @Html.Partial("RegisteredUsersRepository")
+                                            }
+                                            else
+                                            {
+                                                <form id="contentForm" action="Home/SaveData" method="post">
+                                                    @Html.Partial("FormContent")
+                                                </form>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <form action="Home/SaveData" method="post">
+                                                @Html.Partial("Content")
+                                            </form>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @Html.Partial("Confirmation")
+                                    }
+                                }
+                            </div>
+                        </li>
+                    </ul>
+                    @if (!(((uid.Groups["uid"].Value == Helper.CONTENT_HTML_EDIT) || (uid.Groups["uid"].Value == Helper.CONTENT_REGISTERED_USER_EDIT)) && (this.Request.QueryString["edit"] == "content" || (this.Request.QueryString["edit"] == "email" && !string.IsNullOrEmpty(this.Request.QueryString["id"])) || (this.Request.QueryString["edit"] == "DataTable"))))
+                    {
+                        if (!isSaved)
+                        {
+
+                            <center style="margin-bottom: 5px; margin-top: 10px">
+                                <input id="btnSubmit" type="button" role="button" class="ui-button ui-widget ui-state-default ui-corner-all" onclick="javascript: submitControl()" value="@(Session["IsNewButtonValue"] ?? "Submit")" />
+                            </center>
+
+                        }
+                        else
+                        {
+                            <center style="margin-bottom: 5px;">
+                                <button id="hdnbtnSubmit">Save</button>
+                            </center>
+                        }
+                    }
+                </div>
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+</div>
+<div id="dlgSolution" title="Solution" style="display: none">
+    <div id="accordion">
+        <h3>Content Editing</h3>
+        <div style="margin: 0px; padding: 0px">
+            @if (uid.Groups.Count > 0 && uid.Groups["uid"].Value == Helper.CONTENT_HTML_EDIT)
+            {
+                @Helper.GetArticle(this.Request);
+            }
+        </div>
+        <h3>Email templates</h3>
+        <div>
+            @Helper.GetMailTemplates(this.Request)
+        </div>
+    </div>
+</div>

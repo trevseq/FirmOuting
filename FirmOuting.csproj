@@ -1,0 +1,747 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4923FDE3-3C2A-4355-9FFF-653BD79B5A66}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FirmOuting</RootNamespace>
+    <AssemblyName>FirmOuting</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RichTextEditor, Version=8.0.0.0, Culture=neutral, PublicKeyToken=3858aa6802b1223a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\RichTextEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FirmOuting - Copy\FirmOuting\bin\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.1.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FirmOuting - Copy\FirmOuting\bin\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="AttorneyOuting.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AttorneyOuting.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttorneyOuting.cs">
+      <DependentUpon>AttorneyOuting.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttorneyOuting.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AttorneyOuting.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="AttorneyOuting1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AttorneyOuting.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttorneyOutingAuthentication.cs">
+      <DependentUpon>AttorneyOuting.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttorneyOutingMailTemplate.cs">
+      <DependentUpon>AttorneyOuting.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfilesController.cs" />
+    <Compile Include="Controllers\SecureController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Helper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Images\60degree_gray.gif" />
+    <Content Include="Content\Images\accent.png" />
+    <Content Include="Content\Images\asterisk.png" />
+    <Content Include="Content\Images\AttorneyOutingHeader.jpg" />
+    <Content Include="Content\Images\back-background-light.png" />
+    <Content Include="Content\Images\back-background-pattern.png" />
+    <Content Include="Content\Images\back-bar-blue.png" />
+    <Content Include="Content\Images\back-bar-bluelong.png" />
+    <Content Include="Content\Images\back-bar-gold.png" />
+    <Content Include="Content\Images\back-bar-goldlong.png" />
+    <Content Include="Content\Images\back-bar-grey.png" />
+    <Content Include="Content\Images\back-bar-header.png" />
+    <Content Include="Content\Images\back-bar-red.png" />
+    <Content Include="Content\Images\back-bar-redlong.png" />
+    <Content Include="Content\Images\back-bar-title-blue.png" />
+    <Content Include="Content\Images\back-bar-title-large-blue.png" />
+    <Content Include="Content\Images\back-bar-white.png" />
+    <Content Include="Content\Images\back-bar-whitelong.png" />
+    <Content Include="Content\Images\back-body-light.png" />
+    <Content Include="Content\Images\back-body-texture.png" />
+    <Content Include="Content\Images\back-border-left.png" />
+    <Content Include="Content\Images\back-bullet--square-black-1.png" />
+    <Content Include="Content\Images\back-bullet--square-black-2.png" />
+    <Content Include="Content\Images\back-bullet--square-black-3.png" />
+    <Content Include="Content\Images\back-bullet--square-black-4.png" />
+    <Content Include="Content\Images\back-bullet--square-black-5.png" />
+    <Content Include="Content\Images\back-bullet--square-black-6.png" />
+    <Content Include="Content\Images\back-bullet--square-blue-1.png" />
+    <Content Include="Content\Images\back-bullet--square-blue-2.png" />
+    <Content Include="Content\Images\back-bullet--square-blue-3.png" />
+    <Content Include="Content\Images\back-bullet--square-blue-4.png" />
+    <Content Include="Content\Images\back-bullet--square-blue-5.png" />
+    <Content Include="Content\Images\back-bullet--square-blue-6.png" />
+    <Content Include="Content\Images\back-bullet--square-green-1.png" />
+    <Content Include="Content\Images\back-bullet--square-green-2.png" />
+    <Content Include="Content\Images\back-bullet--square-green-3.png" />
+    <Content Include="Content\Images\back-bullet--square-green-4.png" />
+    <Content Include="Content\Images\back-bullet--square-green-5.png" />
+    <Content Include="Content\Images\back-bullet--square-green-6.png" />
+    <Content Include="Content\Images\back-bullet--square-red-1.png" />
+    <Content Include="Content\Images\back-bullet--square-red-2.png" />
+    <Content Include="Content\Images\back-bullet--square-red-3.png" />
+    <Content Include="Content\Images\back-bullet--square-red-4.png" />
+    <Content Include="Content\Images\back-bullet--square-red-5.png" />
+    <Content Include="Content\Images\back-bullet--square-red-6.png" />
+    <Content Include="Content\Images\back-bullet-black-4.png" />
+    <Content Include="Content\Images\back-bullet-black-5.png" />
+    <Content Include="Content\Images\back-bullet-black-6.png" />
+    <Content Include="Content\Images\back-bullet-blue-1.png" />
+    <Content Include="Content\Images\back-bullet-blue-2.png" />
+    <Content Include="Content\Images\back-bullet-blue-3.png" />
+    <Content Include="Content\Images\back-bullet-blue-4.png" />
+    <Content Include="Content\Images\back-bullet-blue-5.png" />
+    <Content Include="Content\Images\back-bullet-blue-6.png" />
+    <Content Include="Content\Images\back-bullet-green-1.png" />
+    <Content Include="Content\Images\back-bullet-green-2.png" />
+    <Content Include="Content\Images\back-bullet-green-3.png" />
+    <Content Include="Content\Images\back-bullet-green-4.png" />
+    <Content Include="Content\Images\back-bullet-green-5.png" />
+    <Content Include="Content\Images\back-bullet-green-6.png" />
+    <Content Include="Content\Images\back-bullet-red-1.png" />
+    <Content Include="Content\Images\back-bullet-red-2.png" />
+    <Content Include="Content\Images\back-bullet-red-3.png" />
+    <Content Include="Content\Images\back-bullet-red-4.png" />
+    <Content Include="Content\Images\back-bullet-red-5.png" />
+    <Content Include="Content\Images\back-bullet-red-6.png" />
+    <Content Include="Content\Images\back-button-clean-style01.png" />
+    <Content Include="Content\Images\back-button-clean-style02.png" />
+    <Content Include="Content\Images\back-button-clean-style03.png" />
+    <Content Include="Content\Images\back-button-transparent.png" />
+    <Content Include="Content\Images\back-button-white.png" />
+    <Content Include="Content\Images\back-button.png" />
+    <Content Include="Content\Images\back-buttons-item-small.png" />
+    <Content Include="Content\Images\back-buttons-item.png" />
+    <Content Include="Content\Images\back-calendar-bar.png" />
+    <Content Include="Content\Images\back-calendar-button-close-active.png" />
+    <Content Include="Content\Images\back-calendar-button-close.png" />
+    <Content Include="Content\Images\back-calendar-button-event.png" />
+    <Content Include="Content\Images\back-calendar-hours.png" />
+    <Content Include="Content\Images\back-calendar-stats-clear.png" />
+    <Content Include="Content\Images\back-calendar-stats.png" />
+    <Content Include="Content\Images\back-calendar-stats1.png" />
+    <Content Include="Content\Images\back-calendar-stats2.png" />
+    <Content Include="Content\Images\back-chart-icons.png" />
+    <Content Include="Content\Images\back-contact-call.png" />
+    <Content Include="Content\Images\back-contact-group-big.png" />
+    <Content Include="Content\Images\back-contact-group-bullet.png" />
+    <Content Include="Content\Images\back-contact-group.png" />
+    <Content Include="Content\Images\back-contact-home.png" />
+    <Content Include="Content\Images\back-contact-img.png" />
+    <Content Include="Content\Images\back-contacts-alphabet-selected.png" />
+    <Content Include="Content\Images\back-light.png" />
+    <Content Include="Content\Images\back-list-border.png" />
+    <Content Include="Content\Images\back-list-lines.png" />
+    <Content Include="Content\Images\back-login-form-blure.png" />
+    <Content Include="Content\Images\back-login-form-field.png" />
+    <Content Include="Content\Images\back-login-form.png" />
+    <Content Include="Content\Images\back-logo.png" />
+    <Content Include="Content\Images\back-menu-center-selected.png" />
+    <Content Include="Content\Images\back-menu-center.png" />
+    <Content Include="Content\Images\back-menu-item-border.png" />
+    <Content Include="Content\Images\back-menu-left.png" />
+    <Content Include="Content\Images\back-menu-right.png" />
+    <Content Include="Content\Images\back-nav-selection.png" />
+    <Content Include="Content\Images\back-notice-center.png" />
+    <Content Include="Content\Images\back-notice-left.png" />
+    <Content Include="Content\Images\back-notice-pin.png" />
+    <Content Include="Content\Images\back-notice-right.png" />
+    <Content Include="Content\Images\back-panel-bar-medium.png" />
+    <Content Include="Content\Images\back-panel-controls.png" />
+    <Content Include="Content\Images\back-panel-left-head.png" />
+    <Content Include="Content\Images\back-popup-button-left.png" />
+    <Content Include="Content\Images\back-popup-button-right.png" />
+    <Content Include="Content\Images\back-popup-button-white.png" />
+    <Content Include="Content\Images\back-popup-button.png" />
+    <Content Include="Content\Images\back-popup-help-bottom.png" />
+    <Content Include="Content\Images\back-popup-help-center.png" />
+    <Content Include="Content\Images\back-popup-help-top.png" />
+    <Content Include="Content\Images\back-popup-input.png" />
+    <Content Include="Content\Images\back-popup-pin.png" />
+    <Content Include="Content\Images\back-popup.png" />
+    <Content Include="Content\Images\back-progress-blue.png" />
+    <Content Include="Content\Images\back-progress-gold.png" />
+    <Content Include="Content\Images\back-progress-red.png" />
+    <Content Include="Content\Images\back-progress-theme-blue.png" />
+    <Content Include="Content\Images\back-progress-theme-grey.png" />
+    <Content Include="Content\Images\back-progress-theme-lightblue.png" />
+    <Content Include="Content\Images\back-progress-theme-orange.png" />
+    <Content Include="Content\Images\back-progress-theme-red.png" />
+    <Content Include="Content\Images\back-progress-theme-yellow.png" />
+    <Content Include="Content\Images\back-progress-white.png" />
+    <Content Include="Content\Images\back-rating-off.png" />
+    <Content Include="Content\Images\back-rating-on.png" />
+    <Content Include="Content\Images\back-screencast.png" />
+    <Content Include="Content\Images\back-search-large.png" />
+    <Content Include="Content\Images\back-search.png" />
+    <Content Include="Content\Images\back-table-center.png" />
+    <Content Include="Content\Images\back-table-left.png" />
+    <Content Include="Content\Images\back-table-right.png" />
+    <Content Include="Content\Images\back-tabs-box-gradient.png" />
+    <Content Include="Content\Images\back-tabs-box-hover.png" />
+    <Content Include="Content\Images\back-tabs-box-inactive.png" />
+    <Content Include="Content\Images\back-theme-panelbar.png" />
+    <Content Include="Content\Images\back-typography-heading-bullet-h1.png" />
+    <Content Include="Content\Images\back-typography-heading-bullet-h2.png" />
+    <Content Include="Content\Images\back-typography-heading-bullet-h3.png" />
+    <Content Include="Content\Images\back-typography-heading-bullet-h4.png" />
+    <Content Include="Content\Images\back-typography-help-icon.png" />
+    <Content Include="Content\Images\back-typography-help.png" />
+    <Content Include="Content\Images\back-view-column.png" />
+    <Content Include="Content\Images\back-view-dropdown.png" />
+    <Content Include="Content\Images\back-wizard-nav-button.png" />
+    <Content Include="Content\Images\back-wizard-nav-line.png" />
+    <Content Include="Content\Images\back-wizard-setup-bar-title-large-blue.png" />
+    <Content Include="Content\Images\back-wizard-shadow.png" />
+    <Content Include="Content\Images\back-wood.jpg" />
+    <Content Include="Content\Images\bar-button-left.png" />
+    <Content Include="Content\Images\bar-button-right.png" />
+    <Content Include="Content\Images\bullet.png" />
+    <Content Include="Content\Images\calendar-nav-buttons.png" />
+    <Content Include="Content\Images\CheckBoxHS.png" />
+    <Content Include="Content\Images\close.png" />
+    <Content Include="Content\Images\cross.png" />
+    <Content Include="Content\Images\elementHS.png" />
+    <Content Include="Content\Images\error.png" />
+    <Content Include="Content\Images\gallery-none.png" />
+    <Content Include="Content\Images\heroAccent.png" />
+    <Content Include="Content\Images\horiz-bg.png" />
+    <Content Include="Content\Images\horiz-slider-bg.png" />
+    <Content Include="Content\Images\HtmlBalanceBracesHS.png" />
+    <Content Include="Content\Images\icon-arrow-down.png" />
+    <Content Include="Content\Images\icon-arrow-left.png" />
+    <Content Include="Content\Images\icon-arrow-right.png" />
+    <Content Include="Content\Images\icon-arrow-top.png" />
+    <Content Include="Content\Images\icon-browser.png" />
+    <Content Include="Content\Images\icon-calendar.png" />
+    <Content Include="Content\Images\icon-edit.png" />
+    <Content Include="Content\Images\icon-error.png" />
+    <Content Include="Content\Images\icon-home.png" />
+    <Content Include="Content\Images\icon-labels.png" />
+    <Content Include="Content\Images\icon-minus.png" />
+    <Content Include="Content\Images\icon-next.png" />
+    <Content Include="Content\Images\icon-perviews.png" />
+    <Content Include="Content\Images\icon-pin.png" />
+    <Content Include="Content\Images\icon-plus.png" />
+    <Content Include="Content\Images\icon-previews.png" />
+    <Content Include="Content\Images\icon-remove.png" />
+    <Content Include="Content\Images\icon-sales.png" />
+    <Content Include="Content\Images\icon-stats.png" />
+    <Content Include="Content\Images\icon-task.png" />
+    <Content Include="Content\Images\icons\nav\icon-backup.png" />
+    <Content Include="Content\Images\icons\nav\icon-brush.png" />
+    <Content Include="Content\Images\icons\nav\icon-colors.png" />
+    <Content Include="Content\Images\icons\nav\icon-dashboard.png" />
+    <Content Include="Content\Images\icons\nav\icon-layout.png" />
+    <Content Include="Content\Images\icons\nav\icon-settings.png" />
+    <Content Include="Content\Images\icons\nav\icon-slider.png" />
+    <Content Include="Content\Images\icons\nav\sprite-back-leftnav-backup.png" />
+    <Content Include="Content\Images\icons\nav\sprite-back-leftnav-dashboard.png" />
+    <Content Include="Content\Images\icons\nav\sprite-back-leftnav-layout.png" />
+    <Content Include="Content\Images\icons\nav\sprite-back-leftnav-setup.png" />
+    <Content Include="Content\Images\icons\nav\sprite-back-leftnav-sliders.png" />
+    <Content Include="Content\Images\icons\nav\sprite-back-leftnav-theme.png" />
+    <Content Include="Content\Images\ig_tblMinus.gif" />
+    <Content Include="Content\Images\ig_tblPlus.gif" />
+    <Content Include="Content\Images\Jcrop.gif" />
+    <Content Include="Content\Images\jslider.png" />
+    <Content Include="Content\Images\jslider.round.plastic.png" />
+    <Content Include="Content\Images\Kasowitz_Logo_RGB_Small.png" />
+    <Content Include="Content\Images\loading.gif" />
+    <Content Include="Content\Images\login-form-bottom-hr.png" />
+    <Content Include="Content\Images\login-form-hr.png" />
+    <Content Include="Content\Images\login-form-logo.png" />
+    <Content Include="Content\Images\nav-view-detailed.png" />
+    <Content Include="Content\Images\nav-view-thumbnails.png" />
+    <Content Include="Content\Images\nav\back-nav-bar.png" />
+    <Content Include="Content\Images\nav\back-nav-dark.png" />
+    <Content Include="Content\Images\nav\back-nav-icon.png" />
+    <Content Include="Content\Images\nav\back-nav-selection.png" />
+    <Content Include="Content\Images\nav\back-nav-separator.png" />
+    <Content Include="Content\Images\niceditoricons.gif" />
+    <Content Include="Content\Images\o14_person_placeholder_42.png" />
+    <Content Include="Content\Images\options-pen-icon-on.png" />
+    <Content Include="Content\Images\orderedList0.png" />
+    <Content Include="Content\Images\orderedList1.png" />
+    <Content Include="Content\Images\orderedList2.png" />
+    <Content Include="Content\Images\orderedList3.png" />
+    <Content Include="Content\Images\orderedList4.png" />
+    <Content Include="Content\Images\orderedList5.png" />
+    <Content Include="Content\Images\orderedList6.png" />
+    <Content Include="Content\Images\orderedList7.png" />
+    <Content Include="Content\Images\orderedList8.png" />
+    <Content Include="Content\Images\orderedList9.png" />
+    <Content Include="Content\Images\page-first-gray.gif" />
+    <Content Include="Content\Images\page-last-gray.gif" />
+    <Content Include="Content\Images\page-next-gray.gif" />
+    <Content Include="Content\Images\page-prev-gray.gif" />
+    <Content Include="Content\Images\paper_2.gif" />
+    <Content Include="Content\Images\Radio_button_off.png" />
+    <Content Include="Content\Images\Refresh.gif" />
+    <Content Include="Content\Images\search-button.png" />
+    <Content Include="Content\Images\slices\2723128657_5301513333.jpg" />
+    <Content Include="Content\Images\slices\cat.png" />
+    <Content Include="Content\Images\slices\gallery-cat.png" />
+    <Content Include="Content\Images\slices\gallery-cate.png" />
+    <Content Include="Content\Images\slices\gallery-clock.png" />
+    <Content Include="Content\Images\slices\gallery-dandelion.png" />
+    <Content Include="Content\Images\slices\gallery-dog.png" />
+    <Content Include="Content\Images\slices\gallery-flower-small.png" />
+    <Content Include="Content\Images\slices\gallery-flower.png" />
+    <Content Include="Content\Images\slices\gallery-foto.png" />
+    <Content Include="Content\Images\slices\gallery-nature.png" />
+    <Content Include="Content\Images\slices\gallery-none.png" />
+    <Content Include="Content\Images\slices\gallery-spring-flower.png" />
+    <Content Include="Content\Images\slices\gallery-thmb-butterfly.png" />
+    <Content Include="Content\Images\sort_asc.gif" />
+    <Content Include="Content\Images\sort_desc.gif" />
+    <Content Include="Content\Images\sprite.png" />
+    <Content Include="Content\Images\star-off.png" />
+    <Content Include="Content\Images\star-on.png" />
+    <Content Include="Content\Images\styler\back-styler-body.png" />
+    <Content Include="Content\Images\styler\back-styler-handleicon.png" />
+    <Content Include="Content\Images\styler\back-styler-side.png" />
+    <Content Include="Content\Images\styler\color-picker\circle.gif" />
+    <Content Include="Content\Images\styler\color-picker\gradient.png" />
+    <Content Include="Content\Images\styler\color-picker\line.gif" />
+    <Content Include="Content\Images\styler\color-picker\rainbow.png" />
+    <Content Include="Content\Images\styler\color-picker\trigger.png" />
+    <Content Include="Content\Images\success.png" />
+    <Content Include="Content\Images\sunningdaleGolf.jpg" />
+    <Content Include="Content\Images\tactile_noise.gif" />
+    <Content Include="Content\Images\tick.png" />
+    <Content Include="Content\Images\vert-bg.png" />
+    <Content Include="Content\Images\vert-slider-bg.png" />
+    <Content Include="Content\Images\warning-icon.png" />
+    <Content Include="Content\Images\warning.png" />
+    <Content Include="Content\Images\x-btn.png" />
+    <Content Include="Content\pqgrid.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\style-calendar.css" />
+    <Content Include="Content\style-custom.css" />
+    <Content Include="Content\style-explorer.css" />
+    <Content Include="Content\style-ie.css" />
+    <Content Include="Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Content\themes\redmond\images\animated-overlay.gif" />
+    <Content Include="Content\themes\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\themes\redmond\jquery-ui-1.10.2.custom.min.css" />
+    <Content Include="Content\themes\redmond\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Content\validationEngine.jquery.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\browser-msie.js" />
+    <Content Include="Scripts\default.js" />
+    <Content Include="Scripts\excanvas.compiled.js" />
+    <Content Include="Scripts\explorer-custom.js" />
+    <Content Include="Scripts\explorer-extra.js" />
+    <Content Include="Scripts\jqbrowser-uncompressed.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-2.0.0.min.js" />
+    <Content Include="Content\Images\nav\Thumbs.db" />
+    <Content Include="Content\Images\slices\Thumbs.db" />
+    <Content Include="Content\Images\styler\Thumbs.db" />
+    <Content Include="packages.config" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-3.1.0.debug.js" />
+    <Content Include="Scripts\knockout-3.1.0.js" />
+    <Content Include="Scripts\modernizr-2.7.2.js" />
+    <Content Include="Scripts\Plugins\jquery-cookie\jquery-cookie.js" />
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\build\jquery.dialogextend.js" />
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\build\jquery.dialogextend.min.js" />
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\example.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\css\customMessages.css" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\css\screenshot.png" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\css\template.css" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\css\validationEngine.jquery.css" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoAdjustments.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoAjaxInlinePHP.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoAjaxJAVA.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoAjaxSubmitPHP.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoAttr.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoAutoHide.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoCheckBox.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoChosenLibrary.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoCustomErrorMessages.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoDatepicker.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoDivContainer.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoErrorLimit.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoFieldTypes.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoGlobalSettings.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoHooks.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoInlineMessages.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoLiveEvent.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoMultipleForms.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoOneMessage.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoOnForm.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoOverflown.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoPerFieldPromptDirection.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoPositioning.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoRegExp.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoSelectBoxLibrary.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoShowPrompt.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoSilent.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoValidationComplete.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoValidators.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoValidators.ja.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\demoWithoutId.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\index.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\contrib\other-validations.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\jquery.validationEngine.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-cz.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-da.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-de.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-en.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-es.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-et.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-fa.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-fi.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-fr.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-hr.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-hu.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-it.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-ja.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-nl.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-no.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-pl.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-pt.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-pt_BR.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-ro.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-ru.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-se.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-tr.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-vi.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-zh_CN.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\js\languages\jquery.validationEngine-zh_TW.js" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\tests\issue430.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\tests\issue451.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\tests\issue480.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\tests\issue493.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\tests\issue498.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\tests\issue507.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\tests\issue524.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\tests\placeholders.html" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\test\AjaxTestServer.java" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\test\NanoHTTPD.java" />
+    <Content Include="Scripts\pqgrid.min.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Views\Secure\Default.cshtml" />
+    <Content Include="XMLFile1.xml" />
+    <EntityDeploy Include="AttorneyOuting.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AttorneyOuting.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="AttorneyOuting.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AttorneyOuting.edmx</DependentUpon>
+      <LastGenOutput>AttorneyOuting.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AttorneyOuting.edmx.diagram">
+      <DependentUpon>AttorneyOuting.edmx</DependentUpon>
+    </Content>
+    <Content Include="AttorneyOuting.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AttorneyOuting.edmx</DependentUpon>
+      <LastGenOutput>AttorneyOuting1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\.gitattributes" />
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\.gitignore" />
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\CHANGELOG.md" />
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\dialogextend.jquery.json" />
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\Gruntfile.coffee" />
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\LICENSE.md" />
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\package.json" />
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\README.md" />
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\src\jquery.dialogextend.coffee" />
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\src\modules\jquery.dialogextend.collapse.coffee" />
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\src\modules\jquery.dialogextend.maximize.coffee" />
+    <Content Include="Scripts\Plugins\jquery-dialogextend-master\src\modules\jquery.dialogextend.minimize.coffee" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\.gitignore" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\phpajax\ajaxValidateFieldName.php" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\phpajax\ajaxValidateFieldUser.php" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\demos\phpajax\ajaxValidateSubmit.php" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\README.md" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\runDemo.bat" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\runDemo.sh" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\test\AjaxTestServer%24AjaxValidationFieldResponse.class" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\test\AjaxTestServer%24AjaxValidationFormResponse.class" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\test\AjaxTestServer.class" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\test\NanoHTTPD%24HTTPSession.class" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\test\NanoHTTPD%24Response.class" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\test\NanoHTTPD.class" />
+    <Content Include="Scripts\Plugins\posabsolute-jQuery-Validation-Engine-499f567\validationengine.jquery.json" />
+    <Content Include="Web.config" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Confirmation.cshtml" />
+    <Content Include="Views\Home\Default.cshtml" />
+    <Content Include="Views\Home\FormContent.cshtml" />
+    <Content Include="Views\Home\RegisteredUsersRepository.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Profiles\Default.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3956</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59172/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

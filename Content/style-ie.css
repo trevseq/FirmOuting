@@ -1,0 +1,106 @@
+	/*#content div.small											{ width:32%;margin-left:1.8%;float:left; }
+	#content div.small.x2										{ width:66%; }
+	
+	#header #notice a 											{ color:#CCE5F2; }
+	.tabs-box a													{ color:#CFCFCF; }
+	
+	.gallery-view-thumbnail .thumb 								{ background:#EAEAEA; } 
+	.gallery-view-thumbnail .edit 								{ background-color:#000; }
+	.gallery-view-thumbnail .remove 							{ background-color:#000; }
+	
+	.wizard .progress-bar .label 								{ color:#B3D7E5; }
+	.wizard .progress-bar .label.selected						{ color:#fff; }
+	
+	.wizard .progress-bar .label span 							{ color:#539BB5; }
+	.wizard .progress-bar .label.selected span					{ color:#B3D4E1; }
+	
+	.wizard .progress-bar .pbar 								{ background:#016C99;  }
+	
+	#exp-login .input input 		{ width:265px;height:25px;  }
+	
+	.help { float:right; }
+	
+	#style-background 											{ display:none; }
+	body 														{ background:url('../images/back-body-texture.png'); }*/
+
+
+
+
+
+    /*** Rounded image corners and shadow borders *********************/
+/*#imgSunningdalePool {
+    width: 660px;
+    height: 178px;
+    margin-left: 5%;
+    margin-right: 5%;
+    -webkit-box-shadow: 0px 0px 10px #4d4d4d;
+    -moz-box-shadow: 0px 0px 10px #4d4d4d;
+    box-shadow: 0px 0px 10px #4d4d4d;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: url('../uploads/sunningdalePool.jpg');
+}*/
+/*#imgAttorneyOutingHeader {
+    width: 571px;
+    height: 212px;
+    margin: 5%;
+    -webkit-box-shadow: 0px 0px 10px #4d4d4d;
+    -moz-box-shadow: 0px 0px 10px #4d4d4d;
+    box-shadow: 0px 0px 10px #4d4d4d;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: url('../uploads/AttorneyOutingHeader.jpg');
+}*/
+
+.roundCornerBoxShadow {
+    margin-left: 5%;
+    margin-right: 5%;
+    -webkit-box-shadow: 0px 0px 14px #4d4d4d;
+    -moz-box-shadow: 0px 0px 14px #4d4d4d;
+    box-shadow: 0px 0px 14px #4d4d4d;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#imgUserPic {
+    width: 42px;
+    height: 42px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+#imgUserPicBackup {
+    width: 42px;
+    height: 42px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+    background: url('../images/o14_person_placeholder_42.png');
+}
+#dvUserPicBorder {
+    width: auto;
+    height: auto;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+    overflow: hidden;
+    border:solid white 3px;
+    background-color: ActiveBorder;
+    margin-left: 4px;
+    margin-right: 8px;
+    text-align: center;
+}

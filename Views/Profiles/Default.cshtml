@@ -1,0 +1,167 @@
+﻿@{
+    ViewBag.Title = "Profiles";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h1>Registered Users Repository</h1>
+<span style="color:blue; font-size:15px"><a href="@Url.Content("~/Home")">Return Home</a></span>
+@*<center>*@
+<div id="pqDbGrid" style="display:block"></div>
+@*</center>*@
+<div id="dlgEditProfile" style="display:none; padding:10px; margin:auto" title="Edit Entry">
+    <div id="accordion">
+        <h3>Personal Information</h3>
+        <div id="dvPersonal">
+            <ol class="editLeft">
+                <li>
+                    <label for="firstname">First Name: </label>
+                    <input id="firstname" type="text" />
+                </li>
+                <li>
+                    <label for="middlename">Middle Name: </label>
+                    <input id="middlename" type="text" />
+                </li>
+                <li>
+                    <label for="lastname">Last Name: </label>
+                    <input id="lastname" type="text" />
+                </li>
+                <li>
+                    <label for="persontype">Person Type: </label>
+                    <input id="persontype" type="text" />
+                </li>
+            </ol>
+            <ol class="editRight">
+                <li style="padding:5px">
+                    <label for="email">Email: </label>
+                    <input id="email" type="text" />
+                </li>
+                <li>
+                    <label for="bringingguest">Bringing Guest: </label>
+                    <input id="bringingguest" />
+                </li>
+                <li>
+                    <label for="attending">Attending: </label>
+                    <input id="attending" />
+                </li>
+            </ol>
+        </div>
+        <h3>Meals</h3>
+        <div id="dvMeals">
+            <ol>
+                <li class="editLeft">
+                    <label for="lunch">Lunch: </label>
+                    <input id="lunch" type="text" />
+                </li>
+                <li class="editRight">
+                    <label for="dinner">Dinner: </label>
+                    <input id="dinner" type="text" />
+                </li>
+            </ol>
+            <br />
+            <br />
+            <ul class="checkbox-grid">
+                <li><input type="checkbox" name="dietKosher" /><label for="dietKosher">Kosher</label></li>
+                <li><input type="checkbox" name="dietVegetarian" /><label for="dietVegetarian">Vegetarian</label></li>
+                <li><input type="checkbox" name="dietVegan" /><label for="dietVegan">Vegan</label></li>
+                <li><input type="checkbox" name="dietPescatarian" /><label for="dietPescatarian">Pescatarian</label></li>
+                <li><input type="checkbox" name="dietGluten" /><label for="dietGluten">Gluten-Free</label></li>
+                <li><input type="checkbox" name="dietNut" /><label for="dietNut">Nut Allergy</label></li>
+                <li><input type="checkbox" name="dietShellfish" /><label for="dietShellfish">Shellfish</label></li>
+                <li><input type="checkbox" name="dietLactose" /><label for="dietLactose">Lactose</label></li>
+                <li><label for="dietOther">Other: </label><input type="text" name="dietOther" /></li>
+            </ul>
+        </div>
+        <h3>Transportation</h3>
+        <div id="dvTransport">
+            <ul>
+                <li>
+                    <label for="busToSunningdale">Bus To Sunningdale: </label><input id="busToSunningdale" type="text" />
+                </li>
+                <li>
+                    <label for="busToNYC">Bus To NYC: </label><input id="busToNYC" type="text" />
+                </li>
+            </ul>
+        </div>
+        <h3>Tennis</h3>
+        <div id="dvTennis">
+            <ol class="editLeft">
+                <li><label for="tennisPlaying">Playing Tennis: </label><input id="tennisPlaying" type="text" /></li>
+                <li><label for="tennisRentRacquet">Rent Racquet: </label><input id="tennisRentRacquet" type="text" /></li>
+                <li><label for="tennisLevel">Level of Play: </label><input id="tennisLevel" type="text" /></li>
+            </ol>
+            <ol class="editRight">
+                <li><label for="tennisMorning">Morning: </label><input id="tennisMorning" type="text" /></li>
+                <li><label for="tennisAfternoon">Afternoon: </label><input id="tennisAfternoon" type="text" /></li>
+            </ol>
+        </div>
+        <h3>Golf</h3>
+        <div id="dvGolf">
+            <ul class="list-grid">
+                <li><label for="golfPlaying">Playing: </label><input id="golfPlaying" type="text" /></li>
+                <li><label for="golfLevel">Level of Play: </label><input id="golfLevel" type="text" /></li>
+                <li><label for="golfRent">Renting Clubs: </label><input id="golfRent" type="text" /></li>
+                <li><label for="golfHands">Righty/Lefty: </label><input id="golfHands" type="text" /></li>
+                <li><label for="golfCart">Cart or Walk: </label><input id="golfCart" type="text" /></li>
+                <li><label for="golfFoursome">Foursome: </label><input id="golfFoursome" type="text" /></li>
+                <li><label for="golfMorning">Morning: </label><input id="golfMorning" type="text" /></li>
+                <li><label for="golfClinicMorning">Clinic Morning: </label><input id="golfClinicMorning" type="text" /></li>
+                <li><label for="golfAfternoon">Afternoon: </label><input id="golfAfternoon" type="text" /></li>
+                <li><label for="golfClinicAfternoon">Clinic Afternoon: </label><input id="golfClinicAfternoon" type="text" /></li>
+            </ul>
+            
+        </div>
+        <h3>Basketball</h3>
+        <div id="dvBasketball">
+            <ul>
+                <li><label for="basketballOpenPlay">Open Play: </label><input id="basketballOpenPlay" type="text" /></li>
+                <li><label for="basketballOrganizedGame">Organized Game: </label><input id="basketballOrganizedGame" type="text" /></li>
+            </ul>
+        </div>
+        <h3>Spa</h3>
+        <div id="dvSpa">
+            <ul class="list-grid">
+                <li><label for="spaInterest">Spa Interest: </label><input id="spaInterest" type="text" /></li>
+                <li><label for="spaMani">Manicure: </label><input id="spaMani" type="text" /></li>
+                <li><label for="spaPedi">Pedicure: </label><input id="spaPedi" type="text" /></li>
+                <li><label for="spaMassage">Mini Massage: </label><input id="spaMassage" type="text" /></li>
+            </ul>
+        </div>
+        <h3>Yoga</h3>
+        <div id="dvYoga">
+            <ul>
+                <li><label for="yogaInterest">Yoga Interest: </label><input id="yogaInterest" type="text" /></li>
+                <li><label for="yogaSkill">Skill Level: </label><input id="yogaSkill" type="text" /></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .editLeft {
+        width: 50%;
+        float: left;
+    }
+
+    .editRight {
+        margin-left: 50%;
+    }
+
+    div#dlgEditProfile li {
+        padding: 5px;
+    }
+
+    div#dlgEditProfile label {
+        display: inline-block;
+        width: 40%;
+    }
+    .checkbox-grid li {
+    display: block;
+    float: left;
+    width: 33%;
+    }
+    .list-grid li {
+        display: inline-block;
+        float:left;
+        width: 45%;
+    }
+</style>

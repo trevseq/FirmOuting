@@ -1,0 +1,160 @@
+/*.theme-bar-color 											{ background-color:#000; }*/
+
+/*** Body - Background color *******************************/
+body 														{ background:#fff; }	
+
+
+/*** Body - Background transparency ************************/
+/*#style-background 											{ opacity:1;background:url('../Content/images/back-body-texture.png'); }*/
+
+
+/*** Body - Top light transparency *************************/
+/*#style-shadow 												{ opacity:1;background:url('../content/images/back-body-light.png') no-repeat center top;}*/
+
+
+/*** Panel - Title bar color********************************/
+/*.panel .title,
+.panel .title-large 										{ background:grey; }*/
+
+
+/*** Panel - Gradient transparency *************************/
+/*.panel .title .theme,*/
+/*.panel .title-large .theme 									{ opacity:1; }*/
+
+/*** Autocomplete - Size************************************/
+ .ui-autocomplete                                           {max-height: 250px;overflow-y: auto;overflow-x: hidden;}
+
+/*** Non-resizable textareas *******************************/
+textarea                                                    {resize: none;}
+
+/*** Rounded image corners and shadow borders **************/
+/*#imgSunningdalePool {
+    width: 660px;
+    height: 178px;
+    margin-left: 5%;
+    margin-right: 5%;
+    -webkit-box-shadow: 0px 0px 10px #4d4d4d;
+    -moz-box-shadow: 0px 0px 10px #4d4d4d;
+    box-shadow: 0px 0px 10px #4d4d4d;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: url('../uploads/sunningdalePool.jpg');
+}*/
+
+/*#imgAttorneyOutingHeader {
+    width: 571px;
+    height: 212px;
+    margin: 5%;
+    -webkit-box-shadow: 0px 0px 10px #4d4d4d;
+    -moz-box-shadow: 0px 0px 10px #4d4d4d;
+    box-shadow: 0px 0px 10px #4d4d4d;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: url('../uploads/AttorneyOutingHeader.jpg');
+}*/
+
+.roundCornerBoxShadow {
+    margin-left: 5%;
+    margin-right: 5%;
+    /*-webkit-box-shadow: 0px 0px 14px #4d4d4d;*/
+    -moz-box-shadow: 0px 0px 14px #4d4d4d;
+    box-shadow: 0px 0px 14px #4d4d4d;
+    /*-webkit-border-radius: 8px;*/
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+    border-collapse:separate; 
+}
+
+#imgUserPic {
+    width: 42px;
+    height: 42px;
+    /*-webkit-border-radius: 5px;*/
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#imgUserPicBackup {
+    width: 42px;
+    height: 42px;
+    /*-webkit-border-radius: 5px;*/
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+    background: url('../Content/images/o14_person_placeholder_42.png');
+}
+
+#dvUserPicBorder {
+    width: auto;
+    height: auto;
+    /*-webkit-border-radius: 6px;*/
+    -moz-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+    overflow: hidden;
+    border:solid white 3px;
+    background-color: ActiveBorder;
+    margin-left: 4px;
+    margin-right: 8px;
+    text-align: center;
+}
+
+#dvTabEdit {
+    margin-left: 5px;
+    margin-top: 5px;
+    z-index: 100;
+    white-space:nowrap;
+    font-size:14px;
+    line-height:11px;
+    text-shadow:0 1px #014e74;
+    color:#fff;
+    font-family: 'PT Sans Narrow',arial,serif;
+    padding-top:5px;
+}
+
+#btnSubmit {
+    width: 90px;
+    height: 30px;
+}
+
+#hdnbtnSubmit {
+    height: 90px;
+    width: 30px;
+    visibility: hidden;
+}
+
+#editDataTableLink{
+    cursor: pointer;
+    color: white;
+    text-decoration: underline;
+    font-family: 'PT Sans',Arial,serif;
+}
+
+#savePageLink {
+    cursor: pointer;
+    color: white;
+    text-decoration: underline;
+    font-family: 'PT Sans',Arial,serif;
+}
+
+#editPageLink{
+    cursor:pointer; 
+    color: White; 
+    text-decoration: underline;
+    font-family: 'PT Sans',arial,serif;
+}
+
+/*TEST*/
+/*button:focus,button:active,input:focus,
+input:active,select:focus,select:active,
+textarea:focus,textarea:active 								{ -moz-box-shadow: #06f 0 0 7px;-webkit-box-shadow: #06f 0 0 7px;box-shadow: #06f 0 0 7px;z-index: 1; }*/

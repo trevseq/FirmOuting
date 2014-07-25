@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link href="@Url.Content("~/favicon.ico")" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    @*<link href="@Url.Content("~/Content/style-explorer.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/style-custom.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/pqgrid.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Plugins/posabsolute-jQuery-Validation-Engine-499f567/css/validationEngine.jquery.css")" rel="stylesheet" type="text/css" />
+    <link type="text/css" href="@Url.Content("~/Content/themes/redmond/jquery-ui-1.10.3.custom.min.css")" rel="stylesheet" />*@
+
+     @Styles.Render("~/css/clientStyles")
+</head>
+<body>
+    <center style="overflow:visible;">
+        @RenderBody()
+    </center>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+    <script>
+        // Fallback to loading jQuery from a local path if the CDN is unavailable
+        (window.jQuery || document.write('<script src="@Url.Content("~/Scripts/jquery-2.0.0.min.js")"><\/script>'));
+    </script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/jquery-ui.min.js"></script>
+
+    @*<script type="text/javascript" src="@Url.Content("~/Scripts/Plugins/jquery-dialogextend-master/build/jquery.dialogextend.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Plugins/posabsolute-jQuery-Validation-Engine-499f567/js/languages/jquery.validationEngine-en.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Plugins/posabsolute-jQuery-Validation-Engine-499f567/js/jquery.validationEngine.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Plugins/jquery-cookie/jquery-cookie.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/jqbrowser-uncompressed.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/pqgrid.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/explorer-custom.js")"></script>*@
+    @Scripts.Render("~/bundles/clientScripts")
+</body>
+</html>
