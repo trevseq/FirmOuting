@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7c05ee5ba5134f30aa3dbc45ef24d237" Name="Diagram1" ZoomLevel="87">
+        <EntityTypeShape EntityType="LegalRecruitingModel.AttorneyOuting" Width="2.125" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LegalRecruitingModel.AttorneyOutingMailTemplate" Width="1.5" PointX="6.5" PointY="0.5" />
+        <EntityTypeShape EntityType="LegalRecruitingModel.AttorneyOutingAuthentication" Width="2.5" PointX="3.375" PointY="0.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

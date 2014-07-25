@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LegalRecruitingModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="LegalRecruitingModelStoreContainer">
+          <EntitySet Name="AttorneyOuting" EntityType="LegalRecruitingModel.Store.AttorneyOuting" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AttorneyOutingAuthentication" EntityType="LegalRecruitingModel.Store.AttorneyOutingAuthentication" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AttorneyOutingMailTemplates" EntityType="LegalRecruitingModel.Store.AttorneyOutingMailTemplates" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="AttorneyOuting">
+          <Key>
+            <PropertyRef Name="AttorneyOutingID" />
+          </Key>
+          <Property Name="AttorneyOutingID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NameTagFirstName" Type="varchar" MaxLength="500" />
+          <Property Name="NameTagMiddleName" Type="varchar" MaxLength="500" />
+          <Property Name="NameTagLastName" Type="varchar" MaxLength="500" />
+          <Property Name="PersonType" Type="varchar" MaxLength="500" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="500" />
+          <Property Name="BringingGuest" Type="varchar" MaxLength="500" />
+          <Property Name="AttendingOuting" Type="varchar" MaxLength="500" />
+          <Property Name="MealsLunch" Type="varchar" MaxLength="500" />
+          <Property Name="MealsDinner" Type="varchar" MaxLength="500" />
+          <Property Name="DietaryRestrictions" Type="varchar" MaxLength="500" />
+          <Property Name="BusToSunningdale" Type="varchar" MaxLength="500" />
+          <Property Name="BusToNYC" Type="varchar" MaxLength="500" />
+          <Property Name="TennisPlaying" Type="varchar" MaxLength="500" />
+          <Property Name="TennisRentRacquet" Type="varchar" MaxLength="500" />
+          <Property Name="TennisLevelOfPlay" Type="varchar" MaxLength="500" />
+          <Property Name="TennisMorning" Type="varchar" MaxLength="500" />
+          <Property Name="TennisAfternoon" Type="varchar" MaxLength="500" />
+          <Property Name="GolfPlaying" Type="varchar" MaxLength="500" />
+          <Property Name="GolfLevelOfPlay" Type="varchar" MaxLength="500" />
+          <Property Name="GolfMorning" Type="varchar" MaxLength="500" />
+          <Property Name="GolfClinicMorning" Type="varchar" MaxLength="500" />
+          <Property Name="GolfAfternoon" Type="varchar" MaxLength="500" />
+          <Property Name="GolfClinicAfternoon" Type="varchar" MaxLength="500" />
+          <Property Name="GolfRentClubs" Type="varchar" MaxLength="500" />
+          <Property Name="GolfClubRightLeft" Type="varchar" MaxLength="500" />
+          <Property Name="GolfCartOrWalk" Type="varchar" MaxLength="500" />
+          <Property Name="GolfFoursome" Type="varchar(max)" />
+          <Property Name="BasketballOpenPlay" Type="varchar" MaxLength="500" />
+          <Property Name="BasketballOrganizedGame" Type="varchar" MaxLength="500" />
+          <Property Name="SpaInterest" Type="varchar" MaxLength="500" />
+          <Property Name="SpaManicure" Type="varchar" MaxLength="500" />
+          <Property Name="SpaPedicure" Type="varchar" MaxLength="500" />
+          <Property Name="SpaMiniMassage" Type="varchar" MaxLength="500" />
+          <Property Name="YogaInterest" Type="varchar" MaxLength="500" />
+          <Property Name="YogaSkillLevel" Type="varchar" MaxLength="500" />
+          <Property Name="DateSubmitted" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AttorneyOutingAuthentication">
+          <Key>
+            <PropertyRef Name="AuthenticationId" />
+          </Key>
+          <Property Name="AuthenticationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SpouseEmployeeId" Type="int" />
+          <Property Name="UserName" Type="varchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AttorneyOutingMailTemplates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TemplateName" Type="varchar(max)" />
+          <Property Name="Subject" Type="varchar(max)" />
+          <Property Name="To" Type="varchar(max)" />
+          <Property Name="CC" Type="varchar(max)" />
+          <Property Name="Bcc" Type="varchar(max)" />
+          <Property Name="Body" Type="varchar(max)" />
+          <Property Name="From" Type="varchar(max)" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LegalRecruitingModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="LegalRecruitingEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="AttorneyOutings" EntityType="LegalRecruitingModel.AttorneyOuting" />
+          <EntitySet Name="AttorneyOutingMailTemplates" EntityType="LegalRecruitingModel.AttorneyOutingMailTemplate" />
+          <EntitySet Name="AttorneyOutingAuthentications" EntityType="LegalRecruitingModel.AttorneyOutingAuthentication" />
+        </EntityContainer>
+        <EntityType Name="AttorneyOuting">
+          <Key>
+            <PropertyRef Name="AttorneyOutingID" />
+          </Key>
+          <Property Name="AttorneyOutingID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="NameTagFirstName" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="NameTagMiddleName" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="NameTagLastName" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="PersonType" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="EmailAddress" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="BringingGuest" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="AttendingOuting" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="MealsLunch" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="MealsDinner" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="DietaryRestrictions" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="BusToSunningdale" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="BusToNYC" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="TennisPlaying" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="TennisRentRacquet" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="TennisLevelOfPlay" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="TennisMorning" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="TennisAfternoon" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="GolfPlaying" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="GolfLevelOfPlay" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="GolfMorning" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="GolfClinicMorning" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="GolfAfternoon" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="GolfClinicAfternoon" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="GolfRentClubs" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="GolfClubRightLeft" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="GolfCartOrWalk" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="GolfFoursome" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="BasketballOpenPlay" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="BasketballOrganizedGame" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="SpaInterest" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="SpaManicure" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="SpaPedicure" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="SpaMiniMassage" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="YogaInterest" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="YogaSkillLevel" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="DateSubmitted" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="AttorneyOutingMailTemplate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TemplateName" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Subject" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="To" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CC" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Bcc" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Body" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="From" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AttorneyOutingAuthentication">
+          <Key>
+            <PropertyRef Name="AuthenticationId" />
+          </Key>
+          <Property Type="Int32" Name="AuthenticationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="SpouseEmployeeId" />
+          <Property Type="String" Name="UserName" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Password" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LegalRecruitingModelStoreContainer" CdmEntityContainer="LegalRecruitingEntities">
+          <EntitySetMapping Name="AttorneyOutings">
+            <EntityTypeMapping TypeName="LegalRecruitingModel.AttorneyOuting">
+              <MappingFragment StoreEntitySet="AttorneyOuting">
+                <ScalarProperty Name="AttorneyOutingID" ColumnName="AttorneyOutingID" />
+                <ScalarProperty Name="NameTagFirstName" ColumnName="NameTagFirstName" />
+                <ScalarProperty Name="NameTagMiddleName" ColumnName="NameTagMiddleName" />
+                <ScalarProperty Name="NameTagLastName" ColumnName="NameTagLastName" />
+                <ScalarProperty Name="PersonType" ColumnName="PersonType" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="BringingGuest" ColumnName="BringingGuest" />
+                <ScalarProperty Name="AttendingOuting" ColumnName="AttendingOuting" />
+                <ScalarProperty Name="MealsLunch" ColumnName="MealsLunch" />
+                <ScalarProperty Name="MealsDinner" ColumnName="MealsDinner" />
+                <ScalarProperty Name="DietaryRestrictions" ColumnName="DietaryRestrictions" />
+                <ScalarProperty Name="BusToSunningdale" ColumnName="BusToSunningdale" />
+                <ScalarProperty Name="BusToNYC" ColumnName="BusToNYC" />
+                <ScalarProperty Name="TennisPlaying" ColumnName="TennisPlaying" />
+                <ScalarProperty Name="TennisRentRacquet" ColumnName="TennisRentRacquet" />
+                <ScalarProperty Name="TennisLevelOfPlay" ColumnName="TennisLevelOfPlay" />
+                <ScalarProperty Name="TennisMorning" ColumnName="TennisMorning" />
+                <ScalarProperty Name="TennisAfternoon" ColumnName="TennisAfternoon" />
+                <ScalarProperty Name="GolfPlaying" ColumnName="GolfPlaying" />
+                <ScalarProperty Name="GolfLevelOfPlay" ColumnName="GolfLevelOfPlay" />
+                <ScalarProperty Name="GolfMorning" ColumnName="GolfMorning" />
+                <ScalarProperty Name="GolfClinicMorning" ColumnName="GolfClinicMorning" />
+                <ScalarProperty Name="GolfAfternoon" ColumnName="GolfAfternoon" />
+                <ScalarProperty Name="GolfClinicAfternoon" ColumnName="GolfClinicAfternoon" />
+                <ScalarProperty Name="GolfRentClubs" ColumnName="GolfRentClubs" />
+                <ScalarProperty Name="GolfClubRightLeft" ColumnName="GolfClubRightLeft" />
+                <ScalarProperty Name="GolfCartOrWalk" ColumnName="GolfCartOrWalk" />
+                <ScalarProperty Name="GolfFoursome" ColumnName="GolfFoursome" />
+                <ScalarProperty Name="BasketballOpenPlay" ColumnName="BasketballOpenPlay" />
+                <ScalarProperty Name="BasketballOrganizedGame" ColumnName="BasketballOrganizedGame" />
+                <ScalarProperty Name="SpaInterest" ColumnName="SpaInterest" />
+                <ScalarProperty Name="SpaManicure" ColumnName="SpaManicure" />
+                <ScalarProperty Name="SpaPedicure" ColumnName="SpaPedicure" />
+                <ScalarProperty Name="SpaMiniMassage" ColumnName="SpaMiniMassage" />
+                <ScalarProperty Name="YogaInterest" ColumnName="YogaInterest" />
+                <ScalarProperty Name="YogaSkillLevel" ColumnName="YogaSkillLevel" />
+                <ScalarProperty Name="DateSubmitted" ColumnName="DateSubmitted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttorneyOutingMailTemplates">
+            <EntityTypeMapping TypeName="LegalRecruitingModel.AttorneyOutingMailTemplate">
+              <MappingFragment StoreEntitySet="AttorneyOutingMailTemplates">
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Bcc" ColumnName="Bcc" />
+                <ScalarProperty Name="CC" ColumnName="CC" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttorneyOutingAuthentications">
+            <EntityTypeMapping TypeName="LegalRecruitingModel.AttorneyOutingAuthentication">
+              <MappingFragment StoreEntitySet="AttorneyOutingAuthentication">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="SpouseEmployeeId" ColumnName="SpouseEmployeeId" />
+                <ScalarProperty Name="AuthenticationId" ColumnName="AuthenticationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
