@@ -848,14 +848,18 @@ function extractLast(term) {
 }
 
 function LoadDbEditGrid() {
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: pathName + "Profiles/GetProfiles",
-        cache: false,
-        success: function (data) {
-            queryData = data.AttorneyOutings;
+    //$.ajax({
+    //    type: "GET",
+    //    dataType: "json",
+    //    url: pathName + "Profiles/GetProfiles",
+    //    cache: false,
+    //    success: function (data) {
+    //    queryData = data.AttorneyOutings;
+
             var obj = { width: 1200, height: 700, title: "Firm Outing Form Entry Database" };
+            var qUrl = pathName + "Profiles/GetProfiles";
+            // TODO: add data indexes (named) for each column
+
             obj.colModel = [
                 { title: "Rec #", width: 40, dataType: "integer", hidden: true },
                 {
@@ -904,7 +908,17 @@ function LoadDbEditGrid() {
                 { title: "YogaInterest", width: 100, dataType: "string", editable: false },
                 { title: "YogaSkillLevel", width: 100, dataType: "string", editable: false, },
                 { title: "DateSubmitted", width: 100, dataType: "string", editable: false }];
-            obj.dataModel = { data: queryData, rPP: 20, paging: "local", sortIndx: 2, sortDir: "up" };
+            obj.dataModel = {
+                location: "remote",
+                sorting: "local",
+                paging: "local",
+                dataType: "JSON",
+                method: "GET",
+                url: qUrl,
+                sortIndx: 2,
+                sortDir: "up",
+                rPP: 20
+            };
 
             var $grid = $("#pqDbGrid").pqGrid(obj);
             //, { freezeCols: 3 }
@@ -1080,8 +1094,8 @@ function LoadDbEditGrid() {
                     });
                 }
             });
-        }
-    });
+        //}
+    //});
 
     $(document).delegate("img[name='deleteRowImage']", "click", function (evt) {
         var b = window.confirm("Are you sure you want to delete this record?");
