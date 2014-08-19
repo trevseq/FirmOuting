@@ -848,51 +848,13 @@ function extractLast(term) {
 }
 
 function LoadDbEditGrid() {
-    //var data = [[1, false, 'John', 'a', 'Doe', '1', 'KBTF Employee', 'yes', '123@kasowitz.com', 'yes', 'a', 'a', 'Kosher,Gluten-Free,Pescatarian,asdfasdf', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [2, false, 'Wal-Mart Stores', 'a', 'a', '315,654.0', '11,231.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [3, false, 'Royal Dutch Shell', 'a', 'a', '306,731.0', '25,311.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [4, false, 'BP', 'a', 'a', '267,600.0', '22,341.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [5, false, 'General Motors', 'a', 'a', '192,604.0', '-10,567.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [6, false, 'Chevron', 'a', 'a', '189,481.0', '14,099.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [7, false, 'DaimlerChrysler', 'a', 'a', '186,106.3', '3,536.3', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [8, false, 'Toyota Motor', 'a', 'a', '185,805.0', '12,119.6', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [9, false, 'Ford Motor', 'a', 'a', '177,210.0', '2,024.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [10, false, 'ConocoPhillips', 'a', 'a', '166,683.0', '13,529.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [11, false, 'General Electric', 'a', 'a', '157,153.0', '16,353.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [12, false, 'Total', 'a', 'a', '152,360.7', '15,250.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [13, false, 'ING Group', 'a', 'a', '138,235.3', '8,958.9', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [14, false, 'Citigroup', 'a', 'a', '131,045.0', '24,589.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [15, false, 'AXA', 'a', 'a', '129,839.2', '5,186.5', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [16, false, 'Allianz', 'a', 'a', '121,406.0', '5,442.4', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [17, false, 'Volkswagen', 'a', 'a', '118,376.6', '1,391.7', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [18, false, 'Fortis', 'a', 'a', '112,351.4', '4,896.3', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [19, false, 'Crédit Agricole', 'a', 'a', '110,764.6', '7,434.3', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [21, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [22, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [23, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [24, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [25, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [26, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [27, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [28, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [29, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [30, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [31, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [32, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
-    //            [33, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a']];
-    //var queryData = null;
-    //var x = $.ajax({ type: "GET", dataType: "json", url: pathName + "Profiles/GetProfiles", cache: false });
-    //x.done(function (args) {
-    //    data = args.data;
-    //});
     $.ajax({
         type: "GET",
         dataType: "json",
         url: pathName + "Profiles/GetProfiles",
         cache: false,
         success: function (data) {
-            queryData = data;
-            //<input type=\"checkbox\"/>
+            queryData = data.AttorneyOutings;
             var obj = { width: 1200, height: 700, title: "Firm Outing Form Entry Database" };
             obj.colModel = [
                 { title: "Rec #", width: 40, dataType: "integer", hidden: true },
@@ -902,12 +864,7 @@ function LoadDbEditGrid() {
                         var rowData = ui.rowData, dataIndx = ui.dataIndx;
                         var val = rowData[dataIndx];
                         str = "";
-                        //if (val) {
-                        //    str = "checked='checked'";
-                        //}
-                        //return "<input type='checkbox' " + str + " />";
                         return "<img name='deleteRowImage' title='Delete this row' src='../Content/Images/icon-remove.png' style='height:16px; width:16px;cursor:pointer' />"
-                        // return "<input type='checkbox' name='deleteRowImage' style='cursor:pointer' />"
                     }, className: "deleteRowColumn"
                 },
                 { title: "First", width: 200, dataType: "string", editable: false },
@@ -947,26 +904,8 @@ function LoadDbEditGrid() {
                 { title: "YogaInterest", width: 100, dataType: "string", editable: false },
                 { title: "YogaSkillLevel", width: 100, dataType: "string", editable: false, },
                 { title: "DateSubmitted", width: 100, dataType: "string", editable: false }];
-            obj.dataModel = { data: queryData.AttorneyOutings, rPP: 20, paging: "local", sortIndx: 2, sortDir: "up" };
+            obj.dataModel = { data: queryData, rPP: 20, paging: "local", sortIndx: 2, sortDir: "up" };
 
-            //append or prepend the CRUD toolbar to .pq-grid-top or .pq-grid-bottom
-            $("#pqDbGrid").on("pqgridrender", function (evt, obj) {
-                var $toolbar = $("<div class='pq-grid-toolbar pq-grid-toolbar-crud'></div>").appendTo($(".pq-grid-top", this));
-
-                //$("<span>Add</span>").appendTo($toolbar).button({ icons: { primary: "ui-icon-circle-plus" } }).click(function (evt) {
-                //    addRow();
-                //});
-                //$("<span>Edit</span>").appendTo($toolbar).button({ icons: { primary: "ui-icon-pencil" } }).click(function (evt) {
-                //    editRow();
-                //});
-                $("<span>Delete</span>").appendTo($toolbar).button({ icons: { primary: "ui-icon-circle-minus" } }).click(function () {
-                    // deleteRow();
-                });
-                $toolbar.disableSelection();
-            });
-            //$("#pqDbGrid").pqGrid({
-            //    cellDblClick: function (event, ui) { alert("asdfadf awdf");}
-            //});
             var $grid = $("#pqDbGrid").pqGrid(obj);
             //, { freezeCols: 3 }
 
@@ -979,10 +918,8 @@ function LoadDbEditGrid() {
             $grid.pqGrid("option", "numberCell", false);
             $grid.pqGrid("option", "flexHeight", false);
             $grid.pqGrid("option", "flexWidth", false);
-            $grid.pqGrid("option", "scrollModel", { horizontal: true, });// pace: fast
+            $grid.pqGrid("option", "scrollModel", { horizontal: true, });
             $grid.pqGrid("option", "resizable", true);
-            //$grid.pqGrid("option", "dataModel.paging", { paging: 'local' });
-            //$grid.pqGrid("option", "dataModel.rPP", { rPP: 20 })
             $grid.pqGrid("option", "roundCorners", true);
             $grid.pqGrid("option", "editable", false);
             $grid.pqGrid("option", "selectionModel", { type: 'row', mode: 'single' });
@@ -1053,7 +990,6 @@ function LoadDbEditGrid() {
                             Cancel: function () {
                                 $(this).dialog("close");
                             }
-
                         },
                         open: function (event, ui) {
                             var $grid = $("#pqDbGrid");
@@ -1141,10 +1077,7 @@ function LoadDbEditGrid() {
                                 $("#yogaSkill").val(row[37]);
                             }
                         }
-
                     });
-
-
                 }
             });
         }
@@ -1268,6 +1201,7 @@ function getRowIndx() {
         return null;
     }
 }
+
 function EditWarn() {
     alert("Modifying or deleting input buttons/fields will break the backend code and render the form unusable. Please be cautious when editing!");
     //$.Zebra_Dialog(
@@ -1888,6 +1822,7 @@ function fixBoxShadowBlur(jQueryObject) {
         });
     }
 }
+
 function submitControl() {
 
     //Validate form inputs
@@ -2006,7 +1941,6 @@ function Save(close_Dialog) {
         }
     });
 }
-
 
 // Delete solution cookies when page gets saved or user logs out
 function SlnCookieRemover() {
