@@ -822,6 +822,7 @@ $(document).ready(function () {
         // Code for profile page.
         LoadDbEditGrid();
         $('#accordion').accordion({ heightStyle: "fill" });
+        var queryData = null;
     }
 });
 
@@ -879,270 +880,273 @@ function LoadDbEditGrid() {
     //            [31, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
     //            [32, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'],
     //            [33, false, 'American Intl. Group', 'a', 'a', '108,905.0', '10,477.0', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a']];
-    var data = null;
-    var x = $.ajax({ type: "GET", dataType: "json", url: pathName + "Profiles/GetProfiles", cache: false });
-    x.done(function (args) {
-        data = args.data;
-    });
-    //<input type=\"checkbox\"/>
-    var obj = { width: 1200, height: 700, title: "Firm Outing Form Entry Database" };   
-    obj.colModel = [
-        { title: "Rec #", width: 40, dataType: "integer", hidden: true },
-        { title: "<img name='deleteAllRowsImage' title='Delete ALL rows' src='../Content/Images/warning-icon.png' style='height:16px; width:16px; cursor:pointer' />",
-            dataIndx: 1, editable: false, sortable: false, width: 30, align: "center", resizable: false, render: function (ui) {
-                var rowData = ui.rowData, dataIndx = ui.dataIndx;
-                var val = rowData[dataIndx];
-                str = "";
-                //if (val) {
-                //    str = "checked='checked'";
-                //}
-                //return "<input type='checkbox' " + str + " />";
-                return "<img name='deleteRowImage' title='Delete this row' src='../Content/Images/icon-remove.png' style='height:16px; width:16px;cursor:pointer' />"
-                // return "<input type='checkbox' name='deleteRowImage' style='cursor:pointer' />"
-            }, className: "deleteRowColumn"
-        },
-        { title: "First", width: 200, dataType: "string", editable: false },
-        { title: "Middle", width: 200, dataType: "string", editable: false },
-        { title: "Last", width: 200, dataType: "string", editable: false },
-        { title: "EmployeeID", width: 100, dataType: "string", editable: false, hidden: true },
-        { title: "PersonType", width: 100, dataType: "string", editable: false },
-        { title: "Attending", width: 100, dataType: "string", editable: false },
-        { title: "EmailAddress", width: 100, dataType: "string", editable: false },
-        { title: "BringingGuest", width: 100, dataType: "string", editable: false },
-        { title: "MealsLunch", width: 100, dataType: "string", editable: false },
-        { title: "MealsDinner", width: 100, dataType: "string", editable: false },
-        { title: "DietaryRestrictions", width: 100, dataType: "string", editable: false },
-        { title: "BusToSunningdale", width: 100, dataType: "string", editable: false },
-        { title: "BusToNYC", width: 100, dataType: "string", editable: false },
-        { title: "TennisPlaying", width: 100, dataType: "string", editable: false },
-        { title: "TennisRentRacquet", width: 100, dataType: "string", editable: false },
-        { title: "TennisLevelOfPlay", width: 100, dataType: "string", editable: false },
-        { title: "TennisMorning", width: 100, dataType: "string", editable: false },
-        { title: "TennisAfternoon", width: 100, dataType: "string", editable: false },
-        { title: "GolfPlaying", width: 100, dataType: "string", editable: false },
-        { title: "GolfLevelOfPlay", width: 100, dataType: "string", editable: false },
-        { title: "GolfMorning", width: 100, dataType: "string", editable: false },
-        { title: "GolfAfternoon", width: 100, dataType: "string", editable: false },
-        { title: "GolfClinicMorning", width: 100, dataType: "string", editable: false },
-        { title: "GolfClinicAfternoon", width: 100, dataType: "string", editable: false },
-        { title: "GolfRentClubs", width: 100, dataType: "string", editable: false },
-        { title: "GolfClubRightLeft", width: 100, dataType: "string", editable: false },
-        { title: "GolfCartOrWalk", width: 100, dataType: "string", editable: false },
-        { title: "GolfFoursome", width: 100, dataType: "string", editable: false },
-        { title: "BasketballOpenPlay", width: 100, dataType: "string", editable: false },
-        { title: "BasketballOrganizedGame", width: 100, dataType: "string", editable: false },
-        { title: "SpaInerest", width: 100, dataType: "string", editable: false },
-        { title: "SpaManicure", width: 100, dataType: "string", editable: false },
-        { title: "SpaPedicure", width: 100, dataType: "string", editable: false },
-        { title: "SpaMiniMassage", width: 100, dataType: "string", editable: false },
-        { title: "YogaInterest", width: 100, dataType: "string", editable: false },
-        { title: "YogaSkillLevel", width: 100, dataType: "string", editable: false, },
-        { title: "DateSubmitted", width: 100, dataType: "string", editable: false }];
-    obj.dataModel = { data: data, rPP: 20, paging: "local", sortIndx: 2, sortDir: "up" };
-
-    //append or prepend the CRUD toolbar to .pq-grid-top or .pq-grid-bottom
-    $("#pqDbGrid").on("pqgridrender", function (evt, obj) {
-        var $toolbar = $("<div class='pq-grid-toolbar pq-grid-toolbar-crud'></div>").appendTo($(".pq-grid-top", this));
-
-        //$("<span>Add</span>").appendTo($toolbar).button({ icons: { primary: "ui-icon-circle-plus" } }).click(function (evt) {
-        //    addRow();
-        //});
-        //$("<span>Edit</span>").appendTo($toolbar).button({ icons: { primary: "ui-icon-pencil" } }).click(function (evt) {
-        //    editRow();
-        //});
-        $("<span>Delete</span>").appendTo($toolbar).button({ icons: { primary: "ui-icon-circle-minus" } }).click(function () {
-            // deleteRow();
-        });
-        $toolbar.disableSelection();
-    });
-    //$("#pqDbGrid").pqGrid({
-    //    cellDblClick: function (event, ui) { alert("asdfadf awdf");}
+    //var queryData = null;
+    //var x = $.ajax({ type: "GET", dataType: "json", url: pathName + "Profiles/GetProfiles", cache: false });
+    //x.done(function (args) {
+    //    data = args.data;
     //});
-    var $grid = $("#pqDbGrid").pqGrid(obj);
-    //, { freezeCols: 3 }
-
-    // Grid options
-    $grid.pqGrid("option", "topVisible", false);
-    $grid.pqGrid("option", "bottomVisible", true);
-    $grid.pqGrid("option", "columnBorders", true);
-    $grid.pqGrid("option", "rowBorders", true);
-    $grid.pqGrid("option", "oddRowsHighlight", true);
-    $grid.pqGrid("option", "numberCell", false);
-    $grid.pqGrid("option", "flexHeight", false);
-    $grid.pqGrid("option", "flexWidth", false);
-    $grid.pqGrid("option", "scrollModel", { horizontal: true, });// pace: fast
-    $grid.pqGrid("option", "resizable", true);
-    //$grid.pqGrid("option", "dataModel.paging", { paging: 'local' });
-    //$grid.pqGrid("option", "dataModel.rPP", { rPP: 20 })
-    $grid.pqGrid("option", "roundCorners", true);
-    $grid.pqGrid("option", "editable", false);
-    $grid.pqGrid("option", "selectionModel", { type: 'row', mode: 'single' });
-    $grid.pqGrid({
-        cellDblClick: function (event, ui) {
-            // Show editing dialog.
-            $("#dlgEditProfile").dialog({
-               resizable: true,
-               height: 700,
-                width:700,
-                modal: true,
-                buttons: {
-                    Update: function () {
-                        var DM = $grid.pqGrid("option", "dataModel");
-                        var data = DM.data;
-                        var rowIndx = getRowIndx();
-                        var row = data[rowIndx];
-                        
-                        var diet = $("[name='^=diet']:checked").map(function () {
-                            return $.trim($("label [for='" + this.id + "']").text());
-                        }).get().join();
-                        var dietOther = $("#dietOther").val();
-                        if (dietOther != null && dietOther != "")
-                            diet += ("," + dietOther);
-                        
-                        row[2] = $("#firstname").val();
-                        row[3] = $("#middlename").val();
-                        row[4] = $("#lastname").val();
-                        row[6] = $("#persontype").val();
-                        row[7] = $("#attending").val();
-                        row[8] = $("#email").val();
-                        row[9] = $("#bringingguest").val();
-                        row[10] = $("#lunch").val();
-                        row[11] = $("#dinner").val(); 
-                        row[12] = diet;
-                        row[13] = $("#busToSunningdale").val();
-                        row[14] = $("#busToNYC").val();
-                        row[15] = $("#tennisPlaying").val();
-                        row[16] = $("#tennisRentRacquet").val();
-                        row[17] = $("#tennisLevel").val();
-                        row[18] = $("#tennisMorning").val();
-                        row[19] = $("#tennisAfternoon").val();
-                        row[20] = $("#golfPlaying").val();
-                        row[21] = $("#golfLevel").val();
-                        row[22] = $("#golfMorning").val();
-                        row[23] = $("#golfAfternoon").val();
-                        row[24] = $("#golfClinicMorning").val();
-                        row[25] = $("#golfClinicAfternoon").val();
-                        row[26] = $("#golfRent").val();
-                        row[27] = $("#golfHands").val();
-                        row[28] = $("#golfCart").val();
-                        row[29] = $("#golfFoursome").val();
-                        row[30] = $("#basketballOpenPlay").val();
-                        row[31] = $("#basketballOrganizedGame").val();
-                        row[32] = $("#spaInterest").val();
-                        row[33] = $("#spaMani").val();
-                        row[34] = $("#spaPedi").val();
-                        row[35] = $("#spaMassage").val();
-                        row[36] = $("#yogaInterest").val();
-                        row[37] = $("#yogaSkill").val();
-                        
-                        $grid.pqGrid("refreshRow", { rowIndx: rowIndx }).pqGrid('setSelection', { rowIndx: rowIndx });
-                        //saveFromDbEditDlg();
-
-                        $(this).dialog("close");
-                        
-                    },
-                    Cancel: function () {
-                        $(this).dialog("close");
-                    }
-
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: pathName + "Profiles/GetProfiles",
+        cache: false,
+        success: function (data) {
+            queryData = data;
+            //<input type=\"checkbox\"/>
+            var obj = { width: 1200, height: 700, title: "Firm Outing Form Entry Database" };
+            obj.colModel = [
+                { title: "Rec #", width: 40, dataType: "integer", hidden: true },
+                {
+                    title: "<img name='deleteAllRowsImage' title='Delete ALL rows' src='../Content/Images/warning-icon.png' style='height:16px; width:16px; cursor:pointer' />",
+                    dataIndx: 1, editable: false, sortable: false, width: 30, align: "center", resizable: false, render: function (ui) {
+                        var rowData = ui.rowData, dataIndx = ui.dataIndx;
+                        var val = rowData[dataIndx];
+                        str = "";
+                        //if (val) {
+                        //    str = "checked='checked'";
+                        //}
+                        //return "<input type='checkbox' " + str + " />";
+                        return "<img name='deleteRowImage' title='Delete this row' src='../Content/Images/icon-remove.png' style='height:16px; width:16px;cursor:pointer' />"
+                        // return "<input type='checkbox' name='deleteRowImage' style='cursor:pointer' />"
+                    }, className: "deleteRowColumn"
                 },
-                open: function (event, ui) {
-                    var $grid = $("#pqDbGrid");
-                    var rowIndx = getRowIndx();
+                { title: "First", width: 200, dataType: "string", editable: false },
+                { title: "Middle", width: 200, dataType: "string", editable: false },
+                { title: "Last", width: 200, dataType: "string", editable: false },
+                { title: "EmployeeID", width: 100, dataType: "string", editable: false, hidden: true },
+                { title: "PersonType", width: 100, dataType: "string", editable: false },
+                { title: "Attending", width: 100, dataType: "string", editable: false },
+                { title: "EmailAddress", width: 100, dataType: "string", editable: false },
+                { title: "BringingGuest", width: 100, dataType: "string", editable: false },
+                { title: "MealsLunch", width: 100, dataType: "string", editable: false },
+                { title: "MealsDinner", width: 100, dataType: "string", editable: false },
+                { title: "DietaryRestrictions", width: 100, dataType: "string", editable: false },
+                { title: "BusToSunningdale", width: 100, dataType: "string", editable: false },
+                { title: "BusToNYC", width: 100, dataType: "string", editable: false },
+                { title: "TennisPlaying", width: 100, dataType: "string", editable: false },
+                { title: "TennisRentRacquet", width: 100, dataType: "string", editable: false },
+                { title: "TennisLevelOfPlay", width: 100, dataType: "string", editable: false },
+                { title: "TennisMorning", width: 100, dataType: "string", editable: false },
+                { title: "TennisAfternoon", width: 100, dataType: "string", editable: false },
+                { title: "GolfPlaying", width: 100, dataType: "string", editable: false },
+                { title: "GolfLevelOfPlay", width: 100, dataType: "string", editable: false },
+                { title: "GolfMorning", width: 100, dataType: "string", editable: false },
+                { title: "GolfAfternoon", width: 100, dataType: "string", editable: false },
+                { title: "GolfClinicMorning", width: 100, dataType: "string", editable: false },
+                { title: "GolfClinicAfternoon", width: 100, dataType: "string", editable: false },
+                { title: "GolfRentClubs", width: 100, dataType: "string", editable: false },
+                { title: "GolfClubRightLeft", width: 100, dataType: "string", editable: false },
+                { title: "GolfCartOrWalk", width: 100, dataType: "string", editable: false },
+                { title: "GolfFoursome", width: 100, dataType: "string", editable: false },
+                { title: "BasketballOpenPlay", width: 100, dataType: "string", editable: false },
+                { title: "BasketballOrganizedGame", width: 100, dataType: "string", editable: false },
+                { title: "SpaInerest", width: 100, dataType: "string", editable: false },
+                { title: "SpaManicure", width: 100, dataType: "string", editable: false },
+                { title: "SpaPedicure", width: 100, dataType: "string", editable: false },
+                { title: "SpaMiniMassage", width: 100, dataType: "string", editable: false },
+                { title: "YogaInterest", width: 100, dataType: "string", editable: false },
+                { title: "YogaSkillLevel", width: 100, dataType: "string", editable: false, },
+                { title: "DateSubmitted", width: 100, dataType: "string", editable: false }];
+            obj.dataModel = { data: queryData.AttorneyOutings, rPP: 20, paging: "local", sortIndx: 2, sortDir: "up" };
 
-                    if (rowIndx != null) {
-                        var DM = $grid.pqGrid("option", "dataModel");
-                        var data = DM.data;
-                        var row = data[rowIndx];
-                        // string
-                        $("#firstname").val(row[2]);
-                        $("#middlename").val(row[3]);
-                        $("#lastname").val(row[4]);
-                        $("#persontype").val(row[6]);
-                        $("#attending").val(row[7]);
-                        $("#email").val(row[8]);
-                        $("#bringingguest").val(row[9]);
-                        $("#lunch").val(row[10]);
-                        $("#dinner").val(row[11]);
-                        // dietary restrictions
-                        if (row[12].length > 0) {
-                            var arrDietSplit = row[12].split(",");
-                            var tempDiet = row[12];
-                            for (var i = 0; i < arrDietSplit.length; i++)
-                            {
-                                if ($.trim($("label[for=dietKosher").text()) == arrDietSplit[i])
-                                {
-                                    $("input[name=dietKosher]").attr("checked", true);
-                                    tempDiet = tempDiet.replace((arrDietSplit[i]+ ","), "");
-                                }
-                                else if ($.trim($("label[for=dietVegetarian").text()) == arrDietSplit[i])
-                                {
-                                    $("input[name=dietVegetarian]").attr("checked", true);
-                                    tempDiet = tempDiet.replace((arrDietSplit[i]+ ","), "");
-                                }
-                                else if($.trim($("label[for=dietVegan").text()) == arrDietSplit[i])
-                                {
-                                    $("input[name=dietVegan]").attr("checked", true);
-                                    tempDiet = tempDiet.replace((arrDietSplit[i]+ ","), "");
-                                }
-                                else if($.trim($("label[for=dietPescatarian").text()) == arrDietSplit[i]) {
-                                    $("input[name=dietPescatarian]").attr("checked", true);
-                                    tempDiet = tempDiet.replace((arrDietSplit[i]+ ","), "");
-                                }
-                                else if ($.trim($("label[for=dietGluten").text()) == arrDietSplit[i]) {
-                                    $("input[name=dietGluten]").attr("checked", true);
-                                    tempDiet = tempDiet.replace((arrDietSplit[i]+ ","), "");
-                                }
-                                else if ($.trim($("label[for=dietNut").text()) == arrDietSplit[i])
-                                {
-                                    $("input[name=dietNut]").attr("checked", true);
-                                    tempDiet = tempDiet.replace((arrDietSplit[i]+ ","), "");
-                                }
-                                else if($.trim($("label[for=dietShellfish").text()) == arrDietSplit[i])
-                                {
-                                    $("input[name=dietShellfish]").attr("checked", true);
-                                    tempDiet = tempDiet.replace((arrDietSplit[i]+ ","), "");
-                                }
-                                else if($.trim($("label[for=dietLactose").text()) == arrDietSplit[i])
-                                {
-                                    $("input[name=dietLactose]").attr("checked", true);
-                                    tempDiet = tempDiet.replace((arrDietSplit[i]+ ","), "");
+            //append or prepend the CRUD toolbar to .pq-grid-top or .pq-grid-bottom
+            $("#pqDbGrid").on("pqgridrender", function (evt, obj) {
+                var $toolbar = $("<div class='pq-grid-toolbar pq-grid-toolbar-crud'></div>").appendTo($(".pq-grid-top", this));
 
-                                }
-                            }
-                            $("#dietOther").val(tempDiet);
-                        }
-                        $("#busToSunningdale").val(row[13]);
-                        $("#busToNYC").val(row[14]);
-                        $("#tennisPlaying").val(row[15]);
-                        $("#tennisRentRacquet").val(row[16]);
-                        $("#tennisLevel").val(row[17]);
-                        $("#tennisMorning").val(row[18]);
-                        $("#tennisAfternoon").val(row[19]);
-                        $("#golfPlaying").val(row[20]);
-                        $("#golfLevel").val(row[21]);
-                        $("#golfMorning").val(row[22]);
-                        $("#golfAfternoon").val(row[23]);
-                        $("#golfClinicMorning").val(row[24]);
-                        $("#golfClinicAfternoon").val(row[25]);
-                        $("#golfRent").val(row[26]);
-                        $("#golfHands").val(row[27]);
-                        $("#golfCart").val(row[28]);
-                        $("#golfFoursome").val(row[29]);
-                        $("#basketballOpenPlay").val(row[30]);
-                        $("#basketballOrganizedGame").val(row[31]);
-                        $("#spaInterest").val(row[32]);
-                        $("#spaMani").val(row[33]);
-                        $("#spaPedi").val(row[34]);
-                        $("#spaMassage").val(row[35]);
-                        $("#yogaInterest").val(row[36]);
-                        $("#yogaSkill").val(row[37]);
-                    }
-                }
-
+                //$("<span>Add</span>").appendTo($toolbar).button({ icons: { primary: "ui-icon-circle-plus" } }).click(function (evt) {
+                //    addRow();
+                //});
+                //$("<span>Edit</span>").appendTo($toolbar).button({ icons: { primary: "ui-icon-pencil" } }).click(function (evt) {
+                //    editRow();
+                //});
+                $("<span>Delete</span>").appendTo($toolbar).button({ icons: { primary: "ui-icon-circle-minus" } }).click(function () {
+                    // deleteRow();
+                });
+                $toolbar.disableSelection();
             });
+            //$("#pqDbGrid").pqGrid({
+            //    cellDblClick: function (event, ui) { alert("asdfadf awdf");}
+            //});
+            var $grid = $("#pqDbGrid").pqGrid(obj);
+            //, { freezeCols: 3 }
+
+            // Grid options
+            $grid.pqGrid("option", "topVisible", false);
+            $grid.pqGrid("option", "bottomVisible", true);
+            $grid.pqGrid("option", "columnBorders", true);
+            $grid.pqGrid("option", "rowBorders", true);
+            $grid.pqGrid("option", "oddRowsHighlight", true);
+            $grid.pqGrid("option", "numberCell", false);
+            $grid.pqGrid("option", "flexHeight", false);
+            $grid.pqGrid("option", "flexWidth", false);
+            $grid.pqGrid("option", "scrollModel", { horizontal: true, });// pace: fast
+            $grid.pqGrid("option", "resizable", true);
+            //$grid.pqGrid("option", "dataModel.paging", { paging: 'local' });
+            //$grid.pqGrid("option", "dataModel.rPP", { rPP: 20 })
+            $grid.pqGrid("option", "roundCorners", true);
+            $grid.pqGrid("option", "editable", false);
+            $grid.pqGrid("option", "selectionModel", { type: 'row', mode: 'single' });
+            $grid.pqGrid({
+                cellDblClick: function (event, ui) {
+                    // Show editing dialog.
+                    $("#dlgEditProfile").dialog({
+                        resizable: true,
+                        height: 700,
+                        width: 700,
+                        modal: true,
+                        buttons: {
+                            Update: function () {
+                                var DM = $grid.pqGrid("option", "dataModel");
+                                var data = DM.data;
+                                var rowIndx = getRowIndx();
+                                var row = data[rowIndx];
+
+                                var diet = $("[name='^=diet']:checked").map(function () {
+                                    return $.trim($("label [for='" + this.id + "']").text());
+                                }).get().join();
+                                var dietOther = $("#dietOther").val();
+                                if (dietOther != null && dietOther != "")
+                                    diet += ("," + dietOther);
+
+                                row[2] = $("#firstname").val();
+                                row[3] = $("#middlename").val();
+                                row[4] = $("#lastname").val();
+                                row[6] = $("#persontype").val();
+                                row[7] = $("#attending").val();
+                                row[8] = $("#email").val();
+                                row[9] = $("#bringingguest").val();
+                                row[10] = $("#lunch").val();
+                                row[11] = $("#dinner").val();
+                                row[12] = diet;
+                                row[13] = $("#busToSunningdale").val();
+                                row[14] = $("#busToNYC").val();
+                                row[15] = $("#tennisPlaying").val();
+                                row[16] = $("#tennisRentRacquet").val();
+                                row[17] = $("#tennisLevel").val();
+                                row[18] = $("#tennisMorning").val();
+                                row[19] = $("#tennisAfternoon").val();
+                                row[20] = $("#golfPlaying").val();
+                                row[21] = $("#golfLevel").val();
+                                row[22] = $("#golfMorning").val();
+                                row[23] = $("#golfAfternoon").val();
+                                row[24] = $("#golfClinicMorning").val();
+                                row[25] = $("#golfClinicAfternoon").val();
+                                row[26] = $("#golfRent").val();
+                                row[27] = $("#golfHands").val();
+                                row[28] = $("#golfCart").val();
+                                row[29] = $("#golfFoursome").val();
+                                row[30] = $("#basketballOpenPlay").val();
+                                row[31] = $("#basketballOrganizedGame").val();
+                                row[32] = $("#spaInterest").val();
+                                row[33] = $("#spaMani").val();
+                                row[34] = $("#spaPedi").val();
+                                row[35] = $("#spaMassage").val();
+                                row[36] = $("#yogaInterest").val();
+                                row[37] = $("#yogaSkill").val();
+
+                                $grid.pqGrid("refreshRow", { rowIndx: rowIndx }).pqGrid('setSelection', { rowIndx: rowIndx });
+                                //saveFromDbEditDlg();
+
+                                $(this).dialog("close");
+
+                            },
+                            Cancel: function () {
+                                $(this).dialog("close");
+                            }
+
+                        },
+                        open: function (event, ui) {
+                            var $grid = $("#pqDbGrid");
+                            var rowIndx = getRowIndx();
+
+                            if (rowIndx != null) {
+                                var DM = $grid.pqGrid("option", "dataModel");
+                                var data = DM.data;
+                                var row = data[rowIndx];
+                                // string
+                                $("#firstname").val(row[2]);
+                                $("#middlename").val(row[3]);
+                                $("#lastname").val(row[4]);
+                                $("#persontype").val(row[6]);
+                                $("#attending").val(row[7]);
+                                $("#email").val(row[8]);
+                                $("#bringingguest").val(row[9]);
+                                $("#lunch").val(row[10]);
+                                $("#dinner").val(row[11]);
+                                // dietary restrictions
+                                if (row[12].length > 0) {
+                                    var arrDietSplit = row[12].split(",");
+                                    var tempDiet = row[12];
+                                    for (var i = 0; i < arrDietSplit.length; i++) {
+                                        if ($.trim($("label[for=dietKosher").text()) == arrDietSplit[i]) {
+                                            $("input[name=dietKosher]").attr("checked", true);
+                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+                                        }
+                                        else if ($.trim($("label[for=dietVegetarian").text()) == arrDietSplit[i]) {
+                                            $("input[name=dietVegetarian]").attr("checked", true);
+                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+                                        }
+                                        else if ($.trim($("label[for=dietVegan").text()) == arrDietSplit[i]) {
+                                            $("input[name=dietVegan]").attr("checked", true);
+                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+                                        }
+                                        else if ($.trim($("label[for=dietPescatarian").text()) == arrDietSplit[i]) {
+                                            $("input[name=dietPescatarian]").attr("checked", true);
+                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+                                        }
+                                        else if ($.trim($("label[for=dietGluten").text()) == arrDietSplit[i]) {
+                                            $("input[name=dietGluten]").attr("checked", true);
+                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+                                        }
+                                        else if ($.trim($("label[for=dietNut").text()) == arrDietSplit[i]) {
+                                            $("input[name=dietNut]").attr("checked", true);
+                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+                                        }
+                                        else if ($.trim($("label[for=dietShellfish").text()) == arrDietSplit[i]) {
+                                            $("input[name=dietShellfish]").attr("checked", true);
+                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+                                        }
+                                        else if ($.trim($("label[for=dietLactose").text()) == arrDietSplit[i]) {
+                                            $("input[name=dietLactose]").attr("checked", true);
+                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+
+                                        }
+                                    }
+                                    $("#dietOther").val(tempDiet);
+                                }
+                                $("#busToSunningdale").val(row[13]);
+                                $("#busToNYC").val(row[14]);
+                                $("#tennisPlaying").val(row[15]);
+                                $("#tennisRentRacquet").val(row[16]);
+                                $("#tennisLevel").val(row[17]);
+                                $("#tennisMorning").val(row[18]);
+                                $("#tennisAfternoon").val(row[19]);
+                                $("#golfPlaying").val(row[20]);
+                                $("#golfLevel").val(row[21]);
+                                $("#golfMorning").val(row[22]);
+                                $("#golfAfternoon").val(row[23]);
+                                $("#golfClinicMorning").val(row[24]);
+                                $("#golfClinicAfternoon").val(row[25]);
+                                $("#golfRent").val(row[26]);
+                                $("#golfHands").val(row[27]);
+                                $("#golfCart").val(row[28]);
+                                $("#golfFoursome").val(row[29]);
+                                $("#basketballOpenPlay").val(row[30]);
+                                $("#basketballOrganizedGame").val(row[31]);
+                                $("#spaInterest").val(row[32]);
+                                $("#spaMani").val(row[33]);
+                                $("#spaPedi").val(row[34]);
+                                $("#spaMassage").val(row[35]);
+                                $("#yogaInterest").val(row[36]);
+                                $("#yogaSkill").val(row[37]);
+                            }
+                        }
+
+                    });
 
 
+                }
+            });
         }
     });
 
