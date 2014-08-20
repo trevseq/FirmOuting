@@ -683,7 +683,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\jquery-2.1.1.min.map" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Confirmation.cshtml" />
