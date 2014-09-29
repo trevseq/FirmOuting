@@ -90,8 +90,7 @@ h5, h6 {
         text-decoration: none;
     }
 
-
-/* main layout 
+/* main layout
 --------------------------------------------------------*/
 .content-wrapper {
     margin: 0 auto;
@@ -125,7 +124,6 @@ footer {
     height: 100px;
 }
 
-
 /* site title
 ----------------------------------------------------------*/
 .site-title {
@@ -141,7 +139,6 @@ footer {
         outline: none;
         text-decoration: none;
     }
-
 
 /* login
 ----------------------------------------------------------*/
@@ -176,7 +173,6 @@ footer {
         list-style: none;
     }
 
-
 /* menu
 ----------------------------------------------------------*/
 ul#menu {
@@ -203,7 +199,6 @@ ul#menu {
                 color: #333;
                 text-decoration: none;
             }
-
 
 /* page elements
 ----------------------------------------------------------*/
@@ -524,7 +519,6 @@ input[type="checkbox"].input-validation-error {
     display: none;
 }
 
-
 /* tables
 ----------------------------------------------------------*/
 table {
@@ -586,12 +580,10 @@ tr.pager td {
     padding: 0 0.25em 0 0;
 }
 
-
 /********************
 *   Mobile Styles   *
 ********************/
 @media only screen and (max-width: 850px) {
-
     /* header
     ----------------------------------------------------------*/
     header .float-left,
@@ -651,7 +643,6 @@ tr.pager td {
             margin: 0;
             padding: 0;
         }
-
 
     /* main layout
     ----------------------------------------------------------*/
@@ -735,7 +726,6 @@ tr.pager td {
         float: none;
         width: auto;
     }
-
 
     /* footer
     ----------------------------------------------------------*/

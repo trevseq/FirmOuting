@@ -244,7 +244,6 @@ $(function(){
     })
     .trigger("change");
 
-
   // click to open dialog
   $("#new-dialog").click(function(){
     //dialog options
@@ -257,7 +256,7 @@ $(function(){
       "draggable" : $("#is-draggable").is(":checked"),
       "close" : function(){
         if(last[0] != this){
-          $(this).remove(); 
+          $(this).remove();
         }
       }
     };
@@ -290,7 +289,7 @@ $(function(){
     // open dialog
     last = $("<div />").dialog(dialogOptions).dialogExtend(dialogExtendOptions);
   });
-  
+
   //click to reopen dialog
   $('#reopen-dialog').click(function(){
     last.dialog('open');

@@ -16,8 +16,10 @@ namespace FirmOuting.Models
     public static class Helper
     {
         private const string passphrase = "RETBGF02w3547rlsRFfdpseEWRfdmqwevclRsgeo4mnmwEqf54u2354634ksdgf943LDI93YU=";
+
         // Guid Id for html content edit mode.
         public static string CONTENT_HTML_EDIT = "BF11DEE0-2BE9-4A16-A86D-C32B75FF3DE9";
+
         // Guid Id for registered users edit mode.
         public static string CONTENT_REGISTERED_USER_EDIT = "7F0D60A2-AF50-429D-9CD2-89F98C8B7BB1";
 
@@ -356,6 +358,7 @@ namespace FirmOuting.Models
 
             return new MvcHtmlString(content);
         }
+
         public static string IsChecked(bool b)
         {
             return (b == true) ? "checked" : "";

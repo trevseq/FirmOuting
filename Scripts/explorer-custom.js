@@ -12,7 +12,6 @@ var isValidated = false;
 var pSwitch = false;
 
 $(document).ready(function () {
-
     /***** Nav - Sidebar **************************************************/
     if ($('#side-nav').length) {
         exp_loadSideNav();
@@ -76,7 +75,6 @@ $(document).ready(function () {
     if (location.pathname.toLowerCase().indexOf("home") > -1) {
         // Code for content page.
         /*****    $(window).resize(function () {
-   
                try {
                    //$('#header').css({ width: $(window).width() });
                    $("#dvWizPanel").css(
@@ -88,7 +86,7 @@ $(document).ready(function () {
                { }
            });
            $(window).resize();
-   
+
                Buttons ********************************************************/
         $('#btnSubmit').button();
 
@@ -99,7 +97,6 @@ $(document).ready(function () {
         //$(ctrls).addClass("FormInput");
         //$(".signature").removeClass("FormInput");
 
-        
         /*********** Populate the forms********************************/
         var jq = $.ajax({ type: "GET", async: true, dataType: "json", url: (pathName + "Home/GetUser"), cache: false });//
         jq.done(function (e) {
@@ -197,7 +194,6 @@ $(document).ready(function () {
                 }
                 $("#txtDietOther").val(tempDietaryRestrictions);
             }
-            
 
             /*_____Transportation_____*/
             if (e.BusToSunningdale != null) {
@@ -427,8 +423,6 @@ $(document).ready(function () {
         //$grid.pqGrid("option", "sortable", false);
         //$grid.pqGrid("option", "paging", true);
 
-
-
         //$(that).val("Change Grid back to Table");
         //tbl.css("display", "none");
 
@@ -447,7 +441,6 @@ $(document).ready(function () {
                 return (visibility == 'visible') ? 'hidden' : 'visible';
             });
         }
-
 
         $('.help').hover(function () {
             $('.popup-help', this).fadeIn('fast');
@@ -595,10 +588,8 @@ $(document).ready(function () {
             }
         });
 
-
-
         /*****Solution Explorer********************************************/
-        
+
         var uid = window.location.search.match(/uid=.{8}-.{4}-.{4}-.{4}-.{12}/);
         if (uid != null) {
             uid = uid.toString().replace("uid=", "");
@@ -636,7 +627,6 @@ $(document).ready(function () {
                 //        $("#dlgSolution").attr("style", ("width:inherit; height:inherit;"));
                 //    },
                 //    open: function (event, ui) {
-
                 //        // load the position and size
                 //        $(".ui-dialog").attr("style", ("left: " + solutionPosLeft + ";" + "top: " + solutionPosTop + ";" + "width: " + solutionSizeWidth + ";" + "height: " + solutionSizeHeight + ";"));
                 //        $("#dlgSolution").attr("style", ("width:inherit; height:inherit;"));
@@ -689,7 +679,7 @@ $(document).ready(function () {
                     modal: false,
                     width: 330,
                     height: 600,
-                    position: [10,6],//{ my: "top left", at: "top left" },
+                    position: [10, 6],//{ my: "top left", at: "top left" },
                     resizable: false,
                     draggable: true,
                     open: function (event, ui) {
@@ -714,9 +704,6 @@ $(document).ready(function () {
                         "restore": "ui-icon-circle-triangle-s"
                     },
                 });
-
-
-
             }
         }
         //else if (uid == null) {
@@ -726,11 +713,8 @@ $(document).ready(function () {
         //    $.removeCookie("solutionSizeHeight");
         //}
 
-
-        
         //Autocomplete for golf foursome text input
         var availableTags = split($("#hdnAttorneyNames").val(), ",");
-
 
         $("#txtFoursome")
         // don't navigate away from the field on tab when selecting an item
@@ -792,31 +776,31 @@ $(document).ready(function () {
                 $.cookie("editWarned", 'true');
             }
         }
-    //Wire click events (to re-validate) for Radio, Text and Dropdown controls.
-    $("[type='radio']").click(function () {
-        var rdo = $(this);
-        if ($("[name='" + rdo.attr("name") + "']:checked").length > 0)
-            rdo.validationEngine('hide');
-        else {
-            if (isValidated)
-                rdo.validationEngine('validate');
-        }
-    });
+        //Wire click events (to re-validate) for Radio, Text and Dropdown controls.
+        $("[type='radio']").click(function () {
+            var rdo = $(this);
+            if ($("[name='" + rdo.attr("name") + "']:checked").length > 0)
+                rdo.validationEngine('hide');
+            else {
+                if (isValidated)
+                    rdo.validationEngine('validate');
+            }
+        });
 
-    $("[type='text'],[type='date'],[type='number'],[type='email'],[type='textarea']").blur(function () {
-        var txt = $(this);
-        if (txt.val().length > 0) {
-            // close the validation
-            txt.validationEngine('hide');
-        }
-        else {
-            if (isValidated)
-                txt.validationEngine('validate');
-        }
-    });
+        $("[type='text'],[type='date'],[type='number'],[type='email'],[type='textarea']").blur(function () {
+            var txt = $(this);
+            if (txt.val().length > 0) {
+                // close the validation
+                txt.validationEngine('hide');
+            }
+            else {
+                if (isValidated)
+                    txt.validationEngine('validate');
+            }
+        });
 
-    $("[type='select-one'],[type='select-multiple']").change(function () {
-    });
+        $("[type='select-one'],[type='select-multiple']").change(function () {
+        });
     }
     else if (location.pathname.toLowerCase().indexOf("profiles") > -1) {
         // Code for profile page.
@@ -856,245 +840,243 @@ function LoadDbEditGrid() {
     //    success: function (data) {
     //    queryData = data.AttorneyOutings;
 
-            var obj = { width: 1200, height: 700, title: "Firm Outing Form Entry Database" };
-            var qUrl = pathName + "Profiles/GetProfiles";
-            // TODO: add data indexes (named) for each column
+    var obj = { width: 1200, height: 700, title: "Firm Outing Form Entry Database" };
+    var qUrl = pathName + "Profiles/GetProfiles";
+    // TODO: add data indexes (named) for each column
 
-            obj.colModel = [
-                { title: "Rec #", width: 40, dataType: "integer", hidden: true },
-                {
-                    title: "<img name='deleteAllRowsImage' title='Delete ALL rows' src='../Content/Images/warning-icon.png' style='height:16px; width:16px; cursor:pointer' />",
-                    dataIndx: 1, editable: false, sortable: false, width: 30, align: "center", resizable: false, render: function (ui) {
-                        var rowData = ui.rowData, dataIndx = ui.dataIndx;
-                        var val = rowData[dataIndx];
-                        str = "";
-                        return "<img name='deleteRowImage' title='Delete this row' src='../Content/Images/icon-remove.png' style='height:16px; width:16px;cursor:pointer' />"
-                    }, className: "deleteRowColumn"
+    obj.colModel = [
+        { title: "Rec #", width: 40, dataType: "integer", hidden: true },
+        {
+            title: "<img name='deleteAllRowsImage' title='Delete ALL rows' src='../Content/Images/warning-icon.png' style='height:16px; width:16px; cursor:pointer' />",
+            dataIndx: 1, editable: false, sortable: false, width: 30, align: "center", resizable: false, render: function (ui) {
+                var rowData = ui.rowData, dataIndx = ui.dataIndx;
+                var val = rowData[dataIndx];
+                str = "";
+                return "<img name='deleteRowImage' title='Delete this row' src='../Content/Images/icon-remove.png' style='height:16px; width:16px;cursor:pointer' />"
+            }, className: "deleteRowColumn"
+        },
+        { title: "First", width: 200, dataType: "string", editable: false },
+        { title: "Middle", width: 200, dataType: "string", editable: false },
+        { title: "Last", width: 200, dataType: "string", editable: false },
+        { title: "EmployeeID", width: 100, dataType: "string", editable: false, hidden: true },
+        { title: "PersonType", width: 100, dataType: "string", editable: false },
+        { title: "Attending", width: 100, dataType: "string", editable: false },
+        { title: "EmailAddress", width: 100, dataType: "string", editable: false },
+        { title: "BringingGuest", width: 100, dataType: "string", editable: false },
+        { title: "MealsLunch", width: 100, dataType: "string", editable: false },
+        { title: "MealsDinner", width: 100, dataType: "string", editable: false },
+        { title: "DietaryRestrictions", width: 100, dataType: "string", editable: false },
+        { title: "BusToSunningdale", width: 100, dataType: "string", editable: false },
+        { title: "BusToNYC", width: 100, dataType: "string", editable: false },
+        { title: "TennisPlaying", width: 100, dataType: "string", editable: false },
+        { title: "TennisRentRacquet", width: 100, dataType: "string", editable: false },
+        { title: "TennisLevelOfPlay", width: 100, dataType: "string", editable: false },
+        { title: "TennisMorning", width: 100, dataType: "string", editable: false },
+        { title: "TennisAfternoon", width: 100, dataType: "string", editable: false },
+        { title: "GolfPlaying", width: 100, dataType: "string", editable: false },
+        { title: "GolfLevelOfPlay", width: 100, dataType: "string", editable: false },
+        { title: "GolfMorning", width: 100, dataType: "string", editable: false },
+        { title: "GolfAfternoon", width: 100, dataType: "string", editable: false },
+        { title: "GolfClinicMorning", width: 100, dataType: "string", editable: false },
+        { title: "GolfClinicAfternoon", width: 100, dataType: "string", editable: false },
+        { title: "GolfRentClubs", width: 100, dataType: "string", editable: false },
+        { title: "GolfClubRightLeft", width: 100, dataType: "string", editable: false },
+        { title: "GolfCartOrWalk", width: 100, dataType: "string", editable: false },
+        { title: "GolfFoursome", width: 100, dataType: "string", editable: false },
+        { title: "BasketballOpenPlay", width: 100, dataType: "string", editable: false },
+        { title: "BasketballOrganizedGame", width: 100, dataType: "string", editable: false },
+        { title: "SpaInerest", width: 100, dataType: "string", editable: false },
+        { title: "SpaManicure", width: 100, dataType: "string", editable: false },
+        { title: "SpaPedicure", width: 100, dataType: "string", editable: false },
+        { title: "SpaMiniMassage", width: 100, dataType: "string", editable: false },
+        { title: "YogaInterest", width: 100, dataType: "string", editable: false },
+        { title: "YogaSkillLevel", width: 100, dataType: "string", editable: false, },
+        { title: "DateSubmitted", width: 100, dataType: "string", editable: false }];
+    obj.dataModel = {
+        location: "remote",
+        sorting: "local",
+        paging: "local",
+        dataType: "JSON",
+        method: "GET",
+        url: qUrl,
+        sortIndx: 2,
+        sortDir: "up",
+        rPP: 20
+    };
+
+    var $grid = $("#pqDbGrid").pqGrid(obj);
+    //, { freezeCols: 3 }
+
+    // Grid options
+    $grid.pqGrid("option", "topVisible", false);
+    $grid.pqGrid("option", "bottomVisible", true);
+    $grid.pqGrid("option", "columnBorders", true);
+    $grid.pqGrid("option", "rowBorders", true);
+    $grid.pqGrid("option", "oddRowsHighlight", true);
+    $grid.pqGrid("option", "numberCell", false);
+    $grid.pqGrid("option", "flexHeight", false);
+    $grid.pqGrid("option", "flexWidth", false);
+    $grid.pqGrid("option", "scrollModel", { horizontal: true, });
+    $grid.pqGrid("option", "resizable", true);
+    $grid.pqGrid("option", "roundCorners", true);
+    $grid.pqGrid("option", "editable", false);
+    $grid.pqGrid("option", "selectionModel", { type: 'row', mode: 'single' });
+    $grid.pqGrid({
+        cellDblClick: function (event, ui) {
+            // Show editing dialog.
+            $("#dlgEditProfile").dialog({
+                resizable: true,
+                height: 700,
+                width: 700,
+                modal: true,
+                buttons: {
+                    Update: function () {
+                        var DM = $grid.pqGrid("option", "dataModel");
+                        var data = DM.data;
+                        var rowIndx = getRowIndx();
+                        var row = data[rowIndx];
+
+                        var diet = $("[name='^=diet']:checked").map(function () {
+                            return $.trim($("label [for='" + this.id + "']").text());
+                        }).get().join();
+                        var dietOther = $("#dietOther").val();
+                        if (dietOther != null && dietOther != "")
+                            diet += ("," + dietOther);
+
+                        row[2] = $("#firstname").val();
+                        row[3] = $("#middlename").val();
+                        row[4] = $("#lastname").val();
+                        row[6] = $("#persontype").val();
+                        row[7] = $("#attending").val();
+                        row[8] = $("#email").val();
+                        row[9] = $("#bringingguest").val();
+                        row[10] = $("#lunch").val();
+                        row[11] = $("#dinner").val();
+                        row[12] = diet;
+                        row[13] = $("#busToSunningdale").val();
+                        row[14] = $("#busToNYC").val();
+                        row[15] = $("#tennisPlaying").val();
+                        row[16] = $("#tennisRentRacquet").val();
+                        row[17] = $("#tennisLevel").val();
+                        row[18] = $("#tennisMorning").val();
+                        row[19] = $("#tennisAfternoon").val();
+                        row[20] = $("#golfPlaying").val();
+                        row[21] = $("#golfLevel").val();
+                        row[22] = $("#golfMorning").val();
+                        row[23] = $("#golfAfternoon").val();
+                        row[24] = $("#golfClinicMorning").val();
+                        row[25] = $("#golfClinicAfternoon").val();
+                        row[26] = $("#golfRent").val();
+                        row[27] = $("#golfHands").val();
+                        row[28] = $("#golfCart").val();
+                        row[29] = $("#golfFoursome").val();
+                        row[30] = $("#basketballOpenPlay").val();
+                        row[31] = $("#basketballOrganizedGame").val();
+                        row[32] = $("#spaInterest").val();
+                        row[33] = $("#spaMani").val();
+                        row[34] = $("#spaPedi").val();
+                        row[35] = $("#spaMassage").val();
+                        row[36] = $("#yogaInterest").val();
+                        row[37] = $("#yogaSkill").val();
+
+                        $grid.pqGrid("refreshRow", { rowIndx: rowIndx }).pqGrid('setSelection', { rowIndx: rowIndx });
+                        //saveFromDbEditDlg();
+
+                        $(this).dialog("close");
+                    },
+                    Cancel: function () {
+                        $(this).dialog("close");
+                    }
                 },
-                { title: "First", width: 200, dataType: "string", editable: false },
-                { title: "Middle", width: 200, dataType: "string", editable: false },
-                { title: "Last", width: 200, dataType: "string", editable: false },
-                { title: "EmployeeID", width: 100, dataType: "string", editable: false, hidden: true },
-                { title: "PersonType", width: 100, dataType: "string", editable: false },
-                { title: "Attending", width: 100, dataType: "string", editable: false },
-                { title: "EmailAddress", width: 100, dataType: "string", editable: false },
-                { title: "BringingGuest", width: 100, dataType: "string", editable: false },
-                { title: "MealsLunch", width: 100, dataType: "string", editable: false },
-                { title: "MealsDinner", width: 100, dataType: "string", editable: false },
-                { title: "DietaryRestrictions", width: 100, dataType: "string", editable: false },
-                { title: "BusToSunningdale", width: 100, dataType: "string", editable: false },
-                { title: "BusToNYC", width: 100, dataType: "string", editable: false },
-                { title: "TennisPlaying", width: 100, dataType: "string", editable: false },
-                { title: "TennisRentRacquet", width: 100, dataType: "string", editable: false },
-                { title: "TennisLevelOfPlay", width: 100, dataType: "string", editable: false },
-                { title: "TennisMorning", width: 100, dataType: "string", editable: false },
-                { title: "TennisAfternoon", width: 100, dataType: "string", editable: false },
-                { title: "GolfPlaying", width: 100, dataType: "string", editable: false },
-                { title: "GolfLevelOfPlay", width: 100, dataType: "string", editable: false },
-                { title: "GolfMorning", width: 100, dataType: "string", editable: false },
-                { title: "GolfAfternoon", width: 100, dataType: "string", editable: false },
-                { title: "GolfClinicMorning", width: 100, dataType: "string", editable: false },
-                { title: "GolfClinicAfternoon", width: 100, dataType: "string", editable: false },
-                { title: "GolfRentClubs", width: 100, dataType: "string", editable: false },
-                { title: "GolfClubRightLeft", width: 100, dataType: "string", editable: false },
-                { title: "GolfCartOrWalk", width: 100, dataType: "string", editable: false },
-                { title: "GolfFoursome", width: 100, dataType: "string", editable: false },
-                { title: "BasketballOpenPlay", width: 100, dataType: "string", editable: false },
-                { title: "BasketballOrganizedGame", width: 100, dataType: "string", editable: false },
-                { title: "SpaInerest", width: 100, dataType: "string", editable: false },
-                { title: "SpaManicure", width: 100, dataType: "string", editable: false },
-                { title: "SpaPedicure", width: 100, dataType: "string", editable: false },
-                { title: "SpaMiniMassage", width: 100, dataType: "string", editable: false },
-                { title: "YogaInterest", width: 100, dataType: "string", editable: false },
-                { title: "YogaSkillLevel", width: 100, dataType: "string", editable: false, },
-                { title: "DateSubmitted", width: 100, dataType: "string", editable: false }];
-            obj.dataModel = {
-                location: "remote",
-                sorting: "local",
-                paging: "local",
-                dataType: "JSON",
-                method: "GET",
-                url: qUrl,
-                sortIndx: 2,
-                sortDir: "up",
-                rPP: 20
-            };
+                open: function (event, ui) {
+                    var $grid = $("#pqDbGrid");
+                    var rowIndx = getRowIndx();
 
-            var $grid = $("#pqDbGrid").pqGrid(obj);
-            //, { freezeCols: 3 }
-
-            // Grid options
-            $grid.pqGrid("option", "topVisible", false);
-            $grid.pqGrid("option", "bottomVisible", true);
-            $grid.pqGrid("option", "columnBorders", true);
-            $grid.pqGrid("option", "rowBorders", true);
-            $grid.pqGrid("option", "oddRowsHighlight", true);
-            $grid.pqGrid("option", "numberCell", false);
-            $grid.pqGrid("option", "flexHeight", false);
-            $grid.pqGrid("option", "flexWidth", false);
-            $grid.pqGrid("option", "scrollModel", { horizontal: true, });
-            $grid.pqGrid("option", "resizable", true);
-            $grid.pqGrid("option", "roundCorners", true);
-            $grid.pqGrid("option", "editable", false);
-            $grid.pqGrid("option", "selectionModel", { type: 'row', mode: 'single' });
-            $grid.pqGrid({
-                cellDblClick: function (event, ui) {
-                    // Show editing dialog.
-                    $("#dlgEditProfile").dialog({
-                        resizable: true,
-                        height: 700,
-                        width: 700,
-                        modal: true,
-                        buttons: {
-                            Update: function () {
-                                var DM = $grid.pqGrid("option", "dataModel");
-                                var data = DM.data;
-                                var rowIndx = getRowIndx();
-                                var row = data[rowIndx];
-
-                                var diet = $("[name='^=diet']:checked").map(function () {
-                                    return $.trim($("label [for='" + this.id + "']").text());
-                                }).get().join();
-                                var dietOther = $("#dietOther").val();
-                                if (dietOther != null && dietOther != "")
-                                    diet += ("," + dietOther);
-
-                                row[2] = $("#firstname").val();
-                                row[3] = $("#middlename").val();
-                                row[4] = $("#lastname").val();
-                                row[6] = $("#persontype").val();
-                                row[7] = $("#attending").val();
-                                row[8] = $("#email").val();
-                                row[9] = $("#bringingguest").val();
-                                row[10] = $("#lunch").val();
-                                row[11] = $("#dinner").val();
-                                row[12] = diet;
-                                row[13] = $("#busToSunningdale").val();
-                                row[14] = $("#busToNYC").val();
-                                row[15] = $("#tennisPlaying").val();
-                                row[16] = $("#tennisRentRacquet").val();
-                                row[17] = $("#tennisLevel").val();
-                                row[18] = $("#tennisMorning").val();
-                                row[19] = $("#tennisAfternoon").val();
-                                row[20] = $("#golfPlaying").val();
-                                row[21] = $("#golfLevel").val();
-                                row[22] = $("#golfMorning").val();
-                                row[23] = $("#golfAfternoon").val();
-                                row[24] = $("#golfClinicMorning").val();
-                                row[25] = $("#golfClinicAfternoon").val();
-                                row[26] = $("#golfRent").val();
-                                row[27] = $("#golfHands").val();
-                                row[28] = $("#golfCart").val();
-                                row[29] = $("#golfFoursome").val();
-                                row[30] = $("#basketballOpenPlay").val();
-                                row[31] = $("#basketballOrganizedGame").val();
-                                row[32] = $("#spaInterest").val();
-                                row[33] = $("#spaMani").val();
-                                row[34] = $("#spaPedi").val();
-                                row[35] = $("#spaMassage").val();
-                                row[36] = $("#yogaInterest").val();
-                                row[37] = $("#yogaSkill").val();
-
-                                $grid.pqGrid("refreshRow", { rowIndx: rowIndx }).pqGrid('setSelection', { rowIndx: rowIndx });
-                                //saveFromDbEditDlg();
-
-                                $(this).dialog("close");
-
-                            },
-                            Cancel: function () {
-                                $(this).dialog("close");
-                            }
-                        },
-                        open: function (event, ui) {
-                            var $grid = $("#pqDbGrid");
-                            var rowIndx = getRowIndx();
-
-                            if (rowIndx != null) {
-                                var DM = $grid.pqGrid("option", "dataModel");
-                                var data = DM.data;
-                                var row = data[rowIndx];
-                                // string
-                                $("#firstname").val(row[2]);
-                                $("#middlename").val(row[3]);
-                                $("#lastname").val(row[4]);
-                                $("#persontype").val(row[6]);
-                                $("#attending").val(row[7]);
-                                $("#email").val(row[8]);
-                                $("#bringingguest").val(row[9]);
-                                $("#lunch").val(row[10]);
-                                $("#dinner").val(row[11]);
-                                // dietary restrictions
-                                if (row[12].length > 0) {
-                                    var arrDietSplit = row[12].split(",");
-                                    var tempDiet = row[12];
-                                    for (var i = 0; i < arrDietSplit.length; i++) {
-                                        if ($.trim($("label[for=dietKosher").text()) == arrDietSplit[i]) {
-                                            $("input[name=dietKosher]").attr("checked", true);
-                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
-                                        }
-                                        else if ($.trim($("label[for=dietVegetarian").text()) == arrDietSplit[i]) {
-                                            $("input[name=dietVegetarian]").attr("checked", true);
-                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
-                                        }
-                                        else if ($.trim($("label[for=dietVegan").text()) == arrDietSplit[i]) {
-                                            $("input[name=dietVegan]").attr("checked", true);
-                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
-                                        }
-                                        else if ($.trim($("label[for=dietPescatarian").text()) == arrDietSplit[i]) {
-                                            $("input[name=dietPescatarian]").attr("checked", true);
-                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
-                                        }
-                                        else if ($.trim($("label[for=dietGluten").text()) == arrDietSplit[i]) {
-                                            $("input[name=dietGluten]").attr("checked", true);
-                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
-                                        }
-                                        else if ($.trim($("label[for=dietNut").text()) == arrDietSplit[i]) {
-                                            $("input[name=dietNut]").attr("checked", true);
-                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
-                                        }
-                                        else if ($.trim($("label[for=dietShellfish").text()) == arrDietSplit[i]) {
-                                            $("input[name=dietShellfish]").attr("checked", true);
-                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
-                                        }
-                                        else if ($.trim($("label[for=dietLactose").text()) == arrDietSplit[i]) {
-                                            $("input[name=dietLactose]").attr("checked", true);
-                                            tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
-
-                                        }
-                                    }
-                                    $("#dietOther").val(tempDiet);
+                    if (rowIndx != null) {
+                        var DM = $grid.pqGrid("option", "dataModel");
+                        var data = DM.data;
+                        var row = data[rowIndx];
+                        // string
+                        $("#firstname").val(row[2]);
+                        $("#middlename").val(row[3]);
+                        $("#lastname").val(row[4]);
+                        $("#persontype").val(row[6]);
+                        $("#attending").val(row[7]);
+                        $("#email").val(row[8]);
+                        $("#bringingguest").val(row[9]);
+                        $("#lunch").val(row[10]);
+                        $("#dinner").val(row[11]);
+                        // dietary restrictions
+                        if (row[12].length > 0) {
+                            var arrDietSplit = row[12].split(",");
+                            var tempDiet = row[12];
+                            for (var i = 0; i < arrDietSplit.length; i++) {
+                                if ($.trim($("label[for=dietKosher").text()) == arrDietSplit[i]) {
+                                    $("input[name=dietKosher]").attr("checked", true);
+                                    tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
                                 }
-                                $("#busToSunningdale").val(row[13]);
-                                $("#busToNYC").val(row[14]);
-                                $("#tennisPlaying").val(row[15]);
-                                $("#tennisRentRacquet").val(row[16]);
-                                $("#tennisLevel").val(row[17]);
-                                $("#tennisMorning").val(row[18]);
-                                $("#tennisAfternoon").val(row[19]);
-                                $("#golfPlaying").val(row[20]);
-                                $("#golfLevel").val(row[21]);
-                                $("#golfMorning").val(row[22]);
-                                $("#golfAfternoon").val(row[23]);
-                                $("#golfClinicMorning").val(row[24]);
-                                $("#golfClinicAfternoon").val(row[25]);
-                                $("#golfRent").val(row[26]);
-                                $("#golfHands").val(row[27]);
-                                $("#golfCart").val(row[28]);
-                                $("#golfFoursome").val(row[29]);
-                                $("#basketballOpenPlay").val(row[30]);
-                                $("#basketballOrganizedGame").val(row[31]);
-                                $("#spaInterest").val(row[32]);
-                                $("#spaMani").val(row[33]);
-                                $("#spaPedi").val(row[34]);
-                                $("#spaMassage").val(row[35]);
-                                $("#yogaInterest").val(row[36]);
-                                $("#yogaSkill").val(row[37]);
+                                else if ($.trim($("label[for=dietVegetarian").text()) == arrDietSplit[i]) {
+                                    $("input[name=dietVegetarian]").attr("checked", true);
+                                    tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+                                }
+                                else if ($.trim($("label[for=dietVegan").text()) == arrDietSplit[i]) {
+                                    $("input[name=dietVegan]").attr("checked", true);
+                                    tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+                                }
+                                else if ($.trim($("label[for=dietPescatarian").text()) == arrDietSplit[i]) {
+                                    $("input[name=dietPescatarian]").attr("checked", true);
+                                    tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+                                }
+                                else if ($.trim($("label[for=dietGluten").text()) == arrDietSplit[i]) {
+                                    $("input[name=dietGluten]").attr("checked", true);
+                                    tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+                                }
+                                else if ($.trim($("label[for=dietNut").text()) == arrDietSplit[i]) {
+                                    $("input[name=dietNut]").attr("checked", true);
+                                    tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+                                }
+                                else if ($.trim($("label[for=dietShellfish").text()) == arrDietSplit[i]) {
+                                    $("input[name=dietShellfish]").attr("checked", true);
+                                    tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+                                }
+                                else if ($.trim($("label[for=dietLactose").text()) == arrDietSplit[i]) {
+                                    $("input[name=dietLactose]").attr("checked", true);
+                                    tempDiet = tempDiet.replace((arrDietSplit[i] + ","), "");
+                                }
                             }
+                            $("#dietOther").val(tempDiet);
                         }
-                    });
+                        $("#busToSunningdale").val(row[13]);
+                        $("#busToNYC").val(row[14]);
+                        $("#tennisPlaying").val(row[15]);
+                        $("#tennisRentRacquet").val(row[16]);
+                        $("#tennisLevel").val(row[17]);
+                        $("#tennisMorning").val(row[18]);
+                        $("#tennisAfternoon").val(row[19]);
+                        $("#golfPlaying").val(row[20]);
+                        $("#golfLevel").val(row[21]);
+                        $("#golfMorning").val(row[22]);
+                        $("#golfAfternoon").val(row[23]);
+                        $("#golfClinicMorning").val(row[24]);
+                        $("#golfClinicAfternoon").val(row[25]);
+                        $("#golfRent").val(row[26]);
+                        $("#golfHands").val(row[27]);
+                        $("#golfCart").val(row[28]);
+                        $("#golfFoursome").val(row[29]);
+                        $("#basketballOpenPlay").val(row[30]);
+                        $("#basketballOrganizedGame").val(row[31]);
+                        $("#spaInterest").val(row[32]);
+                        $("#spaMani").val(row[33]);
+                        $("#spaPedi").val(row[34]);
+                        $("#spaMassage").val(row[35]);
+                        $("#yogaInterest").val(row[36]);
+                        $("#yogaSkill").val(row[37]);
+                    }
                 }
             });
-        //}
+        }
+    });
+    //}
     //});
 
     $(document).delegate("img[name='deleteRowImage']", "click", function (evt) {
@@ -1103,8 +1085,8 @@ function LoadDbEditGrid() {
             // Remove row from grid.
             deleteRow();
         }
-        });
-    $(document).delegate("img[name='deleteAllRowsImage']", "click", function (evt) { 
+    });
+    $(document).delegate("img[name='deleteAllRowsImage']", "click", function (evt) {
         var b = window.confirm("Warning! This deletes all records PERMANENTLY. Are you sure you want to delete?");
         if (b) {
             //remove all rows
@@ -1117,7 +1099,7 @@ function saveFromDbEditDlg() {
     var DM = $grid.pqGrid("option", "dataModel");
     var data = DM.data;
     var row = data[rowIndx];
-    
+
     var param = "Profiles/ResaveDbData";
     param += "?recId=" + row[0];
     param += "&firstName=" + row[2];
@@ -1161,7 +1143,6 @@ function saveFromDbEditDlg() {
     x.done(function (args) {
         alert(args);
     })
-    
 }
 
 //delete Row.
@@ -1177,8 +1158,8 @@ function deleteRow() {
         $grid.pqGrid("refreshDataAndView");
         //$grid.pqGrid("setSelection", { rowIndx: rowIndx });
 
- // Remove from database
-        $.ajax({ type: "GET",  dataType: "json", url: "Profiles/RemoveRegisteredUser?id="+row[0], cache: false });
+        // Remove from database
+        $.ajax({ type: "GET", dataType: "json", url: "Profiles/RemoveRegisteredUser?id=" + row[0], cache: false });
     }
 }
 
@@ -1187,7 +1168,7 @@ function deleteAll() {
     var DM = $grid.pqGrid("option", "dataModel");
     var data = DM.data;
     // Empty the grid
-    for (var i = data.length -1; i >= 0; i--) {
+    for (var i = data.length - 1; i >= 0; i--) {
         data.splice(i, 1);
     }
     // Refresh grid view
@@ -1203,12 +1184,12 @@ function getRowIndx() {
     //debugger;
     //  alert($grid);
     var arr = $grid.pqGrid("selection", { type: 'row', method: 'getSelection' });
-  
+
     if (arr && arr.length > 0) {
         var rowIndx = arr[0].rowIndx;
 
         //if (rowIndx != null && colIndx == null) {
-         return rowIndx;      
+        return rowIndx;
     }
     else {
         alert("Select a row.");
@@ -1236,8 +1217,7 @@ function EditWarn() {
     //    });
 }
 
-function FindShowControl(cId)
-{
+function FindShowControl(cId) {
     var frame = $('iframe');
     frame.focus();
     var c = frame.contents().find(("#" + cId));
@@ -1246,20 +1226,20 @@ function FindShowControl(cId)
 
 //Expand and collapse solution dialog items
 function ExpandCollapseItem(img) {
-	    if (img.src.indexOf("ig_tblPlus.gif") > 0)
-	        img.src = pathName + "Images/ig_tblMinus.gif";
-	    else
-	        img.src = pathName + "Images/ig_tblPlus.gif";
+    if (img.src.indexOf("ig_tblPlus.gif") > 0)
+        img.src = pathName + "Images/ig_tblMinus.gif";
+    else
+        img.src = pathName + "Images/ig_tblPlus.gif";
 
-	    //var ss = img.id.split("_");
-	    //var id = ss[0].replace("img", "tb");
-	    var id = img.id.replace("img", "tb");
-	    $("#" + id).toggle();
-	}
+    //var ss = img.id.split("_");
+    //var id = ss[0].replace("img", "tb");
+    var id = img.id.replace("img", "tb");
+    $("#" + id).toggle();
+}
 
 function ShowContent(contentName) {
     var url = window.location.href;
-    if (window.location.search.match(("cType=" + contentName)) == null){
+    if (window.location.search.match(("cType=" + contentName)) == null) {
         var editEmail = window.location.search.match("edit=email");
         if (editEmail != null) {
             url = pathName + "home?uid=BF11DEE0-2BE9-4A16-A86D-C32B75FF3DE9&edit=content";
@@ -1290,464 +1270,462 @@ function exp_loadForms() {
     });
 }
 
-function exp_colorSupport(){
-		$('.fc-widget-header').addClass('theme-bar-color');
-		$('.fc-button-inner').addClass('theme-bar-color');
-	}
+function exp_colorSupport() {
+    $('.fc-widget-header').addClass('theme-bar-color');
+    $('.fc-button-inner').addClass('theme-bar-color');
+}
 
-function loadPercents(animate){
-		if (typeof(animate) == 'undefined') { animate = true; }
+function loadPercents(animate) {
+    if (typeof (animate) == 'undefined') { animate = true; }
 
-		if ($('.percents>div:not(.done)').size()){
-			var currentPercent = $('.percents>div:not(.done)')[0];
-			var percent = $('span', currentPercent).html();
-			$('span', currentPercent).html('').css('display','block');
+    if ($('.percents>div:not(.done)').size()) {
+        var currentPercent = $('.percents>div:not(.done)')[0];
+        var percent = $('span', currentPercent).html();
+        $('span', currentPercent).html('').css('display', 'block');
 
-			//log('Load percent: [animate'+animate+']');
+        //log('Load percent: [animate'+animate+']');
 
-			if (animate){
-			$(currentPercent).delay(300).animate({
-				'width':percent+'%'
-				},{
-					duration:600,
-					step:function(width){
-						var crPercent = 625/100;
-						var crValue = width;
+        if (animate) {
+            $(currentPercent).delay(300).animate({
+                'width': percent + '%'
+            }, {
+                duration: 600,
+                step: function (width) {
+                    var crPercent = 625 / 100;
+                    var crValue = width;
 
-						$('span',currentPercent).html(Math.round(crValue)+'%');
-					},
-					complete: function (){
-						$(this).addClass('done');
-						loadPercents();
-					}
-				});
-			}else{
-				$('span', currentPercent).html(percent+'%');
-				$(currentPercent).css('width', percent+'%').addClass('done');
+                    $('span', currentPercent).html(Math.round(crValue) + '%');
+                },
+                complete: function () {
+                    $(this).addClass('done');
+                    loadPercents();
+                }
+            });
+        } else {
+            $('span', currentPercent).html(percent + '%');
+            $(currentPercent).css('width', percent + '%').addClass('done');
 
-				loadPercents();
-			}
-		}
-	}
+            loadPercents();
+        }
+    }
+}
 
 //Useless function to collapse the comments
 function commentedOutStuff() {
-	    //function exp_loadCalendar(){
-	    //	$('.tabularData').dataTable();
-
-	    //	if ($('#scrolable_content').size()){
-	    //		$("#scrolable_content").mCustomScrollbar( "vertical", 400, "easeOutCirc", 1.05, "auto", "yes", "yes", 10);
-	    //		}
-	    //	//$('#calendar-events-rnd').fullCalendar({ });
-
-	    //	var date = new Date();
-	    //	var d = date.getDate();
-	    //	var m = date.getMonth();
-	    //	var y = date.getFullYear();
-
-	    //	$('.calendar-nav .next').click(function(){
-	    //		 $('#calendar-events-rnd').fullCalendar('next');
-	    //		 $('.calendar-nav h1').html($('.fc-header-title h2').html());
-
-	    //		 return false;
-	    //	});
-
-	    //	$('.calendar-nav .back').click(function(){
-	    //		 $('#calendar-events-rnd').fullCalendar('prev');
-	    //		 $('.calendar-nav h1').html($('.fc-header-title h2').html());
-
-	    //		 return false;
-	    //	});
-
-	    //	var calendar = $('#calendar-events-rnd').fullCalendar({
-	    //		header: {
-	    //			left: 'prev,next today',
-	    //			center: 'title',
-	    //			right: ''
-
-	    //		},
-
-	    //		editable: true,
-	    //		selectable: true,
-	    //		selectHelper: true,
-	    //		select: function(start, end, allDay) {
-	    //			var title = prompt('Event Title:');
-	    //			if (title) {
-	    //				calendar.fullCalendar('renderEvent',
-	    //					{
-	    //						title: title,
-	    //						start: start,
-	    //						end: end,
-	    //						allDay: allDay
-	    //					},
-	    //					true
-	    //				);
-	    //			}
-	    //			calendar.fullCalendar('unselect');
-	    //		},
-	    //		events: [
-	    //			{
-	    //				title: 'All Day Event',
-	    //				start: new Date(y, m, 1)
-	    //			},
-	    //			{
-	    //				title: 'Long Event',
-	    //				start: new Date(y, m, d-5),
-	    //				end: new Date(y, m, d-2)
-	    //			},
-	    //			{
-	    //				id: 999,
-	    //				title: 'Repeating Event',
-	    //				start: new Date(y, m, d-3, 16, 0),
-	    //				allDay: false
-	    //			},
-	    //			{
-	    //				id: 999,
-	    //				title: 'Repeating Event',
-	    //				start: new Date(y, m, d+4, 16, 0),
-	    //				allDay: false
-	    //			},
-
-	    //			{
-	    //				title: 'Meeting',
-	    //				start: new Date(y, m, d, 10, 30),
-	    //				allDay: false
-	    //			},
-	    //			{
-	    //				title: 'Lunch',
-	    //				start: new Date(y, m, d, 12, 0),
-	    //				end: new Date(y, m, d, 14, 0),
-	    //				allDay: false
-	    //			},
-	    //			{
-	    //				title: 'Birthday Party',
-	    //				start: new Date(y, m, d+1, 19, 0),
-	    //				end: new Date(y, m, d+1, 22, 30),
-	    //				allDay: false
-	    //			},
-	    //			{
-	    //				title: 'Click for Google',
-	    //				start: new Date(y, m, 28),
-	    //				end: new Date(y, m, 29),
-	    //				url: 'http://google.com/'
-	    //			}
-	    //		]
-	    //	});
-
-	    //	$('.calendar-nav h1').html($('.fc-header-title h2').html());
-	    //}
-	}
-
-function exp_loadGallery(){
-		$( ".gallery-view-thumbnail" ).sortable({
-			placeholder: "thumb-state-highlight"
-		});
-
-		$( ".gallery-view-thumbnail" ).disableSelection();
-
-		/*
-		$('.gallery-view-thumbnail .crop').click(function(){
-			var picture = $(this).closest('li');
-			var imgSrc = $('.thumb img', picture).attr('alt');
-			$('.gallery-view-thumbnail', picture).append('<img src="'+imgSrc+'" >').fadeIn();
-		});
-		*/
-
-		$('.gallery-view-thumbnail .remove').click(function(){
-			var thumb = $(this).closest('li');
-			$(thumb).fadeOut('slow');
-		});
-
-		$('.gallery-view-thumbnail li').hover(function(){
-			$('.edit, .remove', this).show(); //fadeIn('fast');
-		}, function(){
-			$('.edit, .remove', this).hide(); //.fadeOut('slow');
-		});
-	}
-
-function exp_loadPanels(){
-		/***** Panel - Toolbar Support ****************************************/
-		if ($('.panel .toolbar')){
-			$('.toolbar .view-button').click(function(){
-				var panel = $(this).closest('.panel');
-
-				$('.toolbar .view-button', panel).removeClass('selected');
-				$(this).addClass('selected');
-
-				var related_content = $(this).attr('rel');
-				if ($('#'+related_content+'.view-content', panel).size()){
-					$('.view-content.selected', panel).removeClass('selected');
-					$('#'+related_content+'.view-content', panel).addClass('selected');
-				}
-
-				return false;
-			});
-
-			////$( ".section > .tiny, .section> .full, .section> .small, .section> .large" ).sortable({
-			////	connectWith: ".section > .tiny, .section> .full, .section> .small, .section> .large",
-			////	placeholder: 'ui-state-highlight',
-			////	handle: '.title, .title-large',
-			////	helper: 'clone'
-			////});
-
-			//$( ".panel" ).addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
-			//	.find( ".panel>.title" )
-			//		.addClass( "ui-widget-header ui-corner-all" )
-			//		.prepend( "<span class='ui-icon ui-icon-minusthick'></span>")
-			//		.end()
-			//	.find( ".panel>.content" );
-
-			$( ".panel>.title .ui-icon" ).click(function() {
-				$( this ).toggleClass( "ui-icon-minusthick" ).toggleClass( "ui-icon-plusthick" );
-				$( this ).parents( ".panel:first" ).find( ".panel > .content" ).toggle();
-			});
-
-			$(".panel .title>.drop, .panel .title-large>.drop").click(function(event){
-				event.stopPropagation();
-
-				var panel = $(this).closest('.panel');
-				var content = $('.content', panel);
-
-				if ($(this).hasClass('minimized')){
-					$(content).slideDown('fast');
-					$(this).removeClass('minimized');
-				}else{
-					$(content).slideUp('fast');
-					$(this).addClass('minimized');
-				}
-			});
-
-			//$( ".section >.tiny" ).disableSelection();
-		}
-
-		/***** Panel - Tabs Support *******************************************/
-		$('.panel .tabs-box li').click(function(){
-			var panel = $(this).closest('.panel');
-			var tab_content_id = $('a', this).attr('rel');
-
-			$('.tabs-box li', panel).removeClass('selected');
-			$(this).addClass('selected');
-
-			if ($('#'+tab_content_id, panel).size()){
-				$('.tabs-content.selected', panel).removeClass('selected');
-				$('#'+tab_content_id+'.tabs-content', panel).addClass('selected');
-			}
-
-			return false;
-		});
-	}
-
-function exp_loadTopNav(){
-		$('#header li').click(function(){
-			if ($(this).hasClass('selected')) { return false; }
-
-			var list = $(this).closest('ul');
-			var li = this;
-
-			$('.selected .sel', list).fadeOut('fast', function () {
-				$('.selected', list).removeClass('selected');
-
-				$('.sel', li).fadeIn('fast', function (){
-					$(li).addClass('selected');
-				})
-			});
-		});
-	}
-
-function exp_loadSideNav(){
-		$('#container > .nav-wrapper li').click(function(){
-			$('#container > .nav-wrapper li').removeClass('selected');
-			$(this).addClass('selected');
-		});
-
-		$('#side-nav li').hover(function(){
-			if ($(this).hasClass('selected')) { return false; }
-
-			$('div>div', this).fadeIn('slow');
-		}, function(){
-			if ($(this).hasClass('selected')) { return false; }
-
-			$('div>div', this).fadeOut('slow');
-		});
-	}
-
-function exp_loadFAQ(){
-		if (faq_stiky_index){
-			$('.columns-index').addClass('auto');
-			}
-
-		$('.columns-index>ul').containedStickyScroll({ duration: 300 });
-
-		$('.columns-index>ul>li>a').click(function(event){
-			var stContentID = $(this).attr('rel');
-
-			if ( faq_view==0 ){
-				if ($('.columns-content>div.selected').size()){
-					$('.columns-content>div.selected').slideUp('fast').removeClass('selected');
-				}
-
-				$('.columns-content #'+stContentID).slideDown('fast').addClass('selected');
-			}
-		});
-
-		$('.columns-index ul ul li').click(function(event){
-			$('.columns-index>ul>li.active').removeClass('active selected');
-
-			var pt_ul = $(this).closest('ul');
-			var pt_li = $(pt_ul).closest('li');
-			$(pt_li).addClass('active selected');
-		});
-
-		$('.view-column').click(function(){
-			faq_view = 1;
-
-			$('.columns-index ul ul').each(function(){
-				$(this).slideDown().animate({'margin-bottom':'15px'});
-			});
-
-			$('.columns-content > div').slideDown();
-		});
-
-		$('.view-dropdown').click(function(){
-			faq_view = 0;
-
-			$('.columns-index li ul').each(function(){
-				if (!$(this).parent().hasClass('selected')){
-					$(this).animate({'margin-bottom':'0'}).slideUp();
-				}
-			});
-
-			var activeContentID = $('.columns-index>ul>li.selected>a').attr('rel');
-
-			$('.columns-content>div').each(function(){
-				if ($(this).attr('id')==activeContentID){
-				}else{
-					$(this).slideUp();
-				}
-			});
-		});
-
-		$('.columns-index>ul>li').click(function(){
-			if ($(this).hasClass('selected')) { return false; }
-
-			$('.columns-index>ul>li').removeClass('selected active');
-			$(this).addClass('selected active');
-
-			if ( faq_view==1 ){ return false; }
-
-			if($('.columns-index ul ul:visible').size()){
-				$('.columns-index ul ul:visible').slideUp();
-			}
-
-			if ($('ul', this).size()){
-				$('ul', this).slideDown();
-			}
-		});
-	}
-
-function exp_loadCharts( ){
-		if ($('#exp-line-chart').size()){
-			$('.chartData').visualize({type: 'line', width: '862px', height:'250px'}).appendTo('#exp-line-chart');
-			$('.chartData').visualize({type: 'pie', width: '360px', height:'250px'}).appendTo('#exp-bar-pie');
-			$('.chartData').visualize({type: 'area', width: '360px', height:'250px'}).appendTo('#exp-bar-zone');
-			$('.chartData').visualize({type: 'bar', width: '862px', height:'250px'}).appendTo('#exp-bar-chart');
-		}
-
-		if ($('#fullpan-exp-line-chart').size()){
-			$('.chartData').visualize({type: 'bar', width: '525px', height:'160px'}).appendTo('#fullpan-exp-bar-chart');
-			$('.chartData').visualize({type: 'pie', width: '525px', height:'160px'}).appendTo('#fullpan-exp-pie-chart');
-			$('.chartData').visualize({type: 'area', width: '525px', height:'160px'}).appendTo('#fullpan-exp-area-chart');
-			$('.chartData').visualize({type: 'line', width: '525px', height:'160px'}).appendTo('#fullpan-exp-line-chart');
-		}
-	}
-
-function exp_loadWizard( ){
-			var panel = $('.panel.wizard');
-			var current_state = 0;
-
-			var st_01 = 0;
-			var st_02 = 105;
-			var st_03 = 210;
-			var st_04 = 315;
-			var st_05 = 420;
-			var st_06 = 525;
-
-			if ( $('.pbar',panel).hasClass('ct-step-1') ) { current_state = 1; }
-			if ( $('.pbar',panel).hasClass('ct-step-2') ) { current_state = 2; }
-			if ( $('.pbar',panel).hasClass('ct-step-3') ) { current_state = 3; }
-			if ( $('.pbar',panel).hasClass('ct-step-4') ) { current_state = 4; }
-			if ( $('.pbar',panel).hasClass('ct-step-5') ) { current_state = 5; }
-			if ( $('.pbar',panel).hasClass('ct-step-6') ) { current_state = 6; }
-
-			//** Previews button click
-			//**
-			$('.wiz-prev', panel).click(function(){
-				var prev_state = current_state;
-
-				if (current_state>1) { prev_state--;  }
-
-				if (current_state!=prev_state){
-					var nt_width = ((prev_state-1)*105)+'px';
-
-					$('.pbar .done',panel).animate( {'width':nt_width},350,'easeInOutExpo', function (){
-						$('.pbar',panel).removeClass('ct-step-'+current_state);
-						$('.pbar',panel).addClass('ct-step-'+prev_state);
-
-						$('.progress-wrap>.step-'+prev_state).addClass('selected').removeClass('on');
-						$('.progress-wrap>.step-'+current_state).addClass('off').removeClass('selected').removeClass('on');
-
-						current_state--;
-					});
-
-					$('.label', panel).removeClass('selected');
-					$('.label:eq('+(prev_state-1)+')', panel).addClass('selected');
-
-					changeWizardStep(prev_state, panel);
-				}
-				return false;
-			});
-
-			//** Next button click
-			//**
-			$('.wiz-next', panel).click(function(){
-				var next_state = current_state;
-
-				if (current_state<6) { next_state++;  }
-
-				if (current_state!=next_state){
-					var nt_width = ((next_state-1)*105)+'px';
-
-					$('.pbar .done',panel).animate( {'width':nt_width},350,'easeInOutExpo', function(){
-						$('.pbar',panel).removeClass('ct-step-'+current_state);
-						$('.pbar',panel).addClass('ct-step-'+next_state);
-
-						$('.progress-wrap>.step-'+current_state).addClass('on').removeClass('selected').removeClass('off');
-						$('.progress-wrap>.step-'+next_state).addClass('selected').removeClass('off');
-
-						current_state++;
-					});
-
-					$('.label', panel).removeClass('selected');
-					$('.label:eq('+current_state+')', panel).addClass('selected');
-
-					changeWizardStep(next_state, panel);
-				}
-				return false;
-			});
-	}
-
-function changeWizardStep(page, panel){
-		if ($( '.wizard-content li').length<page-1) { return false; }
-
-		$( '.wizard-content li:visible'  ,panel).fadeOut(150, function(){
-			$( '.wizard-content li:eq('+(page-1)+')'  ,panel).fadeIn(150);
-		});
-	}
-
-function GeneratePassword()
-{
-    if (parseInt(navigator.appVersion) <= 3)
-    {
+    //function exp_loadCalendar(){
+    //	$('.tabularData').dataTable();
+
+    //	if ($('#scrolable_content').size()){
+    //		$("#scrolable_content").mCustomScrollbar( "vertical", 400, "easeOutCirc", 1.05, "auto", "yes", "yes", 10);
+    //		}
+    //	//$('#calendar-events-rnd').fullCalendar({ });
+
+    //	var date = new Date();
+    //	var d = date.getDate();
+    //	var m = date.getMonth();
+    //	var y = date.getFullYear();
+
+    //	$('.calendar-nav .next').click(function(){
+    //		 $('#calendar-events-rnd').fullCalendar('next');
+    //		 $('.calendar-nav h1').html($('.fc-header-title h2').html());
+
+    //		 return false;
+    //	});
+
+    //	$('.calendar-nav .back').click(function(){
+    //		 $('#calendar-events-rnd').fullCalendar('prev');
+    //		 $('.calendar-nav h1').html($('.fc-header-title h2').html());
+
+    //		 return false;
+    //	});
+
+    //	var calendar = $('#calendar-events-rnd').fullCalendar({
+    //		header: {
+    //			left: 'prev,next today',
+    //			center: 'title',
+    //			right: ''
+
+    //		},
+
+    //		editable: true,
+    //		selectable: true,
+    //		selectHelper: true,
+    //		select: function(start, end, allDay) {
+    //			var title = prompt('Event Title:');
+    //			if (title) {
+    //				calendar.fullCalendar('renderEvent',
+    //					{
+    //						title: title,
+    //						start: start,
+    //						end: end,
+    //						allDay: allDay
+    //					},
+    //					true
+    //				);
+    //			}
+    //			calendar.fullCalendar('unselect');
+    //		},
+    //		events: [
+    //			{
+    //				title: 'All Day Event',
+    //				start: new Date(y, m, 1)
+    //			},
+    //			{
+    //				title: 'Long Event',
+    //				start: new Date(y, m, d-5),
+    //				end: new Date(y, m, d-2)
+    //			},
+    //			{
+    //				id: 999,
+    //				title: 'Repeating Event',
+    //				start: new Date(y, m, d-3, 16, 0),
+    //				allDay: false
+    //			},
+    //			{
+    //				id: 999,
+    //				title: 'Repeating Event',
+    //				start: new Date(y, m, d+4, 16, 0),
+    //				allDay: false
+    //			},
+
+    //			{
+    //				title: 'Meeting',
+    //				start: new Date(y, m, d, 10, 30),
+    //				allDay: false
+    //			},
+    //			{
+    //				title: 'Lunch',
+    //				start: new Date(y, m, d, 12, 0),
+    //				end: new Date(y, m, d, 14, 0),
+    //				allDay: false
+    //			},
+    //			{
+    //				title: 'Birthday Party',
+    //				start: new Date(y, m, d+1, 19, 0),
+    //				end: new Date(y, m, d+1, 22, 30),
+    //				allDay: false
+    //			},
+    //			{
+    //				title: 'Click for Google',
+    //				start: new Date(y, m, 28),
+    //				end: new Date(y, m, 29),
+    //				url: 'http://google.com/'
+    //			}
+    //		]
+    //	});
+
+    //	$('.calendar-nav h1').html($('.fc-header-title h2').html());
+    //}
+}
+
+function exp_loadGallery() {
+    $(".gallery-view-thumbnail").sortable({
+        placeholder: "thumb-state-highlight"
+    });
+
+    $(".gallery-view-thumbnail").disableSelection();
+
+    /*
+    $('.gallery-view-thumbnail .crop').click(function(){
+        var picture = $(this).closest('li');
+        var imgSrc = $('.thumb img', picture).attr('alt');
+        $('.gallery-view-thumbnail', picture).append('<img src="'+imgSrc+'" >').fadeIn();
+    });
+    */
+
+    $('.gallery-view-thumbnail .remove').click(function () {
+        var thumb = $(this).closest('li');
+        $(thumb).fadeOut('slow');
+    });
+
+    $('.gallery-view-thumbnail li').hover(function () {
+        $('.edit, .remove', this).show(); //fadeIn('fast');
+    }, function () {
+        $('.edit, .remove', this).hide(); //.fadeOut('slow');
+    });
+}
+
+function exp_loadPanels() {
+    /***** Panel - Toolbar Support ****************************************/
+    if ($('.panel .toolbar')) {
+        $('.toolbar .view-button').click(function () {
+            var panel = $(this).closest('.panel');
+
+            $('.toolbar .view-button', panel).removeClass('selected');
+            $(this).addClass('selected');
+
+            var related_content = $(this).attr('rel');
+            if ($('#' + related_content + '.view-content', panel).size()) {
+                $('.view-content.selected', panel).removeClass('selected');
+                $('#' + related_content + '.view-content', panel).addClass('selected');
+            }
+
+            return false;
+        });
+
+        ////$( ".section > .tiny, .section> .full, .section> .small, .section> .large" ).sortable({
+        ////	connectWith: ".section > .tiny, .section> .full, .section> .small, .section> .large",
+        ////	placeholder: 'ui-state-highlight',
+        ////	handle: '.title, .title-large',
+        ////	helper: 'clone'
+        ////});
+
+        //$( ".panel" ).addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
+        //	.find( ".panel>.title" )
+        //		.addClass( "ui-widget-header ui-corner-all" )
+        //		.prepend( "<span class='ui-icon ui-icon-minusthick'></span>")
+        //		.end()
+        //	.find( ".panel>.content" );
+
+        $(".panel>.title .ui-icon").click(function () {
+            $(this).toggleClass("ui-icon-minusthick").toggleClass("ui-icon-plusthick");
+            $(this).parents(".panel:first").find(".panel > .content").toggle();
+        });
+
+        $(".panel .title>.drop, .panel .title-large>.drop").click(function (event) {
+            event.stopPropagation();
+
+            var panel = $(this).closest('.panel');
+            var content = $('.content', panel);
+
+            if ($(this).hasClass('minimized')) {
+                $(content).slideDown('fast');
+                $(this).removeClass('minimized');
+            } else {
+                $(content).slideUp('fast');
+                $(this).addClass('minimized');
+            }
+        });
+
+        //$( ".section >.tiny" ).disableSelection();
+    }
+
+    /***** Panel - Tabs Support *******************************************/
+    $('.panel .tabs-box li').click(function () {
+        var panel = $(this).closest('.panel');
+        var tab_content_id = $('a', this).attr('rel');
+
+        $('.tabs-box li', panel).removeClass('selected');
+        $(this).addClass('selected');
+
+        if ($('#' + tab_content_id, panel).size()) {
+            $('.tabs-content.selected', panel).removeClass('selected');
+            $('#' + tab_content_id + '.tabs-content', panel).addClass('selected');
+        }
+
+        return false;
+    });
+}
+
+function exp_loadTopNav() {
+    $('#header li').click(function () {
+        if ($(this).hasClass('selected')) { return false; }
+
+        var list = $(this).closest('ul');
+        var li = this;
+
+        $('.selected .sel', list).fadeOut('fast', function () {
+            $('.selected', list).removeClass('selected');
+
+            $('.sel', li).fadeIn('fast', function () {
+                $(li).addClass('selected');
+            })
+        });
+    });
+}
+
+function exp_loadSideNav() {
+    $('#container > .nav-wrapper li').click(function () {
+        $('#container > .nav-wrapper li').removeClass('selected');
+        $(this).addClass('selected');
+    });
+
+    $('#side-nav li').hover(function () {
+        if ($(this).hasClass('selected')) { return false; }
+
+        $('div>div', this).fadeIn('slow');
+    }, function () {
+        if ($(this).hasClass('selected')) { return false; }
+
+        $('div>div', this).fadeOut('slow');
+    });
+}
+
+function exp_loadFAQ() {
+    if (faq_stiky_index) {
+        $('.columns-index').addClass('auto');
+    }
+
+    $('.columns-index>ul').containedStickyScroll({ duration: 300 });
+
+    $('.columns-index>ul>li>a').click(function (event) {
+        var stContentID = $(this).attr('rel');
+
+        if (faq_view == 0) {
+            if ($('.columns-content>div.selected').size()) {
+                $('.columns-content>div.selected').slideUp('fast').removeClass('selected');
+            }
+
+            $('.columns-content #' + stContentID).slideDown('fast').addClass('selected');
+        }
+    });
+
+    $('.columns-index ul ul li').click(function (event) {
+        $('.columns-index>ul>li.active').removeClass('active selected');
+
+        var pt_ul = $(this).closest('ul');
+        var pt_li = $(pt_ul).closest('li');
+        $(pt_li).addClass('active selected');
+    });
+
+    $('.view-column').click(function () {
+        faq_view = 1;
+
+        $('.columns-index ul ul').each(function () {
+            $(this).slideDown().animate({ 'margin-bottom': '15px' });
+        });
+
+        $('.columns-content > div').slideDown();
+    });
+
+    $('.view-dropdown').click(function () {
+        faq_view = 0;
+
+        $('.columns-index li ul').each(function () {
+            if (!$(this).parent().hasClass('selected')) {
+                $(this).animate({ 'margin-bottom': '0' }).slideUp();
+            }
+        });
+
+        var activeContentID = $('.columns-index>ul>li.selected>a').attr('rel');
+
+        $('.columns-content>div').each(function () {
+            if ($(this).attr('id') == activeContentID) {
+            } else {
+                $(this).slideUp();
+            }
+        });
+    });
+
+    $('.columns-index>ul>li').click(function () {
+        if ($(this).hasClass('selected')) { return false; }
+
+        $('.columns-index>ul>li').removeClass('selected active');
+        $(this).addClass('selected active');
+
+        if (faq_view == 1) { return false; }
+
+        if ($('.columns-index ul ul:visible').size()) {
+            $('.columns-index ul ul:visible').slideUp();
+        }
+
+        if ($('ul', this).size()) {
+            $('ul', this).slideDown();
+        }
+    });
+}
+
+function exp_loadCharts() {
+    if ($('#exp-line-chart').size()) {
+        $('.chartData').visualize({ type: 'line', width: '862px', height: '250px' }).appendTo('#exp-line-chart');
+        $('.chartData').visualize({ type: 'pie', width: '360px', height: '250px' }).appendTo('#exp-bar-pie');
+        $('.chartData').visualize({ type: 'area', width: '360px', height: '250px' }).appendTo('#exp-bar-zone');
+        $('.chartData').visualize({ type: 'bar', width: '862px', height: '250px' }).appendTo('#exp-bar-chart');
+    }
+
+    if ($('#fullpan-exp-line-chart').size()) {
+        $('.chartData').visualize({ type: 'bar', width: '525px', height: '160px' }).appendTo('#fullpan-exp-bar-chart');
+        $('.chartData').visualize({ type: 'pie', width: '525px', height: '160px' }).appendTo('#fullpan-exp-pie-chart');
+        $('.chartData').visualize({ type: 'area', width: '525px', height: '160px' }).appendTo('#fullpan-exp-area-chart');
+        $('.chartData').visualize({ type: 'line', width: '525px', height: '160px' }).appendTo('#fullpan-exp-line-chart');
+    }
+}
+
+function exp_loadWizard() {
+    var panel = $('.panel.wizard');
+    var current_state = 0;
+
+    var st_01 = 0;
+    var st_02 = 105;
+    var st_03 = 210;
+    var st_04 = 315;
+    var st_05 = 420;
+    var st_06 = 525;
+
+    if ($('.pbar', panel).hasClass('ct-step-1')) { current_state = 1; }
+    if ($('.pbar', panel).hasClass('ct-step-2')) { current_state = 2; }
+    if ($('.pbar', panel).hasClass('ct-step-3')) { current_state = 3; }
+    if ($('.pbar', panel).hasClass('ct-step-4')) { current_state = 4; }
+    if ($('.pbar', panel).hasClass('ct-step-5')) { current_state = 5; }
+    if ($('.pbar', panel).hasClass('ct-step-6')) { current_state = 6; }
+
+    //** Previews button click
+    //**
+    $('.wiz-prev', panel).click(function () {
+        var prev_state = current_state;
+
+        if (current_state > 1) { prev_state--; }
+
+        if (current_state != prev_state) {
+            var nt_width = ((prev_state - 1) * 105) + 'px';
+
+            $('.pbar .done', panel).animate({ 'width': nt_width }, 350, 'easeInOutExpo', function () {
+                $('.pbar', panel).removeClass('ct-step-' + current_state);
+                $('.pbar', panel).addClass('ct-step-' + prev_state);
+
+                $('.progress-wrap>.step-' + prev_state).addClass('selected').removeClass('on');
+                $('.progress-wrap>.step-' + current_state).addClass('off').removeClass('selected').removeClass('on');
+
+                current_state--;
+            });
+
+            $('.label', panel).removeClass('selected');
+            $('.label:eq(' + (prev_state - 1) + ')', panel).addClass('selected');
+
+            changeWizardStep(prev_state, panel);
+        }
+        return false;
+    });
+
+    //** Next button click
+    //**
+    $('.wiz-next', panel).click(function () {
+        var next_state = current_state;
+
+        if (current_state < 6) { next_state++; }
+
+        if (current_state != next_state) {
+            var nt_width = ((next_state - 1) * 105) + 'px';
+
+            $('.pbar .done', panel).animate({ 'width': nt_width }, 350, 'easeInOutExpo', function () {
+                $('.pbar', panel).removeClass('ct-step-' + current_state);
+                $('.pbar', panel).addClass('ct-step-' + next_state);
+
+                $('.progress-wrap>.step-' + current_state).addClass('on').removeClass('selected').removeClass('off');
+                $('.progress-wrap>.step-' + next_state).addClass('selected').removeClass('off');
+
+                current_state++;
+            });
+
+            $('.label', panel).removeClass('selected');
+            $('.label:eq(' + current_state + ')', panel).addClass('selected');
+
+            changeWizardStep(next_state, panel);
+        }
+        return false;
+    });
+}
+
+function changeWizardStep(page, panel) {
+    if ($('.wizard-content li').length < page - 1) { return false; }
+
+    $('.wizard-content li:visible', panel).fadeOut(150, function () {
+        $('.wizard-content li:eq(' + (page - 1) + ')', panel).fadeIn(150);
+    });
+}
+
+function GeneratePassword() {
+    if (parseInt(navigator.appVersion) <= 3) {
         alert("Sorry this only works in 4.0+ browsers");
         return true;
     }
@@ -1760,20 +1738,16 @@ function GeneratePassword()
     var noPunction = true;
     var randomLength = true;
 
-    if (randomLength)
-    {
+    if (randomLength) {
         length = Math.random();
         length = parseInt(length * 100);
         length = (length % 7) + 6
     }
 
-    for (i = 0; i < length; i++)
-    {
+    for (i = 0; i < length; i++) {
         numI = getRandomNum();
-        if (noPunction)
-        {
-            while (checkPunc(numI))
-            {
+        if (noPunction) {
+            while (checkPunc(numI)) {
                 numI = getRandomNum();
             }
         }
@@ -1786,8 +1760,7 @@ function GeneratePassword()
     return sPassword;
 }
 
-function getRandomNum()
-{
+function getRandomNum() {
     // between 0 - 1
     var rndNum = Math.random()
 
@@ -1800,22 +1773,17 @@ function getRandomNum()
     return rndNum;
 }
 
-function checkPunc(num)
-{
-    if ((num >= 33) && (num <= 47))
-    {
+function checkPunc(num) {
+    if ((num >= 33) && (num <= 47)) {
         return true;
     }
-    if ((num >= 58) && (num <= 64))
-    {
+    if ((num >= 58) && (num <= 64)) {
         return true;
     }
-    if ((num >= 91) && (num <= 96))
-    {
+    if ((num >= 91) && (num <= 96)) {
         return true;
     }
-    if ((num >= 123) && (num <= 126))
-    {
+    if ((num >= 123) && (num <= 126)) {
         return true;
     }
 
@@ -1838,12 +1806,10 @@ function fixBoxShadowBlur(jQueryObject) {
 }
 
 function submitControl() {
-
     //Validate form inputs
     var formValid = $('#contentForm').validationEngine('validate', { autoPositionUpdate: true });
     isValidated = true;
     if (formValid != false) {
-
         var firstname = $("#txtGuestFirstName").val();
         var lastname = $("#txtGuestLastName").val();
         if (firstname != "" && lastname != "") {
@@ -1903,7 +1869,6 @@ function submitControl() {
         param += "&spaMiniMassage=" + GetRadioButtonValue('rdoMassage');
         param += "&yogaInterest=" + GetRadioButtonValue('rdoYoga');
         param += "&yogaSkillLevel=" + GetRadioButtonValue('rdoYogaSkill');
-
 
         //$.ajax({ type: "POST", async: false, dataType: "json", url: (pathName + param), cache: false });
         //navigate to confirm page

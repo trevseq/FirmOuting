@@ -1,21 +1,17 @@
 /*.theme-bar-color 											{ background-color:#000; }*/
 
 /*** Body - Background color *******************************/
-body 														{ background:#fff; }	
-
+body 														{ background:#fff; }
 
 /*** Body - Background transparency ************************/
 /*#style-background 											{ opacity:1;background:url('../Content/images/back-body-texture.png'); }*/
 
-
 /*** Body - Top light transparency *************************/
 /*#style-shadow 												{ opacity:1;background:url('../content/images/back-body-light.png') no-repeat center top;}*/
-
 
 /*** Panel - Title bar color********************************/
 /*.panel .title,
 .panel .title-large 										{ background:grey; }*/
-
 
 /*** Panel - Gradient transparency *************************/
 /*.panel .title .theme,*/
@@ -70,7 +66,7 @@ textarea                                                    {resize: none;}
     -khtml-border-radius: 8px;
     border-radius: 8px;
     overflow: hidden;
-    border-collapse:separate; 
+    border-collapse:separate;
 }
 
 #imgUserPic {
@@ -148,8 +144,8 @@ textarea                                                    {resize: none;}
 }
 
 #editPageLink{
-    cursor:pointer; 
-    color: White; 
+    cursor:pointer;
+    color: White;
     text-decoration: underline;
     font-family: 'PT Sans',arial,serif;
 }

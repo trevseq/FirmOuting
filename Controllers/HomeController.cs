@@ -10,8 +10,6 @@ namespace FirmOuting.Controllers
 {
     public class HomeController : Controller
     {
-
-
         public ActionResult Default()
         {
             if (Session["ID"] == null)
@@ -47,10 +45,12 @@ namespace FirmOuting.Controllers
                 //editor.DisabledItems = " insertlayer, new, fullscreen, insertform, insertbox, insertfieldset, fullscreen, syntaxhighlighter";
 
                 #region Html Content Edit.
+
                 var content = string.Empty;
                 if (this.Request.QueryString["edit"] == "content")
                 {
                     #region Page Content edit
+
                     string file = ((this.Request.QueryString["cType"] != null) ? this.Request.QueryString["cType"] : "FormContent");
                     // set editor height
                     //editor.Height = Unit.Pixel(560);
@@ -88,11 +88,13 @@ namespace FirmOuting.Controllers
 
                     content = Regex.Replace(content, "<div class=\"roundCornerBoxShadow\" style=\"background: url(\'" + @"@url.content\(\""~?/(?<source>[a-zA-Z0-9|\/|.]*)\""\)" + "\'); width: (?<width>(\\d*))px; height: (?<height>(\\d*))px; \" ></div>", "<img class=\"roundCornerBoxShadowImg\" style=\"width: ${width}px; height: ${height}px; \" src=\"${source}\"></img>", opt);
                     content = Regex.Replace(content, " for=\"", " forx=\"", opt);
-                    #endregion
+
+                    #endregion Page Content edit
                 }
                 else if (this.Request.QueryString["edit"] == "email" && this.Request.QueryString["id"] != null)
                 {
                     #region Email Content edit.
+
                     // set editor height
                     editor.Height = Unit.Pixel(300);
 
@@ -106,7 +108,8 @@ namespace FirmOuting.Controllers
                     ViewBag.Bcc = o.Bcc;
                     ViewBag.Subject = o.Subject;
                     content += o.Body;
-                    #endregion
+
+                    #endregion Email Content edit.
                 }
 
                 // editor.LoadHtml();
@@ -115,13 +118,16 @@ namespace FirmOuting.Controllers
 
                 editor.MvcInit();
                 ViewBag.editor = editor.MvcGetString();
-                #endregion
+
+                #endregion Html Content Edit.
             }
             else if (uid.Groups.Count > 0 && uid.Groups["uid"].Value == Helper.CONTENT_REGISTERED_USER_EDIT)
             {
                 #region Registered users repository
+
                 // content += "<h2>Now editing user data entries</h2>";
-                #endregion
+
+                #endregion Registered users repository
             }
 
             return View();
@@ -291,8 +297,6 @@ namespace FirmOuting.Controllers
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
-
-
 
         /// <summary>
         /// Save the form data into the database.

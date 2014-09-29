@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FirmOuting.Models;
+using System;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using FirmOuting.Models;
 
 namespace FirmOuting.Controllers
 {
@@ -27,12 +25,11 @@ namespace FirmOuting.Controllers
             }
             catch
             {
-                
             }
             return new JsonResult()
             {
                 Data = new { db.AttorneyOutings, _success },
-                
+
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
@@ -43,13 +40,12 @@ namespace FirmOuting.Controllers
             var db = new LegalRecruitingEntities();
             try
             {
-                // Delete all records              
+                // Delete all records
                 // db.Database.ExecuteSqlCommand("TRUNCATE TABLE AttorneyOutings", new object[] { null });
                 _success = true;
             }
             catch
             {
-
             }
             return new JsonResult()
             {
@@ -57,6 +53,7 @@ namespace FirmOuting.Controllers
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
+
         public ActionResult RemoveRegisteredUser(int id)
         {
             bool _success = false;
@@ -75,7 +72,6 @@ namespace FirmOuting.Controllers
             }
             catch
             {
-
             }
             return new JsonResult()
             {
@@ -83,7 +79,6 @@ namespace FirmOuting.Controllers
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
-
 
         public ActionResult ResaveDbData(int recId, string firstName, string middleName, string lastName, int employeeId,
             string personType, string attending, string email, string bringingGuest, string lunch, string dinner, string diet, string busToSunningdale, string busToNYC, string tennisPlaying, string tennisRentRacquet, string tennisLevel,

@@ -11,11 +11,10 @@ namespace FirmOuting
             // bundles.UseCdn = true;
 
             // Enable Bundling and Minification
-             BundleTable.EnableOptimizations = false;
-
-
+            BundleTable.EnableOptimizations = false;
 
             #region Script Bundling
+
             //Add link to jquery on the CDN
             //var cdnJqueryPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.0.min.js";
             //var cdnJqueryUIPath = "http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js";
@@ -40,8 +39,9 @@ namespace FirmOuting
                          "~/scripts/jqbrowser-uncompressed.js",
                          "~/scripts/pqgrid.min.js",
                          "~/scripts/explorer-custom.js"));
-           
-            #endregion
+
+            #endregion Script Bundling
+
             #region Style Bundling
 
             // Login Style
@@ -57,9 +57,8 @@ namespace FirmOuting
                                 "~/Content/pqgrid.min.css",
                                 "~/Scripts/Plugins/posabsolute-jQuery-Validation-Engine-499f567/css/validationEngine.jquery.css",
                                 "~/Content/themes/redmond/jquery-ui-1.10.3.custom.min.css"));
-            #endregion
 
-
+            #endregion Style Bundling
         }
     }
 }

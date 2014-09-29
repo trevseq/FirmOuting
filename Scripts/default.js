@@ -64,18 +64,15 @@ $(document).ready(function () {
             window.location = (pathName + "Secure");
         }
     });
- 
+
     /***** Login form *****************************************************/
     if ($('.exp-form').length) {
         exp_loadForms();
     }
 
-
- 
-
     // Submit when enter key is press.
     $(document).keypress(function (e) {
-        if (e.which == 13) {           
+        if (e.which == 13) {
             $("#btnLogin").click();
         }
     });

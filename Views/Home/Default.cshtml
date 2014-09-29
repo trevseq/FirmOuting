@@ -72,9 +72,8 @@
                                     <a id="closeDataTableLink" style="cursor:pointer; color: White; text-decoration: underline;font-family: 'PT Sans',arial,serif;" href="@(Url.Content("~/Home"))" title="Return to the form.">Close Edit</a>
                                 }
                                 else
-                                { }*@ 
+                                { }*@
                                     <a id="editDataTableLink" href="@(Url.Content("~/profiles"))" title="Edit user entries in the database.">Edit Datatable</a>@*"~/Home?uid=" + Helper.CONTENT_REGISTERED_USER_EDIT + "&edit=DataTable"*@
-                                
 
                                 if (uid.Groups.Count > 0 && uid.Groups["uid"].Value == Helper.CONTENT_HTML_EDIT)
                                 {
@@ -152,7 +151,6 @@
                                                         if (!rteeditor) return;
                                                         if (!info || !info.Arguments || !info.Arguments[1] || info.Arguments[1] != "Save")
                                                             return;
-
 
                                                         Save(false);
                                                     }
