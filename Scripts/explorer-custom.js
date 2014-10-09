@@ -22,30 +22,6 @@ $(document).ready(function () {
         exp_loadTopNav();
     }
 
-    /***** Panel - Gallery ***************************************
-    if ($('.gallery-view-thumbnail').size()){
-        exp_loadGallery();
-        }*********/
-
-    /***** Panel - Chart *************************************
-    if ($('.chartData').length){
-        exp_loadCharts();
-        }*************/
-
-    /***** Panel - WYSIWYG ******************************************
-    if ( $('#niceEditArea').size() ){
-        new nicEditor({fullPanel : true, iconsPath : 'images/niceditoricons.gif'}).panelInstance('niceEditArea');
-        }******/
-
-    /***** Panel - Code view *************************************
-    if ($('.code').size()){
-        $(".code.css").snippet("css",{style:"acid",transparent:true,showNum:true});
-        $(".code.php").snippet("php",{style:"acid",transparent:true,showNum:true});
-        $(".code.js").snippet("javascript",{style:"acid",transparent:true,showNum:true});
-        $(".code.html").snippet("html",{style:"acid",transparent:true,showNum:true});
-        $(".code.sql").snippet("sql",{style:"acid",transparent:true,showNum:true});
-        }*********/
-
     /***** Panel - FAQ ****************************************************/
     if ($('.panel .faq-columns').size()) {
         exp_loadFAQ();
@@ -56,46 +32,12 @@ $(document).ready(function () {
         exp_loadWizard();
     }
 
-    /***** Panel - Calendar *************************************************/
-    //exp_loadCalendar();
-
-    /***** Panels - General *************************************************/
     exp_loadPanels();
-
-    /***** Attach theme styles ********************************************/
     exp_colorSupport();
 
-    //var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-    //if (is_chrome) {
-    //    document.write('<div id="style-shadow" style="pointer-events:none; z-index:70"><\/div>');
-    //    $('#style-background').css("opacity", "1");
-    //    $('#style-background').css("position", "relative");
-    //}
-    // Load custom configuration for different pages.
     if (location.pathname.toLowerCase().indexOf("home") > -1) {
-        // Code for content page.
-        /*****    $(window).resize(function () {
-               try {
-                   //$('#header').css({ width: $(window).width() });
-                   $("#dvWizPanel").css(
-                 {
-                     position: "absolute",
-                     left: (($(window).width() / 2) - 395) + "px"
-                 });
-               } catch (e)
-               { }
-           });
-           $(window).resize();
 
-               Buttons ********************************************************/
         $('#btnSubmit').button();
-
-        //var ctrls = "textarea, select, input[type = 'date'],input[type = 'datetime'], input[type = 'datetime-local']," +
-        //     "input[type = 'email'], input[type = 'month'],input[type = 'number'], input[type = 'password']," +
-        //     "input[type = 'search'], input[type = 'tel'],input[type = 'text'], input[type = 'time']," +
-        //     "input[type = 'url'], input[type = 'week']";
-        //$(ctrls).addClass("FormInput");
-        //$(".signature").removeClass("FormInput");
 
         /*********** Populate the forms********************************/
         var jq = $.ajax({ type: "GET", async: true, dataType: "json", url: (pathName + "Home/GetUser"), cache: false });//
@@ -405,26 +347,6 @@ $(document).ready(function () {
             $("#rdoYogaSkillIntermediate").val($.trim($("#lblYogaSkillIntermediate").text()));
         });
 
-        //var tbl = $("#tbBusInfo");
-        //var obj = $.paramquery.tableToArray(tbl);
-        //var newObj = { title: "Grid From Table", editable: false };
-        //newObj.dataModel = { sortDir: "up", data: obj.data, rPP: 15, paging: "local", rPPOptions: [15, 25, 50, 100] };
-        //newObj.colModel = obj.colModel;
-
-        //// Set some properties
-        //var $grid = $("#grid_table").pqGrid(newObj);
-        //$grid.pqGrid("option", "flexHeight", false);
-        //$grid.pqGrid("option", "flexWidth", true);
-        //$grid.pqGrid("option", "topVisible", false);
-        //$grid.pqGrid("option", "bottomVisible", false);
-        //$grid.pqGrid("option", "numberCell", false);
-        ////$grid.pqGrid("option", "scrollModel", { horizontal: false });
-        //$grid.pqGrid("option", "resizable", false);
-        //$grid.pqGrid("option", "sortable", false);
-        //$grid.pqGrid("option", "paging", true);
-
-        //$(that).val("Change Grid back to Table");
-        //tbl.css("display", "none");
 
         /***** Content Control *****************************************/
 
@@ -608,67 +530,6 @@ $(document).ready(function () {
                     }
                 }
 
-                //$("#accordion").accordion({
-                //    collapsible: false,
-                //    heightStyle: "fill",
-                //    active: activeAccord,
-                //});
-                //var solutionPosLeft = ($.cookie("solutionPosLeft") != null) ? ($.cookie("solutionPosLeft") + "px; ") : "0px;";
-                //var solutionPosTop = ($.cookie("solutionPosTop") != null) ? ($.cookie("solutionPosTop") + "px; ") : "114px;";
-                //var solutionSizeWidth = ($.cookie("solutionSizeWidth") != null) ? ($.cookie("solutionSizeWidth") + "px;") : "auto;";
-                //var solutionSizeHeight = ($.cookie("solutionSizeHeight") != null) ? ($.cookie("solutionSizeHeight") + "px; ") : "auto;";
-                //$("#dlgSolution").dialog({
-                //    title: "Solution Explorer",
-                //    resizable: false,
-                //    modal: false,
-                //    position: { my: "top left", at: "top-" + solutionPosTop + " " + "left" },
-                //    create: function (event, ui) {
-                //        $(".ui-dialog").attr("style", ("left: " + solutionPosLeft + "top: " + solutionPosTop + "width: " + solutionSizeWidth + "height: " + solutionSizeHeight));
-                //        $("#dlgSolution").attr("style", ("width:inherit; height:inherit;"));
-                //    },
-                //    open: function (event, ui) {
-                //        // load the position and size
-                //        $(".ui-dialog").attr("style", ("left: " + solutionPosLeft + ";" + "top: " + solutionPosTop + ";" + "width: " + solutionSizeWidth + ";" + "height: " + solutionSizeHeight + ";"));
-                //        $("#dlgSolution").attr("style", ("width:inherit; height:inherit;"));
-
-                //        $("img[id^='img']").css("cursor", "Pointer");
-                //        $("img[id^='img']").click(
-                //            function () {
-                //                ExpandCollapseItem(this);
-                //            }
-                //        );
-                //    },
-                //    dragStop: function (event, ui) {
-                //        // save the position
-                //        $.cookie("solutionPosLeft", ui.position.left);
-                //        $.cookie("solutionPosTop", ui.position.top);
-                //    },
-                //    resizeStop: function (event, ui) {
-                //        // save the position
-                //        $.cookie("solutionPosLeft", ui.position.left);
-                //        $.cookie("solutionPosTop", ui.position.top);
-                //        // save the size
-                //        $.cookie("solutionSizeWidth", ui.size.width);
-                //        $.cookie("solutionSizeHeight", ui.size.height);
-
-                //        // refresh the accordion (for proper height)
-                //        $("#accordion").accordion("refresh");
-                //    },
-                //})
-                //    .dialogExtend({
-                //        "closable": false,
-                //        "maximizable": false,
-                //        "minimizable": false,
-                //        "collapsable": true,
-                //        "dblclick": "collapse",
-                //        //"minimizeLocation": "right",
-                //        "icons": {
-                //            //"minimize": "ui-icon-minus",
-                //            "restore": "ui-icon-circle-triangle-s",
-                //            "collapse": "ui-icon-circle-triangle-n"
-                //        },
-                //    });
-
                 $("#accordion").accordion({
                     collapsible: false,
                     heightStyle: "fill",
@@ -706,12 +567,6 @@ $(document).ready(function () {
                 });
             }
         }
-        //else if (uid == null) {
-        //    $.removeCookie("solutionPosLeft");
-        //    $.removeCookie("solutionPosTop");
-        //    $.removeCookie("solutionSizeWidth");
-        //    $.removeCookie("solutionSizeHeight");
-        //}
 
         //Autocomplete for golf foursome text input
         var availableTags = split($("#hdnAttorneyNames").val(), ",");
@@ -1463,20 +1318,6 @@ function exp_loadPanels() {
             return false;
         });
 
-        ////$( ".section > .tiny, .section> .full, .section> .small, .section> .large" ).sortable({
-        ////	connectWith: ".section > .tiny, .section> .full, .section> .small, .section> .large",
-        ////	placeholder: 'ui-state-highlight',
-        ////	handle: '.title, .title-large',
-        ////	helper: 'clone'
-        ////});
-
-        //$( ".panel" ).addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
-        //	.find( ".panel>.title" )
-        //		.addClass( "ui-widget-header ui-corner-all" )
-        //		.prepend( "<span class='ui-icon ui-icon-minusthick'></span>")
-        //		.end()
-        //	.find( ".panel>.content" );
-
         $(".panel>.title .ui-icon").click(function () {
             $(this).toggleClass("ui-icon-minusthick").toggleClass("ui-icon-plusthick");
             $(this).parents(".panel:first").find(".panel > .content").toggle();
@@ -1496,8 +1337,6 @@ function exp_loadPanels() {
                 $(this).addClass('minimized');
             }
         });
-
-        //$( ".section >.tiny" ).disableSelection();
     }
 
     /***** Panel - Tabs Support *******************************************/
