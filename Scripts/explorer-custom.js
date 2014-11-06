@@ -517,7 +517,6 @@ $(document).ready(function () {
             uid = uid.toString().replace("uid=", "");
             if (uid == $("#hdnUid").val()) {
                 var solutionDialogJQ = $('div[aria-describedby="dlgSolution"][aria-labelledby="ui-id-1"]');
-
                 var activeAccord = 0;
                 var edit = window.location.search.match("edit=email");
                 if (edit != null) {
@@ -530,25 +529,30 @@ $(document).ready(function () {
                     }
                 }
 
-                $("#accordion").accordion({
-                    collapsible: false,
-                    heightStyle: "fill",
-                    active: activeAccord
-                });
+                //$("#accordion").accordion({
+                //    collapsible: false,
+                //    heightStyle: "fill",
+                //    active: activeAccord
+                //});
                 $("#dlgSolution").dialog({
                     title: "Solution Explorer",
                     modal: false,
                     width: 330,
-                    height: 600,
+                    height: 500,
                     position: [10, 6],//{ my: "top left", at: "top left" },
                     resizable: false,
                     draggable: true,
                     open: function (event, ui) {
-                        $("ung[id^='img']").css("cursor", "Pointer");
+                        $("img[id^='img']").css("cursor", "Pointer");
                         $("img[id^='img']").click(
                             function () {
                                 ExpandCollapseItem(this);
                             });
+                        $("#accordion").accordion({
+                            collapsible: false,
+                            heightStyle: "fill",
+                            active: activeAccord
+                        });
                     },
                     //dragStop: function (event, ui) {
                     //    // Save dialog position
@@ -1082,9 +1086,9 @@ function FindShowControl(cId) {
 //Expand and collapse solution dialog items
 function ExpandCollapseItem(img) {
     if (img.src.indexOf("ig_tblPlus.gif") > 0)
-        img.src = pathName + "Images/ig_tblMinus.gif";
+        img.src = pathName + "Content/Images/ig_tblMinus.gif";
     else
-        img.src = pathName + "Images/ig_tblPlus.gif";
+        img.src = pathName + "Content/Images/ig_tblPlus.gif";
 
     //var ss = img.id.split("_");
     //var id = ss[0].replace("img", "tb");

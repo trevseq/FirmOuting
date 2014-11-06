@@ -55,6 +55,10 @@ textarea                                                    {resize: none;}
     background: url('../uploads/AttorneyOutingHeader.jpg');
 }*/
 
+.ui-dialog .ui-dialog-content {
+    overflow-y: hidden;
+}
+
 .roundCornerBoxShadow {
     margin-left: 5%;
     margin-right: 5%;
