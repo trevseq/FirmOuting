@@ -24,8 +24,6 @@ namespace FirmOuting.Controllers
                 editor.Width = Unit.Pixel(980);
                 editor.Height = Unit.Pixel(800);
                 editor.ResizeMode = RTEResizeMode.AutoAdjustHeight;
-                //editor.ContentCss = "~/Content/style-explorer.css";
-                //editor.PreviewCss = "~/Content/style-explorer.css";
                 editor.EnableObjectResizing = RTEBooleanValue.True;
                 editor.EnableIEBorderRadius = RTEBooleanValue.True;
                 editor.EnableDragDrop = RTEBooleanValue.False;
@@ -38,11 +36,9 @@ namespace FirmOuting.Controllers
                 editor.EnableMimetypeChecking = true;
                 editor.RenderMode = RTERenderMode.RichOrSimple;
                 editor.ValidateRequestMode = System.Web.UI.ValidateRequestMode.Disabled;
-                //editor.ResizeMode = RTEResizeMode.AutoAdjustHeight;
                 editor.Skin = "smartblue";
                 editor.ShowRulers = true;
-                editor.Toolbar = "ribbon";//pageproperties,
-                //editor.DisabledItems = " insertlayer, new, fullscreen, insertform, insertbox, insertfieldset, fullscreen, syntaxhighlighter";
+                editor.Toolbar = "ribbon";
 
                 #region Html Content Edit.
 
@@ -60,31 +56,11 @@ namespace FirmOuting.Controllers
                     string url = Helper.GetSitePath(this.Request.Url);
                     url = url.ToLower().Replace("layout", "");
                     RegexOptions opt = RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace | RegexOptions.ExplicitCapture;
-                    //string content = File.ReadAllText(string.Format("{0}Views\\Home\\{1}.cshtml", request.PhysicalApplicationPath, template));//"SummerBiographicalForm"
                     content = content.Replace("&nbsp;", " ");
                     content = content.Replace("&", "&amp;");
                     content = content.Replace("“", "&quot;");
                     content = content.Replace("”", "&quot;");
                     content = Regex.Replace(content, @"@url.content\(\""~?/(?<File>[a-zA-Z0-9|\/|.]*)\""\)", (url + "${File}"), opt);
-                    // content = Regex.Replace(content, "@(?<using>using \\s(\\w?\\S)*)", "<!--{${using}}-->", opt);
-                    //content = Regex.Replace(content, "@(?<model>model \\s(\\w?\\S)*)", "<!--{${model}}-->", opt);
-                    //content = Regex.Replace(content, "(@\\*(?<comment>.*)\\*@)", "<!-- ${comment} -->", opt);
-                    //content = Regex.Replace(content, @"(?<start><\s*select[^>]*>)(?<c>(.*?))(?<end><\s*/\s*select>)", "${start}<![CDATA[ ${c} ]]>${end}", opt);
-
-                    //  content = Regex.Replace(content, "@Url.Content(\"~/(?<value>uploads/\\s(\\w?\\S)*)\")", (url + "${value}"), opt);
-                    // content = Regex.Replace(content, "@Url.Content(\"~/(?<value>Images/\\s(\\w?\\S)*)\")", (url + "${value}"), opt);
-                    //content = Regex.Replace(content, @"@\(Url.content\(\""?~/(?<value>(\w?\S)*.(\w))\""\)\)", (url + "${value}"), opt);
-
-                    //  content = Regex.Replace(content, @"(?<attr>[\w]+)=\""@\((?<value>\w?[\S]*)\)\""", "${attr}=\"{${value}}\"", opt);
-
-                    ////  content = Regex.Replace(content, "checked=\"@\\(Helper.IsChecked\\(Model.(\\w)+ == \"(?<isValue>(\\w)+\"\\))*\\)\"", "[${isValue}]", opt);
-                    //content = Regex.Replace(content, "checked=\"@\\((?<isCheck>Helper.IsChecked\\(Model.(\\w)+ == \"(\\w)+\"\\))*\\)\"", "checked=\"{${isCheck}}\"");
-
-                    //content = Regex.Replace(content, "(@{(?<code>.*)})", "<![CDATA[ ${code} ]]>", opt);
-
-                    //  content = Regex.Replace(content, "checked=\"@\\((?<isCheck1>Helper.Is[Checked|Display]\\(Model.(\\w)+ == )\"(?<isCheck2>(\\w)+)\"(?<isCheck3>\\))*\\)\"", "checked=\"{${isCheck1}[${isCheck2}]${isCheck3}}\"");
-
-                    //content = content.Replace("class=\"canEdit", "contenteditable=\"true\" class=\"canEdit");
 
                     content = Regex.Replace(content, "<div class=\"roundCornerBoxShadow\" style=\"background: url(\'" + @"@url.content\(\""~?/(?<source>[a-zA-Z0-9|\/|.]*)\""\)" + "\'); width: (?<width>(\\d*))px; height: (?<height>(\\d*))px; \" ></div>", "<img class=\"roundCornerBoxShadowImg\" style=\"width: ${width}px; height: ${height}px; \" src=\"${source}\"></img>", opt);
                     content = Regex.Replace(content, " for=\"", " forx=\"", opt);
@@ -114,7 +90,6 @@ namespace FirmOuting.Controllers
 
                 // editor.LoadHtml();
                 editor.LoadFormData(content);
-                // editor.LoadHtml(this.Request.PhysicalApplicationPath + "Views\\Home\\FormContent.cshtml");
 
                 editor.MvcInit();
                 ViewBag.editor = editor.MvcGetString();
