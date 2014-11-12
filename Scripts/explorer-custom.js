@@ -36,7 +36,6 @@ $(document).ready(function () {
     exp_colorSupport();
 
     if (location.pathname.toLowerCase().indexOf("home") > -1) {
-
         $('#btnSubmit').button();
 
         /*********** Populate the forms********************************/
@@ -346,7 +345,6 @@ $(document).ready(function () {
             $("#rdoYogaSkillBeginner").val($.trim($("#lblYogaSkillBeginner").text()));
             $("#rdoYogaSkillIntermediate").val($.trim($("#lblYogaSkillIntermediate").text()));
         });
-
 
         /***** Content Control *****************************************/
 

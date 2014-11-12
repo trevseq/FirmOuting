@@ -6,12 +6,12 @@
     <link href="@Url.Content("~/favicon_latest.ico")" rel="shortcut icon" type="image/x-icon" />
 
     @*<link href="@Url.Content("~/Content/style-explorer.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/style-custom.css")" rel="stylesheet" type="text/css" />
-    <link type="text/css" href="@Url.Content("~/Content/themes/redmond/jquery-ui-1.10.3.custom.min.css")" rel="stylesheet" />*@
+        <link href="@Url.Content("~/Content/style-custom.css")" rel="stylesheet" type="text/css" />
+        <link type="text/css" href="@Url.Content("~/Content/themes/redmond/jquery-ui-1.10.3.custom.min.css")" rel="stylesheet" />*@
     @Styles.Render("~/css/loginStyles")
 </head>
 <body>
-        @RenderBody()
+    @RenderBody()
     <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
     <script>
         // Fallback to loading jQuery from a local path if the CDN is unavailable
@@ -20,8 +20,8 @@
     <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/jquery-ui.min.js"></script>
 
     @*<script type="text/javascript" src="@Url.Content("~/scripts/jqbrowser-uncompressed.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/scripts/explorer-extra.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/scripts/default.js")"></script>*@
+        <script type="text/javascript" src="@Url.Content("~/scripts/explorer-extra.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/scripts/default.js")"></script>*@
     @Scripts.Render("~/bundles/loginScripts")
 </body>
 </html>
